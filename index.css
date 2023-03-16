@@ -1,0 +1,54 @@
+@import "./style.css";
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+  }
+
+.container {
+    margin: auto;
+    text-align: center;
+    background-color: var(--backgorund2);
+    width: 30rem;
+    height: 20rem;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px var(--light);
+}
+
+.header img {
+    width: 30%;
+    height: 100px;
+    margin-top: 15px;
+}
+
+.info{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.info input{
+    padding: 0px 10px 0px 10px;
+    border-radius: 10px;
+    border-style: none;
+    height: 30px;
+    width: 230px;
+    margin-top: 10px;
+}
+
+.info input[type="password"]{
+    width: 190px;
+    margin-right: 5px;
+}
+
+.info input[type="submit"]{
+    width: 200px;
+    margin-top: 20px;
+}
+
+
+
+

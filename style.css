@@ -1,0 +1,19 @@
+:root{
+    --old-rose: #FBC2B5;
+    --thistle: #FFA8A9; 
+    --platinum: #fd9bba;
+    --lavender: #A14A76; 
+    --raisin: #ff888a;
+    --backgorund: var(--old-rose);
+    --button: var(--raisin);
+    --backgorund2: var(--thistle);
+    --shadow: var(--lavender);
+    --light: var(--platinum);
+}
+
+
+
+
+body{
+    background-color: var(--backgorund);
+}
