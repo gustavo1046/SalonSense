@@ -44,7 +44,21 @@ body {
     margin-right: 5px;
 }
 
+.info button {
+    background-image: url(/assets/icons/visibility_FILL0_wght400_GRAD0_opsz48.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 25px;
+    width: 25px;
+    background-color: var(--backgorund2);
+    border-style: none;
+}
+
+
 .info input[type="submit"]{
+    background-color: var(--button);
+    color: whitesmoke;
     width: 200px;
     margin-top: 20px;
 }
