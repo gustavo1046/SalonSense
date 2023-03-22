@@ -1,5 +1,5 @@
 <?php
-    require_once '../classes/adminsitrador.php';
+    require_once '../classes/Administrador.php';
     require_once '../DAO/loginDao.php';
     
     $login =  $_POST["login"];
