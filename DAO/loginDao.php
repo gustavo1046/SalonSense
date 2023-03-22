@@ -14,11 +14,10 @@
                 $adm = $dados["id_administrador"];
                 $rows += 1;
             }
-
             if($rows == 1){
                 session_start();
                 $_SESSION["id"] = $adm;
-                header("Location: ../Profiles/admin/homepageadmin.php");
+                header("Location: ../Pages/HomePage.html");
             }
             else{
                 echo "nothings else matters8";

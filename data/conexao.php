@@ -7,7 +7,7 @@ class Conexao{
 
     public static function Conectar()
     {
-        $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/data/db.php';
+        $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/data/data.php';
         require $diretorio;
         self::$usuario = $user;
         self::$senha = $password;

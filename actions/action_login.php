@@ -3,7 +3,7 @@
     require_once '../DAO/loginDao.php';
     
     $login =  $_POST["login"];
-    
+
     if(!empty($login)){
         $senha = $_POST["password"];
 
@@ -19,8 +19,7 @@
     }
 
     else{
-        echo "nothing else matters1";
+        echo "nothing else matters123";
     }
-   
 ?>
     
