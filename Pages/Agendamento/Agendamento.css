@@ -1,0 +1,35 @@
+@import "../../style.css";
+body {
+    display: block;
+    text-align: center;
+}
+
+img{
+    width: 8%;
+    height: 80px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.container{
+    height:25rem;
+}
+
+input{
+    padding: 0px 10px 0px 10px;
+    border-radius: 10px;
+    border-style: none;
+    height: 30px;
+    width: 20rem;
+    margin-top: 10px;
+}
+
+#valor {
+    width: 19rem;
+}
+input[type="radio"] {
+    width: 5rem;
+} 
+.radio {
+    text-align: left;
+}

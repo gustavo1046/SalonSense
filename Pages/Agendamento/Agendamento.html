@@ -1,14 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="./Agendamento.css">
     <title>Aelia Resende</title>
 </head>
 <body>
+    <header>
+        <img src="../../assets/logo.png">
+    </header>
     <div class="container">
+        <input type="text" name="nome" placeholder="nome da cliente" id="nome"><br>
+        <input type="text" name="hora_inicio" placeholder="inicio do atendimento" id="hora_inicio"><br>
+        <input type="text" name="hora_final" placeholder="final do atendimento" id="hora_final"><br>
+        <input tyle="number" name="valor" placeholder="valor do serviço" id="valor"><br>
+        <input type="text" name="desc" placeholder="descrição" id="desc"><br>
+        <div class="radio">
+            <label>
+                <input type="radio" name="opcoes" value="opcao1">
+                Opção 1
+              </label>
+              <br>
+              <label>
+                <input type="radio" name="opcoes" value="opcao2"> 
+                Opção 2
+              </label>
+              <br>
+              <label>
+                <input type="radio" name="opcoes" value="opcao3">
+                Opção 3
+              </label>
+        </div>
     </div>
 </body>
 </html>
