@@ -1,7 +1,7 @@
 :root{
     --old-rose: #FBC2B5;
     --thistle: #FFA8A9; 
-    --platinum: #fd9bba;
+    --platinum: #f3bdce;
     --lavender: #A14A76; 
     --raisin: #ff888a;
     --backgorund: var(--old-rose);
@@ -12,8 +12,22 @@
 }
 
 
-
-
 body{
     background-color: var(--backgorund);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    margin: auto;
+    text-align: center;
+    background-color: var(--backgorund2);
+    width: 30rem;
+    height: 20rem;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px var(--light);
 }

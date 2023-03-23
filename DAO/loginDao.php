@@ -17,7 +17,7 @@
             if($rows == 1){
                 session_start();
                 $_SESSION["id"] = $adm;
-                header("Location: ../Pages/HomePage.html");
+                header("Location: ../Pages/Home Page/HomePage.html");
             }
             else{
                 echo "nothings else matters8";

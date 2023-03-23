@@ -9,16 +9,6 @@ body {
     margin: 0;
   }
 
-.container {
-    margin: auto;
-    text-align: center;
-    background-color: var(--backgorund2);
-    width: 30rem;
-    height: 20rem;
-    border-radius: 20px;
-    box-shadow: 10px 10px 10px var(--light);
-}
-
 .header img {
     width: 30%;
     height: 100px;
