@@ -1,7 +1,11 @@
 @import "../../style.css";
 
 a {
-    font-size: 16px;
+    text-align: center;
+    line-height: 40px; /* Defina a altura do botão */
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
     color: whitesmoke;
     margin: auto;
     width: 100%;
