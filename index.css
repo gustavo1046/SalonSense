@@ -1,4 +1,5 @@
 @import "./style.css";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Poppins:wght@300;400&family=Roboto:wght@300;400;700&display=swap');
 
 body {
     display: flex;
@@ -27,11 +28,13 @@ body {
     height: 30px;
     width: 230px;
     margin-top: 10px;
+    font-family: montserrat;
 }
 
 .info input[type="password"]{
     width: 190px;
     margin-right: 5px;
+    font-family: montserrat;
 }
 
 .info button {
@@ -51,6 +54,7 @@ body {
     color: whitesmoke;
     width: 200px;
     margin-top: 20px;
+    font-family: montserrat;
 }
 
 

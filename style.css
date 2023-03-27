@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Poppins:wght@300;400&family=Roboto:wght@300;400;700&display=swap');
 :root{
     --old-rose: #FBC2B5;
     --thistle: #FFA8A9; 
@@ -13,9 +14,10 @@
 
 
 body{
+    font-family: montserrat;
+    color: whitesmoke;
     background-color: var(--background);
     display: flex;
-
     width: 100vw;
     height: 100vh;
     margin: 0;

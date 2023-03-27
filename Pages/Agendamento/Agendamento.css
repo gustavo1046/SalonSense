@@ -1,4 +1,5 @@
 @import "../../style.css";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Poppins:wght@300;400&family=Roboto:wght@300;400;700&display=swap');
 body {
     display: block;
     text-align: center;
@@ -22,13 +23,11 @@ input{
     height: 30px;
     width: 20rem;
     margin-top: 10px;
+    font-family: montserrat;
 }
 
-#valor {
-    width: 19rem;
-}
 input[type="radio"] {
-    width: 5rem;
+    width: 10rem;
 } 
 .radio {
     text-align: left;
