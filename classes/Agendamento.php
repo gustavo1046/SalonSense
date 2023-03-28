@@ -3,6 +3,7 @@
         private int $id;
         private DateTime $hora_inicio;
         private DateTime $hora_fim;
+        private DateTime $data;
         private float $valor;
         private int $status;
         private string $servico;
@@ -10,10 +11,11 @@
         private int $id_cliente;
         private int $id_adm;
 
-        public function __construct(int $id, DateTime $hora_i, DateTime $hora_f, float $valor, int $status, string $servico, string $forma_pagamento, $id_cliente, $id_adm){
+        public function __construct(int $id, DateTime $hora_i, DateTime $hora_f, DateTime $data, float $valor, int $status, string $servico, string $forma_pagamento, $id_cliente, $id_adm){
             $this->id = $id;
             $this->hora_inicio = $hora_i;
             $this->hora_fim = $hora_f;
+            $this->data = $data;
             $this->valor = $valor;
             $this->status = $status;
             $this->servico = $servico;
@@ -33,7 +35,11 @@
           public function getHoraFim() : DateTime {
             return $this->hora_fim;
           }
-        
+
+          public function getData() : DateTime {
+            return $this->data;
+          }
+          
           public function getValor() : float {
             return $this->valor;
           }
