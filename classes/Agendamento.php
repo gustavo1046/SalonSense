@@ -1,6 +1,7 @@
 <?php
     class Agendamento{
         private int $id;
+
         private DateTime $hora_inicio;
         private DateTime $hora_fim;
         private DateTime $data;
@@ -11,13 +12,11 @@
         private int $id_cliente;
         private int $id_adm;
 
-        public function __construct(int $id, DateTime $hora_i, DateTime $hora_f, DateTime $data, float $valor, int $status, string $servico, string $forma_pagamento, $id_cliente, $id_adm){
-            $this->id = $id;
+        public function __construct(DateTime $hora_i, DateTime $hora_f, DateTime $data, float $valor, string $servico, string $forma_pagamento, $id_cliente, $id_adm){
             $this->hora_inicio = $hora_i;
             $this->hora_fim = $hora_f;
             $this->data = $data;
             $this->valor = $valor;
-            $this->status = $status;
             $this->servico = $servico;
             $this->forma_pagamento = $forma_pagamento;
             $this->id_cliente = $id_cliente;

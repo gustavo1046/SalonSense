@@ -13,27 +13,31 @@
         <img src="../../assets/logo.png">
     </header>
     <div class="container">
-      <form action="" method="">
-        <input type="text" name="nome" placeholder="nome da cliente" id="nome"><br>
-        <input type="time" name="hora_inicio" placeholder="inicio do atendimento" id="hora_inicio"><br>
-        <input type="time" name="hora_final" placeholder="final do atendimento" id="hora_final"><br>
-        <input tyle="number" name="valor" placeholder="valor do serviço" id="valor"><br>
-        <input type="text" name="desc" placeholder="descrição" id="desc"><br>
+      <form action="../../actions/action_Agendamento.php" method="POST">
+        <input type="text" name="nome" placeholder="nome da cliente" id="nome" required><br>
+        <input type="time" name="hora_inicio" placeholder="inicio do atendimento" id="hora_inicio" required><br>
+        <input type="time" name="hora_final" placeholder="final do atendimento" id="hora_final" required><br>
+        <input type="date" name="data" placeholder="data do atendimento" id="data" required><br>
+        <input tyle="number" name="valor" placeholder="valor do serviço" id="valor" required><br>
+        <input type="text" name="desc" placeholder="descrição" id="desc" required><br>
         <div class="radio">
             <label>
-                <input type="radio" name="opcoes" value="opcao1">
+                <input type="radio" name="opcoes" value="opcao1"  id="opcao1" checked>
                 Opção 1
               </label>
               <br>
               <label>
-                <input type="radio" name="opcoes" value="opcao2"> 
+                <input type="radio" name="opcoes" value="opcao2" id="opcao2"> 
                 Opção 2
               </label>
               <br>
               <label>
-                <input type="radio" name="opcoes" value="opcao3">
+                <input type="radio" name="opcoes" value="opcao3" id="opcao3">
                 Opção 3
               </label>
+            <div class="sub">
+              <input type="submit" value="Logar">
+            </div>
         </div>
       </form>
     </div>

@@ -13,7 +13,7 @@ img{
 }
 
 .container{
-    height:25rem;
+    height:30rem;
 }
 
 input{
@@ -31,4 +31,9 @@ input[type="radio"] {
 } 
 .radio {
     text-align: left;
+}
+
+.sub{
+    margin-top: 30px;
+    text-align: center;
 }
