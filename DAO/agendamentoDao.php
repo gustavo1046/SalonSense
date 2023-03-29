@@ -5,17 +5,20 @@
         public function InserirAgendamento(Agendamento $agendamento){
             $conexao = Conexao::Conectar();
             $hora_inicio = $agendamento->getHoraInicio();
+            $hora_inicio = $hora_inicio->format('Y-m-d H:i:s');
             $hora_fim = $agendamento->getHoraFim();
+            $hora_fim = $hora_fim->format('Y-m-d H:i:s');
             $data = $agendamento->getData();
+            $data = $data->format('Y-m-d');
             $valor = $agendamento->getValor();
-            $status = $agendamento->getStatus();
+            // $status = $agendamento->getStatus();
             $servico = $agendamento->getServico();
             $forma = $agendamento->getFormaPagamento();
             // $id_cliente = $agendamento->getIdCliente();
             // $id_adm = $agendamento->getIdAdm();
 
             $sql = "INSERT INTO agendamento (hora_inicio, hora_fim, data_agendamento, valor_agendamento, status_agendamento, desc_serviço_agendamento, forma_pagamento, Administrador_id_administrador, Cliente_id_cliente)
-            VALUES ('$hora_inicio', '$hora_fim', '$data', '$valor', '$status', '$servico', '$forma', 1, 1);";
+            VALUES ('$hora_inicio', '$hora_fim', '$data', '$valor', 2, '$servico', '$forma', 1, 1);";
             $conexao->query($sql);
             echo $conexao->error;
         }

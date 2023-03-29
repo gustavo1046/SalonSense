@@ -1,7 +1,6 @@
 <?php
     class Agendamento{
         private int $id;
-
         private DateTime $hora_inicio;
         private DateTime $hora_fim;
         private DateTime $data;
