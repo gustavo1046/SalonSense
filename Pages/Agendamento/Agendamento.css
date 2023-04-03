@@ -26,14 +26,55 @@ input{
     font-family: montserrat;
 }
 
+input[type="submit"]{
+    background-color: var(--button);
+    color: whitesmoke;
+}
+
 input[type="radio"] {
-    width: 10rem;
+    -webkit-appearance: none; /* Desativa a aparência padrão do navegador */
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 50%; /* Torna o botão de rádio circular */
+    width: 20px; /* Define a largura e altura do botão */
+    height: 20px;
+    background-color: #fff; /* Define a cor de fundo do botão */
+    outline: none; /* Remove o contorno padrão do botão */
+    margin-right: 10px;
 } 
-.radio {
-    text-align: left;
+
+input[type="radio"]:checked {
+    background-color: var(--button); /* Define a cor de fundo do botão quando selecionado */
 }
 
 .sub{
     margin-top: 30px;
     text-align: center;
+}
+
+input[type="submit"]:hover{
+    box-shadow: 5px 5px 5px 5px var(--light);
+}
+
+a {
+    text-align: center;
+    line-height: 30px; /* Defina a altura do botão */
+    text-decoration: none;
+    display: block;
+    color: whitesmoke;
+    margin: auto;
+    border-radius: 10px;
+    border-style: none;
+    height: 30px;
+    width: 20rem;
+    margin-top: 10px;
+    background-color: var(--button);
+    border-style: none;
+    margin-top: 10px;
+    font-family: montserrat;
+    font-size: 14px;
+}
+
+a:hover{
+    box-shadow: 5px 5px 5px 5px var(--light);
 }
