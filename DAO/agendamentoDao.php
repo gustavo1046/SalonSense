@@ -22,5 +22,12 @@
             $conexao->query($sql);
             echo $conexao->error;
         }
+
+        public function ConsultarAgendamento(){
+            $conexao = Conexao::Conectar();
+            $sql =  "select * from tb_atividade";
+            $consulta = $conexao->query($sql);
+            
+        }
     }
 ?>
