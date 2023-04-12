@@ -27,7 +27,9 @@
             $conexao = Conexao::Conectar();
             $sql =  "select * from tb_atividade";
             $consulta = $conexao->query($sql);
-            
+            while($dados = mysqli_fetch_assoc($consulta)){
+                echo '<p>descrição: '.$dados["desc_serviço_agendamento"].'</p>';
+            }
         }
     }
 ?>
