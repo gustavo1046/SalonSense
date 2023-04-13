@@ -16,7 +16,7 @@
     $agend = new Agendamento($hora_inicio, $hora_fim, $data, $valor, $servico, $forma, 1, 1);
     $dao = new AgendamentoDao();
     $dao->InserirAgendamento($agend);
-    header("Location: ../Pages/Agendamento/Agendamento.html");
+    header("Location: ../Pages/Agendamento/Agendamento.php");
     exit();
 
 

@@ -13,11 +13,13 @@
         <img src="../../assets/logo.png">
     </header>
     <div class="container">
+        <div class="info">
         <?php
             require_once "../../actions/action_Consultar.php";
             $dados = new action_Consultar();
             $dados->ListarAgendamentos();
         ?>
+        </div>
     </div>
 </body>
 </html>
