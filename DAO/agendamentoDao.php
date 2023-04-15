@@ -25,10 +25,10 @@
 
         public function ConsultarAgendamento(){
             $conexao = Conexao::Conectar();
-            $sql =  "select * from tb_atividade";
+            $sql =  "select * from agendamento, cliente where agendamento.Cliente_id_cliente = cliente.id_cliente";
             $consulta = $conexao->query($sql);
             while($dados = mysqli_fetch_assoc($consulta)){
-                echo '<p>descrição: '.$dados["hora_inicio"].'</p>';
+                echo '<p>Cliente: '.$dados["nome_cliente"].' Descrição: '.$dados["hora_inicio"].strftime('%H:%M:%S').'</´p>';
             }
         }
     }
