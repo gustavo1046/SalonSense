@@ -1,7 +1,7 @@
 <?php 
-    require_once "../data/conexao.php";
-    require_once "../classes/Administrador.php";
-    class AgendamentoDao{
+    require_once __DIR__ . "/../data/conexao.php";
+    require_once __DIR__ . "/../classes/Administrador.php";
+    class agendamentoDao{
         public function InserirAgendamento(Agendamento $agendamento){
             $conexao = Conexao::Conectar();
             $hora_inicio = $agendamento->getHoraInicio();

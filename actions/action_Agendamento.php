@@ -1,6 +1,6 @@
 <?php
-    require_once '../classes/Agendamento.php';
-    require_once '../DAO/agendamentoDao.php';
+    require_once __DIR__ . "/../classes/Agendamento.php";
+    require_once __DIR__ . "/../DAO/agendamentoDao.php";
 
     $nome = $_POST["nome"];
     $hora1 = $_POST["hora_inicio"];
@@ -14,7 +14,7 @@
     $forma = $_POST["opcao"];
 
     $agend = new Agendamento($hora_inicio, $hora_fim, $data, $valor, $servico, $forma, 1, 1);
-    $dao = new AgendamentoDao();
+    $dao = new agendamentoDao();
     $dao->InserirAgendamento($agend);
     header("Location: ../Pages/Agendamento/Agendamento.php");
     exit();

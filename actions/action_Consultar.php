@@ -1,8 +1,8 @@
 <?php
-    include_once '../DAO/agendamentoDao.php';
+    require_once __DIR__ . '/../DAO/agendamentoDao.php';
     class action_Consultar{
         public function ListarAgendamentos(){
-            $dao = new AgendamentoDao();
+            $dao = new agendamentoDao();
             $dao->ConsultarAgendamento();
         }
     }

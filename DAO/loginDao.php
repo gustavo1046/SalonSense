@@ -1,6 +1,6 @@
 <?php 
-    require_once "../data/conexao.php";
-    require_once "../classes/Administrador.php";
+    require_once __DIR__ . "/../data/conexao.php";
+    require_once __DIR__ . "/../classes/Administrador.php";
     class LoginDao{
         public function login(Administrador $admin){
             $conexao = Conexao::Conectar();
