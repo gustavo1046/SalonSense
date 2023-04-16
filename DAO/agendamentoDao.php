@@ -28,7 +28,9 @@
             $sql =  "select * from agendamento, cliente where agendamento.Cliente_id_cliente = cliente.id_cliente";
             $consulta = $conexao->query($sql);
             while($dados = mysqli_fetch_assoc($consulta)){
-                echo '<p>Cliente: '.$dados["nome_cliente"].' Descrição: '.$dados["hora_inicio"].strftime('%H:%M:%S').'</´p>';
+                $hora  = $dados["hora_inicio"];
+                $hora = DateTime::createFromFormat('Y-m-d H:i:s', $hora);
+                echo "<a href='#'>Cliente: ".$dados["nome_cliente"]." Horario: ".$hora->format("H:i")."</a><br><br>";
             }
         }
     }
