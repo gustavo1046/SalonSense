@@ -13,7 +13,10 @@ img{
     margin-bottom: 10px;
 }
 
-
+a{
+  text-decoration: none;
+  color: whitesmoke;
+}
 
 .container {
     display: flex;

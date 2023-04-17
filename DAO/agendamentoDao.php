@@ -1,6 +1,6 @@
 <?php 
     require_once __DIR__ . "/../data/conexao.php";
-    require_once __DIR__ . "/../classes/Administrador.php";
+    require_once __DIR__ . "/../classes/Agendamento.php";
     class agendamentoDao{
         public function InserirAgendamento(Agendamento $agendamento){
             $conexao = Conexao::Conectar();
@@ -25,13 +25,23 @@
 
         public function ConsultarAgendamento(){
             $conexao = Conexao::Conectar();
-            $sql =  "select * from agendamento, cliente where agendamento.Cliente_id_cliente = cliente.id_cliente";
+            $data_atual = date('Y-m-d');
+            $sql =  "select * from agendamento, cliente where agendamento.Cliente_id_cliente = cliente.id_cliente and agendamento.data_agendamento = '".$data_atual."';";
             $consulta = $conexao->query($sql);
-            while($dados = mysqli_fetch_assoc($consulta)){
-                $hora  = $dados["hora_inicio"];
-                $hora = DateTime::createFromFormat('Y-m-d H:i:s', $hora);
-                echo "<a href='#'>Cliente: ".$dados["nome_cliente"]." Horario: ".$hora->format("H:i")."</a><br><br>";
+            $formato = 'Y-m-d H:i:s';
+            $agend = array();
+            while($row = mysqli_fetch_assoc($consulta)){
+                $hora_inicio = DateTime::createFromFormat($formato, $row["hora_inicio"]);
+                $hora_fim = DateTime::createFromFormat($formato, $row["hora_fim"]);
+                $data_agendamento = new DateTime($row["data_agendamento"]);
+                $string = $data_agendamento->format('Y-m-d H:i:s'); // converter para string no formato desejado
+                $agendamento = new Agendamento($hora_inicio, $hora_fim, $data_agendamento, $row["valor_agendamento"], $row["desc_serviço_agendamento"], $row["forma_pagamento"],1 , 1);
+                $agend[] = $agendamento;
+                // $hora  = $row["hora_inicio"];
+                // $hora = DateTime::createFromFormat('Y-m-d H:i:s', $hora);
+                // echo "<a href='#'>Cliente: ".$row["nome_cliente"]." Horario: ".$hora->format("H:i")."</a><br><br>";
             }
+            return $agend;
         }
     }
 ?>

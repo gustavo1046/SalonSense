@@ -15,7 +15,7 @@
     <div class="container">
         <div class="info">
         <?php
-            require_once "../../actions/action_Consultar.php";
+            require_once __DIR__ ."/../../actions/action_Consultar.php";
             $dados = new action_Consultar();
             $dados->ListarAgendamentos();
         ?>
