@@ -36,12 +36,12 @@
                 $data_agendamento = new DateTime($row["data_agendamento"]);
                 $string = $data_agendamento->format('Y-m-d H:i:s'); // converter para string no formato desejado
                 $agendamento = new Agendamento($hora_inicio, $hora_fim, $data_agendamento, $row["valor_agendamento"], $row["desc_serviço_agendamento"], $row["forma_pagamento"],1 , 1);
-                $agend[] = $agendamento;
+                $agenda[] = $agendamento;
                 // $hora  = $row["hora_inicio"];
                 // $hora = DateTime::createFromFormat('Y-m-d H:i:s', $hora);
                 // echo "<a href='#'>Cliente: ".$row["nome_cliente"]." Horario: ".$hora->format("H:i")."</a><br><br>";
             }
-            return $agend;
+            return $agenda;
         }
     }
 ?>

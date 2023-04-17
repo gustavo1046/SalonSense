@@ -3,7 +3,8 @@
     class action_Consultar{
         public function ListarAgendamentos(){
             $dao = new agendamentoDao();
-            $dao->ConsultarAgendamento();
+            $result = $dao->ConsultarAgendamento();
+            return $result;
         }
     }
 
