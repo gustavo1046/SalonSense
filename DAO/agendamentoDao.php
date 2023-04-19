@@ -25,19 +25,22 @@
 
         public function ConsultarAgendamento(){
             $conexao = Conexao::Conectar();
-            $data_atual = date('Y-m-d');
-            $sql =  "select * from agendamento where agendamento.data_agendamento = '".$data_atual."';";
+            $sql =  "select * from agendamento;";
             $consulta = $conexao->query($sql);
             $formato = 'Y-m-d H:i:s';
-            $agend = array();
+            $agenda = array();
             while($row = mysqli_fetch_assoc($consulta)){
+                $nome_cliente = $row["nome_cliente"];
                 $hora_inicio = DateTime::createFromFormat($formato, $row["hora_inicio"]);
                 $hora_fim = DateTime::createFromFormat($formato, $row["hora_fim"]);
                 $data_agendamento = new DateTime($row["data_agendamento"]);
-                $string = $data_agendamento->format('Y-m-d H:i:s'); // converter para string no formato desejado
-                $agendamento = new Agendamento($hora_inicio, $hora_fim, $data_agendamento, $row["valor_agendamento"], $row["desc_serviço_agendamento"], $row["forma_pagamento"],1 , 1);
-                $agenda[] = $agendamento;
-                // $hora  = $row["hora_inicio"];
+                // $string = $data_agendamento->format('Y-m-d H:i:s');
+                $valor = $row["valor_agendamento"]; // converter para string no formato desejado
+                $descricao = $row["desc_serviço_agendamento"];
+                $pagamento = $row["forma_pagamento"];
+                $agendamento = new Agendamento($nome_cliente, $hora_inicio, $hora_fim, $data_agendamento, $valor, $descricao, $pagamento, 1);
+                array_push($agenda, $agendamento);
+               // $hora  = $row["hora_inicio"];
                 // $hora = DateTime::createFromFormat('Y-m-d H:i:s', $hora);
                 // echo "<a href='#'>Cliente: ".$row["nome_cliente"]." Horario: ".$hora->format("H:i")."</a><br><br>";
             }

@@ -13,9 +13,18 @@ img{
     margin-bottom: 10px;
 }
 
-a{
+.button_agenda{
   text-decoration: none;
+  border-style: none;
+  background-color: transparent;
   color: whitesmoke;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.button_agenda:hover{
+  font-size: 17px;
 }
 
 .container {

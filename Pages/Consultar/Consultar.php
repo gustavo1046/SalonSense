@@ -15,23 +15,17 @@
     <div class="container">
         <div class="info">
             <div class="carrossel">
-            <?php 
-                require_once __DIR__ ."/../../actions/action_Consultar.php";
-                $dados = new action_Consultar();
-                $result = $dados->ListarAgendamentos();
-                foreach($result as $agenda): ?>
-                <div class="item">
-                    <h3><?php echo $agenda->nome; ?></h3>
-                    <p><?php echo $agenda['data_agendamento']; ?></p>
-                </div>
-            <?php endforeach; ?>
-        </div>
-
-
-
-
-
-            ?>
+                <?php 
+                    require_once __DIR__ ."/../../actions/action_Consultar.php";
+                    $dados = new action_Consultar();
+                    $result = $dados->ListarAgendamentos();
+                    foreach($result as $agenda):
+                        echo "<div class='item'>";
+                        echo "<button class='button_agenda'>".$agenda->getNome_cliente()."</button>";
+                        echo "</div>";
+                    endforeach; 
+                ?>
+            </div>
         </div>
     </div>
 </body>
