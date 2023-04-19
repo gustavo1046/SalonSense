@@ -13,7 +13,7 @@
     $servico = $_POST["desc"];
     $forma = $_POST["opcao"];
 
-    $agend = new Agendamento($hora_inicio, $hora_fim, $data, $valor, $servico, $forma, 1, 1);
+    $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data, $valor, $servico, $forma, 1);
     $dao = new agendamentoDao();
     $dao->InserirAgendamento($agend);
     header("Location: ../Pages/Agendamento/Agendamento.php");

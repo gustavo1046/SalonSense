@@ -4,6 +4,7 @@
     class agendamentoDao{
         public function InserirAgendamento(Agendamento $agendamento){
             $conexao = Conexao::Conectar();
+            $nome = $agendamento->getNome_cliente();
             $hora_inicio = $agendamento->getHoraInicio();
             $hora_inicio = $hora_inicio->format('Y-m-d H:i:s');
             $hora_fim = $agendamento->getHoraFim();
@@ -14,11 +15,10 @@
             // $status = $agendamento->getStatus();
             $servico = $agendamento->getServico();
             $forma = $agendamento->getFormaPagamento();
-            // $id_cliente = $agendamento->getIdCliente();
             // $id_adm = $agendamento->getIdAdm();
 
-            $sql = "INSERT INTO agendamento (hora_inicio, hora_fim, data_agendamento, valor_agendamento, status_agendamento, desc_serviço_agendamento, forma_pagamento, Administrador_id_administrador, Cliente_id_cliente)
-            VALUES ('$hora_inicio', '$hora_fim', '$data', '$valor', 2, '$servico', '$forma', 1, 1);";
+            $sql = "INSERT INTO agendamento (nome_cliente, hora_inicio, hora_fim, data_agendamento, valor_agendamento, status_agendamento, desc_serviço_agendamento, forma_pagamento, Administrador_id_administrador)
+            VALUES ('$nome', '$hora_inicio', '$hora_fim', '$data', '$valor', 2, '$servico', '$forma', 1);";
             $conexao->query($sql);
             echo $conexao->error;
         }
@@ -26,7 +26,7 @@
         public function ConsultarAgendamento(){
             $conexao = Conexao::Conectar();
             $data_atual = date('Y-m-d');
-            $sql =  "select * from agendamento, cliente where agendamento.Cliente_id_cliente = cliente.id_cliente and agendamento.data_agendamento = '".$data_atual."';";
+            $sql =  "select * from agendamento where agendamento.data_agendamento = '".$data_atual."';";
             $consulta = $conexao->query($sql);
             $formato = 'Y-m-d H:i:s';
             $agend = array();
