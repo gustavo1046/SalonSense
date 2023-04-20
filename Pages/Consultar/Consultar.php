@@ -21,7 +21,7 @@
                     $result = $dados->ListarAgendamentos();
                     foreach($result as $agenda):
                         echo "<div class='item'>";
-                        echo "<button class='button_agenda'>".$agenda->getNome_cliente()."</button>";
+                        echo "<input type='checkbox'class='check'><button class='button_agenda'>".$agenda->getNome_cliente()."</button>";
                         echo "</div>";
                     endforeach; 
                 ?>
