@@ -14,6 +14,8 @@
     </header>
     <div class="container">
         <div class="info">
+            <div class="filter">
+            </div>
             <div class="carrossel">
                 <?php 
                     require_once __DIR__ ."/../../actions/action_Consultar.php";
