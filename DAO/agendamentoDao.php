@@ -25,7 +25,7 @@
 
         public function ConsultarAgendamento(){
             $conexao = Conexao::Conectar();
-            $sql =  "select * from agendamento;";
+            $sql =  "select * from agendamento order by data_agendamento;";
             $consulta = $conexao->query($sql);
             $formato = 'Y-m-d H:i:s';
             $agenda = array();
@@ -40,6 +40,7 @@
                 $pagamento = $row["forma_pagamento"];
                 $agendamento = new Agendamento($nome_cliente, $hora_inicio, $hora_fim, $data_agendamento, $valor, $descricao, $pagamento, 1);
                 array_push($agenda, $agendamento);
+                  
                // $hora  = $row["hora_inicio"];
                 // $hora = DateTime::createFromFormat('Y-m-d H:i:s', $hora);
                 // echo "<a href='#'>Cliente: ".$row["nome_cliente"]." Horario: ".$hora->format("H:i")."</a><br><br>";

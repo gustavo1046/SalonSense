@@ -25,7 +25,7 @@
                         echo "<div class='item'>";
                         echo "<input type='checkbox'class='check'><button class='button_agenda'>".$agenda->getNome_cliente()."</button>";
                         echo "</div>";
-                    endforeach; 
+                    endforeach;
                 ?>
             </div>
         </div>
