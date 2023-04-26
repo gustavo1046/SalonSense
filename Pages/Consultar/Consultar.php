@@ -13,9 +13,9 @@
         <img src="../../assets/logo.png">
     </header>
     <div class="container">
-        <div class="info">
-            <div class="filter">
+        <div class="filter">
             </div>
+        <div class="info">
             <div class="carrossel">
                 <?php 
                     require_once __DIR__ ."/../../actions/action_Consultar.php";
@@ -29,6 +29,7 @@
                 ?>
             </div>
         </div>
+        <a href="/Pages/Home Page/HomePage.html">Voltar ao inicio</a>
     </div>
 </body>
 </html>
