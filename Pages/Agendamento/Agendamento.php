@@ -14,12 +14,12 @@
     </header>
     <div class="container">
       <form action="../../actions/action_Agendamento.php" method="POST">
-        <input type="text" name="nome" placeholder="nome da cliente" id="nome" required><br>
+        <input type="text" name="nome" placeholder="nome da cliente" id="nome" pattern="[A-Za-z0-9]+" maxlength="30" required><br>
         <input type="time" name="hora_inicio" placeholder="inicio do atendimento" id="hora_inicio" required><br>
         <input type="time" name="hora_final" placeholder="final do atendimento" id="hora_final" required><br>
         <input type="date" name="data" placeholder="data do atendimento" id="data" required><br>
         <input tyle="number" name="valor" placeholder="valor do serviço" id="valor" required><br>
-        <input type="text" name="desc" placeholder="descrição" id="desc" required><br>
+        <input type="text" name="desc" placeholder="descrição" pattern="[A-Za-z0-9]+" maxlength="50" id="desc" required><br>
         <div class="radio">
           <label>
               <input type="radio" name="opcao" value="Dinheiro"  id="opcao1" checked>

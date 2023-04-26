@@ -13,6 +13,35 @@ img{
     margin-bottom: 10px;
 }
 
+input[type=checkbox] {
+  position: relative;
+  cursor: pointer;
+}
+
+input[type=checkbox]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: var(--background);
+}
+
+input[type=checkbox]:checked:after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 5px;
+  left: 9px;
+}
+
 .button_agenda{
   text-decoration: none;
   border-style: none;
@@ -21,10 +50,13 @@ img{
   cursor: pointer;
   font-size: 16px;
   margin-top: 10px;
+  text-align: center;
+  width: 60%;
+
 }
 
 .button_agenda:hover{
-  font-size: 17px;
+  font-size: 105%;
 }
 
 input[type="checkbox"] {
