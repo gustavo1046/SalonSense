@@ -23,9 +23,14 @@
             echo $conexao->error;
         }
 
-        public function ConsultarAgendamento(){
+        public function ConsultarAgendamento($data_filtro){
             $conexao = Conexao::Conectar();
-            $sql =  "select * from agendamento order by data_agendamento;";
+            if(empty($data_filtro)){
+                $sql =  "select * from agendamento order by data_agendamento;";
+            }
+            else{
+                $sql =  "select * from agendamento where data_agendamento = '".$data_filtro."' order by data_agendamento;";
+            }
             $consulta = $conexao->query($sql);
             $formato = 'Y-m-d H:i:s';
             $agenda = array();

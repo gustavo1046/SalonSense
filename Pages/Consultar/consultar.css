@@ -86,7 +86,7 @@ input[type="checkbox"] {
 }
 
 
-.submit-filter {
+#submit-filter {
   text-align: center;
   line-height: 30px; /* Defina a altura do botão */
   text-decoration: none;
@@ -104,12 +104,12 @@ input[type="checkbox"] {
   padding: 5px 15px 5px 15px;
 }
 
-.submit-filter:hover{
+#submit-filter:hover{
   box-shadow: 3px 3px 3px 3px var(--light);
 }
 
 
-.info {
+#info {
     text-align: center;
     align-items: center;
     justify-content: center;

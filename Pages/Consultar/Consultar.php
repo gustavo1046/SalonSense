@@ -15,25 +15,39 @@
     </header>
     <div class="container">
         <div class="filter">
-            <form action="" method="POST">
-                <input type="date" class="date-filter"><submit class="submit-filter">filtrar</submit>
+            <form action="../../actions/action_Consultar.php" method="POST">
+                <input type="date" class="date-filter"><submit id="submit-filter">filtrar</submit>
             </form>
         </div>
-        <div class="info">
-            <div class="carrossel">
-                <?php 
-                    require_once __DIR__ ."/../../actions/action_Consultar.php";
-                    $dados = new action_Consultar();
-                    $result = $dados->ListarAgendamentos();
-                    foreach($result as $agenda):
-                        echo "<div class='item'>";
-                        echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()."</button>";
-                        echo "</div>";
-                    endforeach;
-                ?>
-            </div>
+        <div id="info">
+            <?php 
+                require_once __DIR__ ."/../../actions/action_Consultar.php";
+                $dados = new action_Consultar();
+                $result = $dados->ListarAgendamentos();
+                foreach($result as $agenda):
+                    echo "<div class='item'>";
+                    echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()."</button>";
+                    echo "</div>";
+                endforeach;
+    
+            ?>
         </div>
         <a href="/Pages/Home Page/HomePage.html">Voltar ao inicio</a>
     </div>
+
+    <script>
+      $(document).ready(function() {
+        $('#submit_filter').click(function() {
+          $.ajax({
+            url: 'Consultar.php',
+            type: 'GET',
+            success: function(data) {
+              $('info').html(data);
+            }
+          });
+        });
+      });
+    </script>
+
 </body>
 </html>
