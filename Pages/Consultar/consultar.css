@@ -94,14 +94,14 @@ input[type="checkbox"] {
   margin: auto;
   border-radius: 10px;
   border-style: none;
-  width: 5rem;
+  width: 6rem;
   height: 30px;
   background-color: var(--button);
   border-style: none;
   font-family: montserrat;
   font-size: 14px;
   margin-left: 1rem;
-  padding: 5px 15px 5px 15px;
+  /* padding: 5px 15px 5px 15px; */
 }
 
 #submit-filter:hover{

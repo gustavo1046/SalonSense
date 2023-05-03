@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="./consultar.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Aelia Resende</title>
 </head>
@@ -14,10 +14,11 @@
     <header>
         <img src="../../assets/logo.png">
     </header>
+
     <div class="container">
         <div class="filter">
             <form method="POST" id="filter" action="#">
-                <input type="date" name="data-filter" id= "data-filter" class="date-filter"><input type="submit" id="submit-filter" value="Pesquisar">
+                <input type="date" name="data-filter" id= "data-filter" class="date-filter" ><input type="submit" id="submit-filter" value="Pesquisar">
             </form>
         </div>
         <div id="info">
@@ -28,28 +29,26 @@
             if(empty($date_filter)){
               $result = $dados->ListarAgendamentos();
               foreach($result as $agenda):
-                    echo $date_filter;
-                    echo "<div class='item'>";
-                    echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()."</button>";
-                    echo "</div>";
+                $dateTime =  $agenda->getHoraInicio();
+                $hora_inicio = $dateTime->format('H:i');
+                echo "<div class='item'>";
+                echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()." || ".$hora_inicio."</button>";
+                echo "</div>";
               endforeach; 
             }
             else{
               $result = $dados->ListarAgendamentosData($date_filter);
-              echo $date_filter;
               foreach($result as $agenda):
+                    $horaInicio = $agenda->gethoraInicio();
+                    $hora_inicio = $hora_inicio->format('H:i');
                     echo "<div class='item'>";
-                    echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()."</button>";
+                    echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()." ".$hora_incio."</button>";
                     echo "</div>";
               endforeach; 
             }
           ?>
         </div>
         <a href="/Pages/Home Page/HomePage.html">Voltar ao inicio</a>
-    </div>
-
-    <!-- <script src="../../assets/js/jquery-3.6.4.min.js"></script> -->
-    <!-- <script src="./Consulta.js"></script> -->
     </body>
 </html>   
     
