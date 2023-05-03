@@ -16,52 +16,63 @@
     </header>
     <div class="container">
         <div class="filter">
-            <form method="POST" id="filter">
-                <input type="date" name="date-filter" class="date-filter"><submit id="submit-filter">Pesquisar</submit>
+            <form method="POST" id="filter" action="#">
+                <input type="date" name="date-filter" id= "data-filter" class="date-filter"><button type="sumit" id="submit-filter">Pesquisar</button>
             </form>
         </div>
         <div id="info">
-            <?php 
-                require_once __DIR__ ."/../../actions/action_Consultar.php";
-                $dados = new action_Consultar();
-                $result = $dados->ListarAgendamentos();
-                $date_filter = $POST["date-filter"];
-                foreach($result as $agenda):
-                    if(!empty($date_filter)){
-                      echo "<div class='item'>";
-                      echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()."</button>";
-                      echo "</div>";
-                    }
-                    else{
-                      if($agenda->getData() == $date_filter){
-                        echo "<div class='item'>";
-                        echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()."</button>";
-                        echo "</div>";
-                      }
-                    }
-                endforeach;
-            ?>
+          <?php
+            if (isset($_POST['date-filter'])){
+              echo $_POST['date-filter'];
+            }
+          ?>
         </div>
         <a href="/Pages/Home Page/HomePage.html">Voltar ao inicio</a>
     </div>
 
-    <script>
-        $(document).ready(function() {
-            $('#filter').submit(function(event) {
-                event.preventDefault(); // impedir o envio do formulário normalmente
-                var form = $(this);
-                var url = form.attr('action');
-                $.ajax({
-                    type: 'POST',
-                    url: url,
-                    data: form.serialize(), // serializar os dados do formulário
-                    success: function(data) {
-                        $('#resultado').html(data); // exibir o resultado na div com id "resultado"
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="../../assets/js/jquery-3.6.4.min.js"></script>
+    <script src="./Consulta.js"></script>
+    </body>
+</html>   
+    
 
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- echo "<div class='item'>";
+                        echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()."</button>";
+                        echo "</div>"; -->
+
+
+
+
+<!-- // require_once __DIR__ ."/../../actions/action_Consultar.php";
+// $dados = new action_Consultar();
+// $result = $dados->ListarAgendamentos();
+// foreach($result as $agenda):
+//   if (isset($_POST['date_filter']))
+//     if(!empty($_POST['date_filter'])){
+//       echo "<div class='item'>";
+//       echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()."</button>";
+//       echo "</div>";
+//     }
+//     else{
+//       if($agenda->getData() == $date_filter){
+//         $agenda->getNome_cliente();
+//       }
+//     }
+// endforeach; -->
