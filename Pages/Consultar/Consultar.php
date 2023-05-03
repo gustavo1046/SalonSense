@@ -29,20 +29,20 @@
             if(empty($date_filter)){
               $result = $dados->ListarAgendamentos();
               foreach($result as $agenda):
-                $dateTime =  $agenda->getHoraInicio();
-                $hora_inicio = $dateTime->format('H:i');
+                $hora_inicio = $agenda->getHoraInicio()->format('H:i');
+                $hora_fim = $agenda->getHoraFim()->format('H:i');
                 echo "<div class='item'>";
-                echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()." || ".$hora_inicio."</button>";
+                echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()." || ".$hora_inicio." - ".$hora_fim."</button>";
                 echo "</div>";
               endforeach; 
             }
             else{
               $result = $dados->ListarAgendamentosData($date_filter);
               foreach($result as $agenda):
-                    $horaInicio = $agenda->gethoraInicio();
-                    $hora_inicio = $hora_inicio->format('H:i');
+                    $hora_inicio = $agenda->getHoraInicio()->format('H:i');
+                    $hora_fim = $agenda->getHoraFim()->format('H:i');
                     echo "<div class='item'>";
-                    echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()." ".$hora_incio."</button>";
+                    echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()." ".$hora_incio." - ".$hora_fim."</button>";
                     echo "</div>";
               endforeach; 
             }
