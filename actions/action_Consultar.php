@@ -5,18 +5,25 @@
             // $data_filtro = new DateTime($data_filtro);
             $dao = new agendamentoDao();
             $result = $dao->ConsultarAgendamento();
-            $comparar_datas = function($a, $b) {
-                $data_a = strtotime($a->getData());
-                $data_b = strtotime($b->getData());
-                if ($data_a == $data_b) {
-                  return 0;
-                }
-                return ($data_a < $data_b) ? -1 : 1;
-              };
+            // $comparar_datas = function($a, $b) {
+            //     $data_a = strtotime($a->getData());
+            //     $data_b = strtotime($b->getData());
+            //     if ($data_a == $data_b) {
+            //       return 0;
+            //     }
+            //     return ($data_a < $data_b) ? -1 : 1;
+            //   };
 
-            usort($result, $comparar_datas);
-
+            // usort($result, $comparar_datas);
             return $result;
         }
+
+        public function ListarAgendamentosData($data_filter){
+          $dao = new agendamentoDao();
+          $result = $dao->ConsultarAgendamentoData($data_filter);
+          return $result;
+      }
+
+
     }
 

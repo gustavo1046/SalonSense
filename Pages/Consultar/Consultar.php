@@ -17,21 +17,39 @@
     <div class="container">
         <div class="filter">
             <form method="POST" id="filter" action="#">
-                <input type="date" name="date-filter" id= "data-filter" class="date-filter"><button type="sumit" id="submit-filter">Pesquisar</button>
+                <input type="date" name="data-filter" id= "data-filter" class="date-filter"><input type="submit" id="submit-filter" value="Pesquisar">
             </form>
         </div>
         <div id="info">
           <?php
-            if (isset($_POST['date-filter'])){
-              echo $_POST['date-filter'];
+            require_once __DIR__ ."/../../actions/action_Consultar.php";
+            $date_filter = $_POST['data-filter'];
+            $dados = new action_Consultar();
+            if(empty($date_filter)){
+              $result = $dados->ListarAgendamentos();
+              foreach($result as $agenda):
+                    echo $date_filter;
+                    echo "<div class='item'>";
+                    echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()."</button>";
+                    echo "</div>";
+              endforeach; 
+            }
+            else{
+              $result = $dados->ListarAgendamentosData($date_filter);
+              echo $date_filter;
+              foreach($result as $agenda):
+                    echo "<div class='item'>";
+                    echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()."</button>";
+                    echo "</div>";
+              endforeach; 
             }
           ?>
         </div>
         <a href="/Pages/Home Page/HomePage.html">Voltar ao inicio</a>
     </div>
 
-    <script src="../../assets/js/jquery-3.6.4.min.js"></script>
-    <script src="./Consulta.js"></script>
+    <!-- <script src="../../assets/js/jquery-3.6.4.min.js"></script> -->
+    <!-- <script src="./Consulta.js"></script> -->
     </body>
 </html>   
     
