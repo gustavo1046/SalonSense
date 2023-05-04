@@ -32,7 +32,7 @@
                 $hora_inicio = $agenda->getHoraInicio()->format('H:i');
                 $hora_fim = $agenda->getHoraFim()->format('H:i');
                 echo "<div class='item'>";
-                echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()." || ".$hora_inicio." - ".$hora_fim."</button>";
+                echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
                 echo "</div>";
               endforeach; 
             }
@@ -42,7 +42,7 @@
                     $hora_inicio = $agenda->getHoraInicio()->format('H:i');
                     $hora_fim = $agenda->getHoraFim()->format('H:i');
                     echo "<div class='item'>";
-                    echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()." ".$hora_incio." - ".$hora_fim."</button>";
+                    echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
                     echo "</div>";
               endforeach; 
             }
