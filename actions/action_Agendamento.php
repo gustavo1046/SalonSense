@@ -8,15 +8,37 @@
     $hora2 = $_POST["hora_final"];
     $hora_fim = new DateTime($hora2);
     $data = $_POST["data"];
+    $dao = new agendamentoDao();
+    $confere_horario = $dao->ConsultarAgendamentoData($data);
     $data = new DateTime($data);
     $valor = $_POST["valor"];
     $servico = $_POST["desc"];
     $forma = $_POST["opcao"];
 
+    foreach($confere_horario as $conf):
+        echo "Nome: " . $conf->getNome_cliente();
+        echo "<br>";
+        echo "hora 1:" . $hora1;
+        echo "<br>";
+        echo "hora 2:" . $hora2;
+        echo "<br>";
+        $hora = date('H:i', $conf->getHoraInicio()->getTimestamp());
+        echo "hora inicio cliente:" . $hora;
+        echo "<br>";
+        $hora3 = date('H:i', $conf->getHoraFim()->getTimestamp());
+        echo "hora final cliente:" . $hora3;
+
+        echo "<br>";
+        // if($hora1->getTimestamp()>= $conf->getHoraInicio()->getTimestamp() && $hora1->getTimestamp() <= $conf->getHoraFim()->getTimestamp()){
+        //     echo "vishi mano num vai da nao";
+        // } else {
+        //     echo "ih rapaiz";
+        // }
+    endforeach; 
+
     $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data, $valor, $servico, $forma, 1);
-    $dao = new agendamentoDao();
     $dao->InserirAgendamento($agend);
-    header("Location: ../Pages/Agendamento/Agendamento.php");
+    // header("Location: ../Pages/Agendamento/Agendamento.php");
     exit();
 
 
