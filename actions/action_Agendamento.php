@@ -29,11 +29,19 @@
         echo "hora final cliente:" . $hora3;
 
         echo "<br>";
-        // if($hora1->getTimestamp()>= $conf->getHoraInicio()->getTimestamp() && $hora1->getTimestamp() <= $conf->getHoraFim()->getTimestamp()){
-        //     echo "vishi mano num vai da nao";
-        // } else {
-        //     echo "ih rapaiz";
-        // }
+        if($hora_inicio->getTimestamp() >= $conf->getHoraInicio()->getTimestamp()){
+            if($hora_inicio->getTimestamp() <= $conf->getHoraFim()->getTimestamp()){
+                echo "vishi mano num vai da nao";
+                echo "<br>";
+            }else {
+                echo "ta tudo bem marcar";
+                echo "<br>";
+            }
+
+        } else {
+            echo "ta tudo bem marcar";
+            echo "<br>";
+        }
     endforeach; 
 
     $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data, $valor, $servico, $forma, 1);
