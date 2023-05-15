@@ -14,6 +14,12 @@
     <header>
         <img src="../../assets/logo.png">
     </header>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Este é o conteúdo do modal!</p>
+      </div>
+    </div>
 
     <div class="container">
         <div class="filter">
@@ -32,7 +38,7 @@
                 $hora_inicio = $agenda->getHoraInicio()->format('H:i');
                 $hora_fim = $agenda->getHoraFim()->format('H:i');
                 echo "<div class='item'>";
-                echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
+                echo "<input type='checkbox'class='check'><button class='button_agenda' onclick='showModal()'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
                 echo "</div>";
               endforeach; 
             }
@@ -42,7 +48,7 @@
                     $hora_inicio = $agenda->getHoraInicio()->format('H:i');
                     $hora_fim = $agenda->getHoraFim()->format('H:i');
                     echo "<div class='item'>";
-                    echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
+                    echo "<input type='checkbox'class='check'><button class='button_agenda' onclick='showModal()'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
                     echo "</div>";
               endforeach; 
             }
@@ -50,7 +56,30 @@
         </div>
         <a href="/Pages/Home Page/HomePage.html">Voltar ao inicio</a>
     </body>
-</html>   
+    <script>
+              // Seleciona o modal e o botão "fechar"
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+
+        // Quando o usuário clicar no botão "fechar" ou fora do modal, feche-o
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+
+        // Exibe o modal quando o usuário clica em um botão
+        function showModal() {
+          modal.style.display = "block";
+        }
+    </script>
+</html>
+
+
     
 
 
