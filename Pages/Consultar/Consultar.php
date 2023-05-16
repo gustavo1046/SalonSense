@@ -17,7 +17,13 @@
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <p>Este é o conteúdo do modal!</p>
+        <label><input type="text" id="nome" name="nome">
+        <label><label><input type="date" id="data" name="data">
+        <label><label><input type="time" id="hora_inicio" name="hora_inicio">
+        <label><label><input type="time" id="hora_fim" name="hora_fim">
+        <label><label><input type="number" id="valor" name="valor">
+        <label><label><input type="text" id="descricao" name="descricao" pattern="[A-Za-z0-9 ]+" maxlength="50">
+        <input type="submit" value="editar"><input type="submit" value="Deletar">
       </div>
     </div>
 
