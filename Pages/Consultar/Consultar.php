@@ -18,12 +18,12 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <form class="edit" method="POST" action="../../actions/action_Agendamento.php">
-          <label><input type="text" id="nome" name="nome">
-          <label><label><input type="date" id="data" name="data">
-          <label><label><input type="time" id="hora_inicio" name="hora_inicio">
-          <label><label><input type="time" id="hora_fim" name="hora_fim">
-          <label><label><input type="number" id="valor" name="valor">
-          <label><label><input type="text" id="descricao" name="descricao" pattern="[A-Za-z0-9 ]+" maxlength="50">
+          <label>Nome: </label><input type="text" id="nome" name="nome">
+          <label>Data: </label><input type="date" id="data" name="data"><br>
+          <label>Hora Inicio: </label><input type="time" id="hora_inicio" name="hora_inicio">
+          <label>Hora final: </label><input type="time" id="hora_fim" name="hora_fim"><br>
+          <label>valor: </label><input type="number" id="valor" name="valor"><br>
+          <label>Descrição: </label><input type="text" id="descricao" name="descricao" pattern="[A-Za-z0-9 ]+" maxlength="50"><br>
           <input type="submit" value="editar"><input type="submit" value="Deletar">
       </div>
     </div>

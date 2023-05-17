@@ -156,6 +156,15 @@ a:hover{
     box-shadow: 3px 3px 3px 3px var(--light);
 }
 
+#hora_inicio, #hora_fim{
+  margin-top: 5px;
+  width: 22%;
+}
+
+#valor{
+  margin-top: 5px;
+  width: 24em;
+}
 
 
 /* .container {
