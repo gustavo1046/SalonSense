@@ -4,6 +4,7 @@
     class agendamentoDao{
         public function InserirAgendamento(Agendamento $agendamento){
             $conexao = Conexao::Conectar();
+
             $nome = $agendamento->getNome_cliente();
             $hora_inicio = $agendamento->getHoraInicio();
             $hora_inicio = $hora_inicio->format('Y-m-d H:i:s');
@@ -38,6 +39,7 @@
                 $descricao = $row["desc_serviço_agendamento"];
                 $pagamento = $row["forma_pagamento"];
                 $agendamento = new Agendamento($nome_cliente, $hora_inicio, $hora_fim, $data_agendamento, $valor, $descricao, $pagamento, 1);
+                $agendamento->setId($row["id_agendamento"]);
                 array_push($agenda, $agendamento);
             }
             return $agenda;

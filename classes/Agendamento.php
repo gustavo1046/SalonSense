@@ -25,6 +25,10 @@
         public function getId() : int {
             return $this->id;
           }
+        
+        public function setId($id) {
+          $this->id = $id;
+        }
 
           public function getNome_cliente() : string {
             return $this->nome_cliente;

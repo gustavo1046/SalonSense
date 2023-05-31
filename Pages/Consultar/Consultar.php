@@ -28,6 +28,20 @@
       </div>
     </div>
 
+    <div class="modal fade" id="modalexc" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content" id="modal-menage">
+              <form action="../../intermediary/intermed_menageactivities.php" method="POST">
+                  <div class="modal-footer">
+                      <input type="hidden" id="idexc" name="id"></input>
+                      <input type="hidden" id="opexc" name="op">
+                      <input type="submit" class="btn btn-primary" id="excluir"></input>
+                  </div>
+              </form>
+          </div>
+      </div>
+    </div>
+
     <div class="container">
         <div class="filter">
             <form method="POST" id="filter" action="#">
@@ -45,7 +59,7 @@
                 $hora_inicio = $agenda->getHoraInicio()->format('H:i');
                 $hora_fim = $agenda->getHoraFim()->format('H:i');
                 echo "<div class='item'>";
-                echo "<input type='checkbox'class='check'><button class='button_agenda' onclick='showModal()'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
+                echo "<input type='checkbox'class='check'><button class='button_agenda' onclick='showModal(".$agenda->getId().")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
                 echo "</div>";
               endforeach; 
             }
@@ -63,6 +77,15 @@
         </div>
         <a href="/Pages/Home Page/HomePage.html">Voltar ao inicio</a>
     </body>
+
+
+    <!-- <script>
+    function modal_creat(){
+        let el = document.getElementById("myModal");
+        let modal =  new bootstrap.Modal();
+        modal.show();
+    }
+    </script> -->
     <script>
               // Seleciona o modal e o botão "fechar"
         var modal = document.getElementById("myModal");
@@ -80,7 +103,8 @@
         }
 
         // Exibe o modal quando o usuário clica em um botão
-        function showModal() {
+        function showModal(id) {
+          console.log(id);
           modal.style.display = "block";
         }
     </script>
