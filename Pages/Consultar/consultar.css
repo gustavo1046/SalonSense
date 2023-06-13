@@ -189,6 +189,14 @@ a:hover{
   width: 70%;
   min-width: 7em;
 }
+
+.botao {
+  background-image:url("../../assets/icons/lixo.png");
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 30px;
+  object-fit: cover;
+}
 /* .container {
     margin: auto;
     text-align: center;
