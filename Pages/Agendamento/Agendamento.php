@@ -40,6 +40,7 @@
           <input type="submit" value="Agendar">
         </div>
         <a href="../Home Page/HomePage.html">Voltar ao inicio</a>
+        <input type="hidden" name="id" id ="id" value=0>
       </form>
     </div>
 </body>

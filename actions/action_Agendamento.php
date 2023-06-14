@@ -2,7 +2,7 @@
     require_once __DIR__ . "/../classes/Agendamento.php";
     require_once __DIR__ . "/../DAO/agendamentoDao.php";
 
-    $op = $POST["op"];//valor que diferencia um cadastro de uma edição de um agendamento
+    $id = $POST["id"];//valor que diferencia um cadastro de uma edição de um agendamento
     $nome = $_POST["nome"];
     $hora1 = $_POST["hora_inicio"];
     $hora_inicio = new DateTime($hora1);
@@ -43,26 +43,23 @@
     
         $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, $servico, $forma, 1);
         
-        if($op == 'editar'){
-            $dao->InserirAgendamento($agend);
+        if($id != 0){
+            $dao->editarAgendamento($id, $agend);
             if($count == 0){
                 header("Location: ../Pages/Agendamento/Agendamento.php");
             }
             else{
                echo  "horario de agendamento ja esta em uso";
             }
-            function retornaObjeto($agend){
-                return $agend;
-            }
         }
-
+        
         else{
             $dao->InserirAgendamento($agend);
             if($count == 0){
                 header("Location: ../Pages/Agendamento/Agendamento.php");
             }
             else{
-               echo  "horario de agendamento ja esta em uso";
+            echo  "horario de agendamento ja esta em uso";
             }
         }
 

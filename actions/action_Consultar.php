@@ -12,6 +12,5 @@
           $result = $dao->ConsultarAgendamentoData($data_filter);
           return $result;
         }
-
     }
 

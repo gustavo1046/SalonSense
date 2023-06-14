@@ -24,7 +24,7 @@
           <label>Hora final: </label><input type="time" id="hora_fim" name="hora_fim"><br>
           <label>valor: </label><input type="number" id="valor" name="valor"><br>
           <label>Descrição: </label><input type="text" id="descricao" name="descricao" pattern="[A-Za-z0-9 ]+" maxlength="50"><br>
-          <input type="hidden" name="op" value="editar">
+          <input type="hidden" name="id" id ="id">
           <input type="submit" value="editar" id="editar">
       </div>
     </div>
@@ -107,6 +107,9 @@
         function showModal(id) {
           console.log(id);
           modal.style.display = "block";
+          var valor = id;
+// Atualize o valor do input
+          document.getElementById("id").value = valor;
         }
     </script>
 </html>
