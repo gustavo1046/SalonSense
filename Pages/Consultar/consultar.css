@@ -168,8 +168,7 @@ a:hover{
   min-width: 7em;
 }
 
-#nome, #data, #hora_inicio, #hora_fim, #valor, #descricao{
-  text-align: center;
+#nome, #data, #hora_inicio, #hora_fim, #valor, #desc{
   line-height: 30px; /* Defina a altura do botão */
   text-decoration: none;
   margin: auto;
@@ -184,10 +183,15 @@ a:hover{
   /* padding: 5px 15px 5px 15px; */
 }
 
-#descricao{
-  height: 6em;
+#desc{
+  height: 4em;
   width: 70%;
   min-width: 7em;
+}
+
+#radio{
+  padding-top: 20px;
+  display: flex;
 }
 
 .botao {

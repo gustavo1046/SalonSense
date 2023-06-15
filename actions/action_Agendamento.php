@@ -46,7 +46,7 @@
         if($id != 0){
             $dao->editarAgendamento($id, $agend);
             if($count == 0){
-                header("Location: ../Pages/Agendamento/Agendamento.php");
+                header("Location: ../Pages/Consultar/Consultar.php");
             }
             else{
                echo  "horario de agendamento ja esta em uso";
