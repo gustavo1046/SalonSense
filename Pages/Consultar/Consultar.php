@@ -21,10 +21,10 @@
           <label>Nome: </label><input type="text" id="nome" name="nome" required>
           <label>Data: </label><input type="date" id="data" name="data" required><br>
           <label>Hora Inicio: </label><input type="time" id="hora_inicio" name="hora_inicio" required>
-          <label>Hora final: </label><input type="time" id="hora_fim" name="hora_fim" required><br>
+          <label>Hora final: </label><input type="time" id="hora_fim" name="hora_final" required><br>
           <label>valor: </label><input type="number" id="valor" name="valor" required><br>
           <label>Descrição: </label><input type="text" id="desc" name="desc" pattern="[A-Za-z0-9 ]+" maxlength="50" required><br>
-          <input type="text" name="id" id ="id">
+          <input type="text" name="id" id="id" required>
           <div class="radio">
             <label>
               <input type="radio" name="opcao" value="Dinheiro"  id="opcao1" checked>
@@ -40,6 +40,7 @@
             </label>
           </div>
           <input type="submit" value="editar" id="editar">
+        </form>
       </div>
     </div>
 
@@ -119,11 +120,11 @@
 
         // Exibe o modal quando o usuário clica em um botão
         function showModal(id) {
-          console.log(id);
           modal.style.display = "block";
           var valor = id;
-// Atualize o valor do input
+          // Atualize o valor do input
           document.getElementById("id").value = valor;
+          console.log(valor);
         }
     </script>
 </html>
