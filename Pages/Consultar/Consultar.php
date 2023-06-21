@@ -24,7 +24,7 @@
           <label>Hora final: </label><input type="time" id="hora_fim" name="hora_final" required><br>
           <label>valor: </label><input type="number" id="valor" name="valor" required><br>
           <label>Descrição: </label><input type="text" id="desc" name="desc" pattern="[A-Za-z0-9 ]+" maxlength="50" required><br>
-          <input type="text" name="id" id="id" required>
+          <br><input type="hidden" name="id" id="id" required>
           <div class="radio">
             <label>
               <input type="radio" name="opcao" value="Dinheiro"  id="opcao1" checked>
@@ -75,7 +75,7 @@
                 $hora_inicio = $agenda->getHoraInicio()->format('H:i');
                 $hora_fim = $agenda->getHoraFim()->format('H:i');
                 echo "<div class='item'>";
-                echo "<input type='checkbox'class='check'><button class='button_agenda' onclick='showModal(".$agenda->getId().")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
+                echo "<input type='checkbox'class='check'><button class='button_agenda' onclick='showModal(.$agenda.)'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
                 echo "</div>";
               endforeach; 
             }
@@ -119,9 +119,9 @@
         }
 
         // Exibe o modal quando o usuário clica em um botão
-        function showModal(id) {
+        function showModal(agendamento) {
           modal.style.display = "block";
-          var valor = id;
+          var valor = agendamento.id;
           // Atualize o valor do input
           document.getElementById("id").value = valor;
           console.log(valor);
