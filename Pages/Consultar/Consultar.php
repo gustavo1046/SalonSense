@@ -75,7 +75,7 @@
                 $hora_inicio = $agenda->getHoraInicio()->format('H:i');
                 $hora_fim = $agenda->getHoraFim()->format('H:i');
                 echo "<div class='item'>";
-                echo "<input type='checkbox'class='check'><button class='button_agenda' onclick='showModal(JSON.parse(\"" . addslashes(json_encode($agenda)) . "\"))'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
+                echo "<input type='checkbox'class='check'><button class='button_agenda' onclick='showModal(".$agenda.")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
                 echo "</div>";
               endforeach; 
             }
@@ -121,7 +121,8 @@
         // Exibe o modal quando o usuário clica em um botão
         function showModal(agendamento) {
           modal.style.display = "block";
-          // var agend = JSON.parse(agendamento);
+          // var agenda = JSON.stringify(agendamento);
+          // var agend = JSON.parse(agenda);
           console.log(agendamento.id);
           // var valor = agend.id;
           // // // Atualize o valor do input
