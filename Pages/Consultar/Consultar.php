@@ -74,9 +74,11 @@
               foreach($result as $agenda):
                 $hora_inicio = $agenda->getHoraInicio()->format('H:i');
                 $hora_fim = $agenda->getHoraFim()->format('H:i');
+                $data = $agenda->getData()->format("d/m/Y");
                 echo "<div class='item'>";
-                echo "<input type='checkbox'class='check'><button class='button_agenda' onclick='showModal(".$agenda.")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
+                echo "<input type='checkbox' class='check'><button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
                 echo "</div>";
+                echo $data;
               endforeach; 
             }
             else{
@@ -84,9 +86,11 @@
               foreach($result as $agenda):
                     $hora_inicio = $agenda->getHoraInicio()->format('H:i');
                     $hora_fim = $agenda->getHoraFim()->format('H:i');
+                    $data = $agenda->getData()->format("d/m/Y");
                     echo "<div class='item'>";
                     echo "<input type='checkbox'class='check'><button class='button_agenda' onclick='showModal()'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
                     echo "</div>";
+                    echo $data;
               endforeach; 
             }
           ?>
@@ -119,16 +123,25 @@
         }
 
         // Exibe o modal quando o usuário clica em um botão
-        function showModal(agendamento) {
+        function showModal(id, nome, data, hora_inicio, hora_fim, valor, servico, formaPagamento) {
           modal.style.display = "block";
-          // var agenda = JSON.stringify(agendamento);
-          // var agend = JSON.parse(agenda);
-          console.log(agendamento.id);
-          // var valor = agend.id;
-          // // // Atualize o valor do input
-          // document.getElementById("id").value = valor;
-          // console.log(valor);
-        }
+          document.getElementById("id").value = id;
+          document.getElementById("nome").value = nome;
+          document.getElementById("data").value = data;
+          document.getElementById("hora_inicio").value = hora_inicio;
+          document.getElementById("hora_fim").value = hora_fim;
+          document.getElementById("valor").value = valor;
+          document.getElementById("desc").value = servico;
+          console.log(formaPagamento);
+          var radios = document.querySelectorAll('input[type="radio"]');
+          for (var i = 0; i < radios.length; i++) {
+            if (radios[i].id === formaPagamento) {
+              // radios[i].checked = true; // Marca o elemento radio correspondente
+              // break; // Interrompe o loop, pois já encontrou a opção desejada
+            }
+          console.log(radios);
+          }
+        } 
     </script>
 </html>
 
