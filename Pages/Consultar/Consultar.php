@@ -27,15 +27,15 @@
           <br><input type="hidden" name="id" id="id" required>
           <div class="radio">
             <label>
-              <input type="radio" name="opcao" value="Dinheiro"  id="opcao1" checked>
+              <input type="radio" name="opcao" value="Dinheiro"  id="Dinheiro" checked>
               Dinheiro
             </label>
             <label>
-              <input type="radio" name="opcao" value="Cartâo" id="opcao2"> 
+              <input type="radio" name="opcao" value="Cartâo" id="Cartão"> 
               Cartão
             </label>
             <label>
-              <input type="radio" name="opcao" value="Pix" id="opcao3">
+              <input type="radio" name="opcao" value="Pix" id="Pix">
               Pix
             </label>
           </div>
@@ -132,16 +132,17 @@
           document.getElementById("hora_fim").value = hora_fim;
           document.getElementById("valor").value = valor;
           document.getElementById("desc").value = servico;
-          console.log(formaPagamento);
+          // console.log(formaPagamento);
           var radios = document.querySelectorAll('input[type="radio"]');
           for (var i = 0; i < radios.length; i++) {
-            if (radios[i].id === formaPagamento) {
-              // radios[i].checked = true; // Marca o elemento radio correspondente
-              // break; // Interrompe o loop, pois já encontrou a opção desejada
+            if(radios[i].value === formaPagamento){
+              radios[i].checked = true; // Marca o elemento radio correspondente
+              break; // Interrompe o loop, pois já encontrou a opção desejada
+              console.log("iau");
             }
-          console.log(radios);
+          // console.log(radios);
           }
-        } 
+        }
     </script>
 </html>
 
