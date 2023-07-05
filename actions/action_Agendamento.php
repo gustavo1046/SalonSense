@@ -45,28 +45,28 @@
         $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, $servico, $forma, 1);
         
     }
-    echo $id;
-    //     if ($id != 0){
-    //         $dao->editarAgendamento($id, $agend);
-    //         if($count == 0){
-    //             header("Location: ../Pages/Consultar/Consultar.php");
-    //         }
-    //         else{
-    //            echo  "horario de agendamento ja esta em uso";
-    //         }
-    //     }
+    // echo $id;
+        if ($id != 0){
+            $dao->editarAgendamento($id, $agend);
+            if($count == 0){
+                header("Location: ../Pages/Consultar/Consultar.php");
+            }
+            else{
+               echo  "horario de agendamento ja esta em uso";
+            }
+        }
         
-    //     else{
-    //         $dao->InserirAgendamento($agend);
-    //         if($count == 0){
-    //             header("Location: ../Pages/Agendamento/Agendamento.php");
-    //         }
-    //         else{
-    //         echo  "horario de agendamento ja esta em uso";
-    //         }
-    //     }
+        else{
+            $dao->InserirAgendamento($agend);
+            if($count == 0){
+                header("Location: ../Pages/Agendamento/Agendamento.php");
+            }
+            else{
+                echo "horario de agendamento ja esta em uso";
+            }
+        }
 
-    // exit();
+    exit();
 
 
     // TESTE DE CONFERENCIA DE INCIDENCIA DE AGENDAMENTO NO BANCO DE DADOS 

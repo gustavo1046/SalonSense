@@ -84,13 +84,13 @@
             else{
               $result = $dados->ListarAgendamentosData($date_filter);
               foreach($result as $agenda):
-                    $hora_inicio = $agenda->getHoraInicio()->format('H:i');
-                    $hora_fim = $agenda->getHoraFim()->format('H:i');
-                    $data = $agenda->getData()->format("d/m/Y");
-                    echo "<div class='item'>";
-                    echo "<input type='checkbox'class='check'><button class='button_agenda' onclick='showModal()'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
-                    echo "</div>";
-                    echo $data;
+                $hora_inicio = $agenda->getHoraInicio()->format('H:i');
+                $hora_fim = $agenda->getHoraFim()->format('H:i');
+                $data = $agenda->getData()->format("d/m/Y");
+                echo "<div class='item'>";
+                echo "<input type='checkbox' class='check'><button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
+                echo "</div>";
+                echo $data;
               endforeach; 
             }
           ?>
@@ -138,7 +138,6 @@
             if(radios[i].value === formaPagamento){
               radios[i].checked = true; // Marca o elemento radio correspondente
               break; // Interrompe o loop, pois já encontrou a opção desejada
-              console.log("iau");
             }
           // console.log(radios);
           }

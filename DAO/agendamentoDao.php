@@ -59,6 +59,7 @@
                 $descricao = $row["desc_serviço_agendamento"];
                 $pagamento = $row["forma_pagamento"];
                 $agendamento = new Agendamento($nome_cliente, $hora_inicio, $hora_fim, $data_agendamento, $valor, $descricao, $pagamento, 1);
+                $agendamento->setId($row["id_agendamento"]);
                 array_push($agenda, $agendamento);
             }
             return $agenda;
