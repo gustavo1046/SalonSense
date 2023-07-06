@@ -75,10 +75,8 @@
             $data = $agendamento->getData();
             $data = $data->format('Y-m-d');
             $valor = $agendamento->getValor();
-            // $status = $agendamento->getStatus();
             $servico = $agendamento->getServico();
             $forma = $agendamento->getFormaPagamento();
-            // $id_adm = $agendamento->getIdAdm();
 
             $sql = "UPDATE agendamento SET nome_cliente = '$nome', hora_inicio = '$hora_inicio', hora_fim ='$hora_fim', data_agendamento = '$data', valor_agendamento = '$valor', desc_serviço_agendamento = '$servico', forma_pagamento= '$forma'
             WHERE id_agendamento = $id;";

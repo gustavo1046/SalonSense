@@ -40,22 +40,22 @@
             </label>
           </div>
           <input type="submit" value="editar" id="editar">
+          <input type="button" value="deletar" id="deletar" onclick='showModalDelete()'>
         </form>
       </div>
     </div>
 
-    <div class="modal fade" id="modalexc" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content" id="modal-menage">
-              <form action="../../intermediary/intermed_menageactivities.php" method="POST">
-                  <div class="modal-footer">
-                      <input type="hidden" id="idexc" name="id"></input>
-                      <input type="hidden" id="opexc" name="op">
-                      <input type="submit" class="btn btn-primary" id="excluir"></input>
-                  </div>
-              </form>
-          </div>
-      </div>
+    <div class="modal fade" id="modalExc">
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <form action="../../intermediary/intermed_menageactivities.php" method="POST">
+            <div class="modal-footer">
+                <input type="hidden" id="idexc" name="id"></input>
+                <input type="hidden" id="opexc" name="op">
+                  heihei
+            </div>      
+          </form>
+        </div>
     </div>
 
     <div class="container">
@@ -99,27 +99,31 @@
     </body>
 
 
-    <!-- <script>
-    function modal_creat(){
-        let el = document.getElementById("myModal");
-        let modal =  new bootstrap.Modal();
-        modal.show();
-    }
-    </script> -->
     <script>
               // Seleciona o modal e o botão "fechar"
         var modal = document.getElementById("myModal");
+        var modalDelete = document.getElementById("modalExc");
         var span = document.getElementsByClassName("close")[0];
+        var spanDel = document.getElementsByClassName("close")[1];
 
         // Quando o usuário clicar no botão "fechar" ou fora do modal, feche-o
         span.onclick = function() {
           modal.style.display = "none";
         }
 
+        spanDel.onclick = function() {
+          modalDelete.style.display = "none";
+        }
+
         window.onclick = function(event) {
           if (event.target == modal) {
             modal.style.display = "none";
+            modalDelete.style.display = "none";
           }
+          if (event.target == modalDelete) {
+            modalDelete.style.display = "none";
+          }
+
         }
 
         // Exibe o modal quando o usuário clica em um botão
@@ -141,6 +145,11 @@
             }
           // console.log(radios);
           }
+        }
+
+        function showModalDelete(){
+          modalDelete.style.display = "block";
+          // document.getElementById("id").value = id;
         }
     </script>
 </html>
