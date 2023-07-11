@@ -13,7 +13,8 @@
     $valor = $_POST["valor"];
     $servico = $_POST["desc"];
     $forma = $_POST["opcao"];
-    $id = $_POST["id"];//valor que diferencia um cadastro de uma edição de um agendamento
+    $op = $_POST["op"];//valor que diferencia um cadastro de uma edição de um agendamento
+    $id = $_POST["id"];
 
 
     $dao = new agendamentoDao();
@@ -46,17 +47,7 @@
         
     }
     // echo $id;
-        if ($id != 0){
-            $dao->editarAgendamento($id, $agend);
-            if($count == 0){
-                header("Location: ../Pages/Consultar/Consultar.php");
-            }
-            else{
-               echo  "horario de agendamento ja esta em uso";
-            }
-        }
-        
-        else{
+        if ($op == 0){
             $dao->InserirAgendamento($agend);
             if($count == 0){
                 header("Location: ../Pages/Agendamento/Agendamento.php");
@@ -65,6 +56,25 @@
                 echo "horario de agendamento ja esta em uso";
             }
         }
+        else if($op == 1) {
+            $dao->editarAgendamento($id, $agend);
+            if($count == 0){
+                header("Location: ../Pages/Consultar/Consultar.php");
+            }
+            else{
+               echo  "horario de agendamento ja esta em uso";
+            }
+        }
+        else {
+            $dao->excluirAgendamento($id);
+            if($count == 0){
+                header("Location: ../Pages/Consultar/Consultar.php");
+            }
+            else{
+               echo  "horario de agendamento ja esta em uso";
+            }
+        }
+        
 
     exit();
 

@@ -14,7 +14,7 @@
     <header>
         <img src="../../assets/logo.png">
     </header>
-    <div id="myModal" class="modal">
+    <div id="modalEdit" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
         <form class="edit" method="POST" action="../../actions/action_Agendamento.php">
@@ -24,7 +24,8 @@
           <label>Hora final: </label><input type="time" id="hora_fim" name="hora_final" required><br>
           <label>valor: </label><input type="number" id="valor" name="valor" required><br>
           <label>Descrição: </label><input type="text" id="desc" name="desc" pattern="[A-Za-z0-9 ]+" maxlength="50" required><br>
-          <br><input type="hidden" name="id" id="id" required>
+          <br><input type="hidden" name="id" id="id">
+              <input type="hidden" name="op" id="op">
           <div class="radio">
             <label>
               <input type="radio" name="opcao" value="Dinheiro"  id="Dinheiro" checked>
@@ -40,7 +41,7 @@
             </label>
           </div>
           <input type="submit" value="editar" id="editar">
-          <input type="button" value="deletar" id="deletar" onclick='showModalDelete()'>
+          <input type="button" value="deletar" id="deletar" onclick="showModalDelete()">
         </form>
       </div>
     </div>
@@ -48,10 +49,10 @@
     <div class="modal" id="modalExc">
         <div class="modal-content-exc">
           <span class="close">&times;</span>
-          <form action="../../intermediary/intermed_menageactivities.php" method="POST">
+          <form action="../../actions/action_Agendamento.php" method="POST">
             <div class="modal-footer">
-                <input type="hidden" id="idexc" name="id"></input>
-                <input type="hidden" id="opexc" name="op">
+                <input type="hidden" id="idexc" name="id">
+                <input type="hidden" id="op" name="op">
                 <p>Excluir agendamento?</p>
                 <input type="submit" value="Exluir" id="excluir">
             </div>      
@@ -102,7 +103,7 @@
 
     <script>
               // Seleciona o modal e o botão "fechar"
-        var modal = document.getElementById("myModal");
+        var modal = document.getElementById("modalEdit");
         var modalDelete = document.getElementById("modalExc");
         var span = document.getElementsByClassName("close")[0];
         var spanDel = document.getElementsByClassName("close")[1];
@@ -131,6 +132,7 @@
         function showModal(id, nome, data, hora_inicio, hora_fim, valor, servico, formaPagamento) {
           modal.style.display = "block";
           document.getElementById("id").value = id;
+          document.getElementById("op").value= 1;
           document.getElementById("nome").value = nome;
           document.getElementById("data").value = data;
           document.getElementById("hora_inicio").value = hora_inicio;
@@ -148,9 +150,10 @@
           }
         }
 
-        function showModalDelete(){
+        function showModalDelete(id){
           modalDelete.style.display = "block";
-          // document.getElementById("id").value = id;
+          document.getElementById("idexc").value = document.getElementById("id").value;
+          document.getElementById("op").value= 1;
         }
     </script>
 </html>
