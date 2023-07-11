@@ -40,14 +40,11 @@
                 }
             }
         endforeach;
-
-
-    
-        $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, $servico, $forma, 1);
         
     }
     // echo $id;
         if ($op == 0){
+            $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, $servico, $forma, 1);
             $dao->InserirAgendamento($agend);
             if($count == 0){
                 header("Location: ../Pages/Agendamento/Agendamento.php");
@@ -57,6 +54,7 @@
             }
         }
         else if($op == 1) {
+            $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, $servico, $forma, 1);
             $dao->editarAgendamento($id, $agend);
             if($count == 0){
                 header("Location: ../Pages/Consultar/Consultar.php");

@@ -25,7 +25,7 @@
           <label>valor: </label><input type="number" id="valor" name="valor" required><br>
           <label>Descrição: </label><input type="text" id="desc" name="desc" pattern="[A-Za-z0-9 ]+" maxlength="50" required><br>
           <br><input type="hidden" name="id" id="id">
-              <input type="hidden" name="op" id="op">
+              <input type="hidden" name="op" id="op" value=1>
           <div class="radio">
             <label>
               <input type="radio" name="opcao" value="Dinheiro"  id="Dinheiro" checked>
@@ -52,7 +52,7 @@
           <form action="../../actions/action_Agendamento.php" method="POST">
             <div class="modal-footer">
                 <input type="hidden" id="idexc" name="id">
-                <input type="hidden" id="op" name="op">
+                <input type="hidden" id="op" name="op" value=2>
                 <p>Excluir agendamento?</p>
                 <input type="submit" value="Exluir" id="excluir">
             </div>      

@@ -83,5 +83,12 @@
             $conexao->query($sql);
             echo $conexao->error;
         }
+
+        public function excluirAgendamento(int $id){
+            $conexao = Conexao::Conectar();
+            $sql = "DELETE FROM agendamento WHERE id_agendamento = '$id'";
+            $conexao->query($sql);
+            echo $conexao->error;
+        }
     }
 ?>
