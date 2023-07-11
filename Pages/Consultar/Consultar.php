@@ -45,14 +45,15 @@
       </div>
     </div>
 
-    <div class="modal fade" id="modalExc">
-        <div class="modal-content">
-        <span class="close">&times;</span>
-        <form action="../../intermediary/intermed_menageactivities.php" method="POST">
+    <div class="modal" id="modalExc">
+        <div class="modal-content-exc">
+          <span class="close">&times;</span>
+          <form action="../../intermediary/intermed_menageactivities.php" method="POST">
             <div class="modal-footer">
                 <input type="hidden" id="idexc" name="id"></input>
                 <input type="hidden" id="opexc" name="op">
-                  heihei
+                <p>Excluir agendamento?</p>
+                <input type="submit" value="Exluir" id="excluir">
             </div>      
           </form>
         </div>

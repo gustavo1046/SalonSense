@@ -86,7 +86,7 @@ input[type="checkbox"] {
 }
 
 
-#submit-filter, #editar, #deletar{
+#submit-filter, #editar, #deletar, #excluir{
   text-align: center;
   line-height: 30px; /* Defina a altura do botão */
   text-decoration: none;
@@ -104,7 +104,7 @@ input[type="checkbox"] {
   /* padding: 5px 15px 5px 15px; */
 }
 
-#submit-filter:hover, #editar:hover, #deletar:hover{
+#submit-filter:hover, #editar:hover, #deletar:hover, #excluir:hover{
   box-shadow: 3px 3px 3px 3px var(--light);
 }
 
@@ -200,6 +200,10 @@ a:hover{
   width: 20px;
   height: 30px;
   object-fit: cover;
+}
+
+.modal-content-exc{
+  height: 5rem;
 }
 /* .container {
     margin: auto;

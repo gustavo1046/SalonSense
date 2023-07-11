@@ -47,7 +47,7 @@ body{
     background-color: rgba(0,0,0,0.4);
   }
   
-  .modal-content {
+  .modal-content, .modal-content-exc {
     text-align: center;
     background-color: var(--background2);
     margin: 10% auto;
