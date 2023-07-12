@@ -205,6 +205,22 @@ a:hover{
 .modal-content-exc{
   height: 5rem;
 }
+
+input[type="radio"] {
+  -webkit-appearance: none; /* Desativa a aparência padrão do navegador */
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%; /* Torna o botão de rádio circular */
+  width: 20px; /* Define a largura e altura do botão */
+  height: 20px;
+  background-color: #fff; /* Define a cor de fundo do botão */
+  outline: none; /* Remove o contorno padrão do botão */
+  margin-right: 10px;
+} 
+
+input[type="radio"]:checked {
+  background-color: var(--button); /* Define a cor de fundo do botão quando selecionado */
+}
 /* .container {
     margin: auto;
     text-align: center;
