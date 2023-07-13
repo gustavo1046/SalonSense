@@ -31,14 +31,13 @@ body {
     font-family: montserrat;
 }
 
-.info input[type="password"]{
+.info #senha{
     width: 190px;
     margin-right: 5px;
     font-family: montserrat;
 }
 
-.info button {
-    background-image: url(/assets/icons/visibility_FILL0_wght400_GRAD0_opsz48.png);
+.info img {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -49,12 +48,16 @@ body {
 }
 
 
-.info input[type="submit"]{
+.info #enviar {
     background-color: var(--button);
     color: whitesmoke;
     width: 200px;
     margin-top: 20px;
     font-family: montserrat;
+}
+
+#enviar:hover{
+    box-shadow: 3px 3px 3px 3px var(--light);
 }
 
 
