@@ -211,8 +211,8 @@ input[type="radio"] {
   -moz-appearance: none;
   appearance: none;
   border-radius: 50%; /* Torna o botão de rádio circular */
-  width: 20px; /* Define a largura e altura do botão */
-  height: 20px;
+  width: 15px; /* Define a largura e altura do botão */
+  height: 15px;
   background-color: #fff; /* Define a cor de fundo do botão */
   outline: none; /* Remove o contorno padrão do botão */
   margin-right: 10px;

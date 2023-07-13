@@ -78,9 +78,8 @@
                 $hora_fim = $agenda->getHoraFim()->format('H:i');
                 $data = $agenda->getData()->format("d/m/Y");
                 echo "<div class='item'>";
-                echo "<input type='checkbox' class='check'><button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
+                echo "<input type='checkbox' class='check'><button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."<br>".$data."</button>";
                 echo "</div>";
-                echo $data;
               endforeach; 
             }
             else{
@@ -134,7 +133,14 @@
           document.getElementById("id").value = id;
           document.getElementById("op").value= 1;
           document.getElementById("nome").value = nome;
-          document.getElementById("data").value = data;
+          const splitData = data.split('/');
+          const dia = parseInt(splitData[0], 10);
+          const mes = parseInt(splitData[1], 10) - 1; // O mês em JavaScript é baseado em zero (0 - 11)
+          const ano = parseInt(splitData[2], 10);
+          const date = new Date(ano, mes, dia);
+          const finalData = date.toISOString().split('T')[0];
+          document.getElementById("data").value = finalData;
+          console.log(document.getElementById("data").value);
           document.getElementById("hora_inicio").value = hora_inicio;
           document.getElementById("hora_fim").value = hora_fim;
           document.getElementById("valor").value = valor;
