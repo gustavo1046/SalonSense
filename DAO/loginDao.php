@@ -17,6 +17,7 @@
             if($rows == 1){
                 session_start();
                 $_SESSION["id"] = $adm;
+                // echo $_SESSION["id"];
                 header("Location: ../Pages/Home Page/HomePage.html");
             }
             else{
