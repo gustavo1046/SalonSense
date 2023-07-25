@@ -33,4 +33,13 @@ a:hover{
     justify-content: center;
     align-items: center;
     font-family: montserrat;
+    min-height: 200px;
+}
+body{
+    display: block;
+}
+
+.content{
+    display: flex;
+    height: 95%;
 }

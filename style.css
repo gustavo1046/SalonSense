@@ -29,10 +29,11 @@ body{
     margin: auto;
     text-align: center;
     background-color: var(--background2);
-    width: 35vw;
-    height: 40vh;
+    width: 35%;
+    height: 50%;
     border-radius: 20px;
     box-shadow: 10px 10px 10px var(--light);
+    max-height: 400px;
 }
 
 .modal {
@@ -72,3 +73,5 @@ body{
     text-decoration: none;
     cursor: pointer;
   }
+
+

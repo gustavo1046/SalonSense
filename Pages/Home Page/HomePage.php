@@ -1,3 +1,6 @@
+<?php 
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.html';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,11 +12,13 @@
     <title>Aelia Resende</title>
 </head>
 <body>
-    <div class="container">
-        <div class="buttons">
-            <a href="../Agendamento/Agendamento.php">Agendar</a>
-            <a href="../Consultar/Consultar.php">Consultar</a>
-            <a href="">Contas</a>            
+    <div class="content">
+        <div class="container">
+            <div class="buttons">
+                <a href="../Agendamento/Agendamento.php">Agendar</a>
+                <a href="../Consultar/Consultar.php">Consultar</a>
+                <a href="">Contas</a>            
+            </div>
         </div>
     </div>
 </body>
