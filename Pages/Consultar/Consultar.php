@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Aelia Resende</title>
 </head>
+<?php 
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.html';
+?>
 <body>
     <header>
         <img src="../../assets/logo.png">
@@ -96,7 +99,7 @@
             }
           ?>
         </div>
-        <a href="/Pages/Home Page/HomePage.html">Voltar ao inicio</a>
+        <a href="/Pages/Home Page/HomePage.php">Voltar ao inicio</a>
     </body>
 
 

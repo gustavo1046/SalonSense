@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="./Agendamento.css">
     <title>Aelia Resende</title>
 </head>
+<?php 
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.html';
+?>
 <body>
     <header>
         <img src="../../assets/logo.png">
@@ -39,7 +42,7 @@
         <div class="sub">
           <input type="submit" value="Agendar">
         </div>
-        <a href="../Home Page/HomePage.html">Voltar ao inicio</a>
+        <a href="../Home Page/HomePage.php">Voltar ao inicio</a>
         <input type="hidden" name="op" id ="op" value=0>
       </form>
     </div>

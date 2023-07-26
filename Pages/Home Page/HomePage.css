@@ -34,6 +34,8 @@ a:hover{
     align-items: center;
     font-family: montserrat;
     min-height: 200px;
+    width: 30vw;
+    height: 50vh;
 }
 body{
     display: block;

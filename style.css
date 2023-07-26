@@ -29,8 +29,8 @@ body{
     margin: auto;
     text-align: center;
     background-color: var(--background2);
-    width: 35%;
-    height: 50%;
+    width: 30vw;
+    height: 50vh;
     border-radius: 20px;
     box-shadow: 10px 10px 10px var(--light);
     max-height: 400px;

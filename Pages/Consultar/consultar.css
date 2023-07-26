@@ -82,7 +82,8 @@ input[type="checkbox"] {
     justify-content: center;
     align-items: center;
     font-family: montserrat;
-    height: 29rem;
+    min-height: 72vh;
+    width: 480px;
 }
 
 
@@ -114,8 +115,8 @@ input[type="checkbox"] {
 
 
 #info {
-    width: 29em;
-    height: 22em;
+    width: 98%;
+    height: 75%;
     overflow: auto;
 }
 /* Estilo para o scroll */

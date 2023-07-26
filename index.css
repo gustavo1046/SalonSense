@@ -60,6 +60,11 @@ body {
     box-shadow: 3px 3px 3px 3px var(--light);
 }
 
+.container{
+    width: 30vw;
+    height: 55vh;
+}
+
 
 
 
