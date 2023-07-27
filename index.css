@@ -26,13 +26,13 @@ body {
     border-radius: 10px;
     border-style: none;
     height: 30px;
-    width: 230px;
+    width: 60%;
     margin-top: 10px;
     font-family: montserrat;
 }
 
 .info #senha{
-    width: 190px;
+    width: 50%;
     margin-right: 5px;
     font-family: montserrat;
 }
@@ -51,7 +51,7 @@ body {
 .info #enviar {
     background-color: var(--button);
     color: whitesmoke;
-    width: 200px;
+    width: 45%;
     margin-top: 20px;
     font-family: montserrat;
 }

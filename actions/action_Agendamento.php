@@ -28,6 +28,7 @@
     }
     else{
         foreach($confere_horario as $conf):
+            $nome_red = $conf->getNome_cliente();
             $hora_inicio_cliente = $conf->getHoraInicio();
             $hora_inicio_cliente = $hora_inicio_cliente->format('H');
             $hora_fim_cliente = $conf->getHorafim();
@@ -36,6 +37,7 @@
             if($hora_i >= $hora_inicio_cliente){
                 if($hora_f <= $hora_fim_cliente && $hora_f >= $hora_inicio_cliente){
                     $count += 1;
+                    $red = $nome_red;
                 }
             }
         endforeach;
@@ -50,7 +52,7 @@
                 header("Location: ../Pages/Agendamento/Agendamento.php");
             }
             else{
-                echo "horario de agendamento ja esta em uso";
+                echo "horario de agendamento ja esta em uso123";
             }
         }
         else if($op == 1) {
@@ -60,7 +62,12 @@
                 header("Location: ../Pages/Consultar/Consultar.php");
             }
             else{
-               echo  "horario de agendamento ja esta em uso";
+                if($red != $nome){
+                    echo  "horario de agendamento ja esta em uso";
+                }
+                else{
+                    header("Location: ../Pages/Consultar/Consultar.php");
+                }
             }
         }
         else {
