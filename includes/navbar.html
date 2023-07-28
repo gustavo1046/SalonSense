@@ -1,9 +1,57 @@
-<div class="navbar" style="text-align: right; width: 97vw;justify-content: center; vertical-align: middle;margin-top: 10px; ">
-    <buttos style="background-color: var(--button);
+
+<div class="navbar" style="text-align: right; width: 97vw;justify-content: center; vertical-align: middle;margin-top: 10px;">
+    <button style="background-color: var(--button);
     color: whitesmoke;
-    width: 45%;
+    width: 10%;
+    border-style: none;
     font-family: montserrat;
     padding: 5px 20px 5px 20px;
     border-radius: 10px;
-    cursor: pointer;">Sair</buttos>
+    cursor: pointer;" onclick="showModalExit()">Sair</button>
 </div>
+
+<div class="modal" id="modalExit">
+    <div class="modal-content-exit">
+        <span class="close">&times;</span>
+        <div class="modal-footer">
+            <p>Sair?</p>
+            <button style= "background-color: var(--button);
+            color: whitesmoke;
+            width: 20%;
+            border-style: none;
+            font-family: montserrat;
+            padding: 10px 20px 10px 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            cursor: pointer;" onclick="logoff()">Sair</button>
+        </div>      
+    </div>
+</div>
+
+<script>
+    var modalExit = document.getElementById("modalExit");
+    var spanExit = document.getElementsByClassName("close")[0];
+
+    // Quando o usuário clicar no botão "fechar" ou fora do modal, feche-o
+
+    spanExit.onclick = function() {
+        modalExit.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modalExit) {
+            modalExit.style.display = "none";
+        }
+    }
+
+    function logoff(){
+            window.location.href = "http://localhost:5000/";
+    }
+
+    function showModalExit(){
+            modalExit.style.display = "block";
+        }
+</script>
+
+
+

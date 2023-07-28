@@ -107,8 +107,8 @@
               // Seleciona o modal e o botão "fechar"
         var modal = document.getElementById("modalEdit");
         var modalDelete = document.getElementById("modalExc");
-        var span = document.getElementsByClassName("close")[0];
-        var spanDel = document.getElementsByClassName("close")[1];
+        var span = document.getElementsByClassName("close")[1];
+        var spanDel = document.getElementsByClassName("close")[2];
 
         // Quando o usuário clicar no botão "fechar" ou fora do modal, feche-o
         span.onclick = function() {
