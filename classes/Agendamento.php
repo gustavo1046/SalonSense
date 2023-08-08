@@ -11,12 +11,13 @@
         private string $forma_pagamento;
         private int $id_adm;
 
-        public function __construct(string $nome_cliente, DateTime $hora_i, DateTime $hora_f, DateTime $data, float $valor, string $servico, string $forma_pagamento, int $id_adm){
+        public function __construct(string $nome_cliente, DateTime $hora_i, DateTime $hora_f, DateTime $data, float $valor, int $status, string $servico, string $forma_pagamento, int $id_adm){
             $this->nome_cliente = $nome_cliente;  
             $this->hora_inicio = $hora_i;
             $this->hora_fim = $hora_f;
             $this->data = $data;
             $this->valor = $valor;
+            $this->status = $status;
             $this->servico = $servico;
             $this->forma_pagamento = $forma_pagamento;
             $this->id_adm = $id_adm;

@@ -14,36 +14,44 @@
     $forma = $_POST["opcao"];
     $op = $_POST["op"];//valor que diferencia um cadastro de uma edição de um agendamento
     $id = $_POST["id"];
+    $id_status = $_POST["id_status"];
 
+    $dao = new agendamentoDao(); //classe de agendamento
 
-    $dao = new agendamentoDao();
-    $confere_horario = $dao->ConsultarAgendamentoData($data);
-    $count = 0; //variavel de contagem de incidencia no intervalo do horario
-
-    $hora_i = $hora_inicio->format('H');
-    $hora_f = $hora_fim->format('H');
-
-    if($hora_i > $hora_f){
-        echo "tu é doido é macho?"; //naaan
+    if ($id_status != null){ //verifica se ele quer apenas alterar o status da tarefa e nao utilizar funções com objeto agendamento
+        $dao->alterarStatus($id_status);
+        header("Location: ../Pages/Consultar/Consultar.php");
     }
-    else{
-        foreach($confere_horario as $conf):
-            $nome_red = $conf->getNome_cliente();
-            $hora_inicio_cliente = $conf->getHoraInicio();
-            $hora_inicio_cliente = $hora_inicio_cliente->format('H');
-            $hora_fim_cliente = $conf->getHorafim();
-            $hora_fim_cliente = $hora_fim_cliente->format('H');
-    
-            if($hora_i >= $hora_inicio_cliente){
-                if($hora_f <= $hora_fim_cliente && $hora_f >= $hora_inicio_cliente){
-                    $count += 1;
-                    $red = $nome_red;
-                }
-            }
-        endforeach;
+
+    else {
         
-    }
-    // echo $id;
+        $confere_horario = $dao->ConsultarAgendamentoData($data);
+        $count = 0; //variavel de contagem de incidencia no intervalo do horario
+    
+        $hora_i = $hora_inicio->format('H');
+        $hora_f = $hora_fim->format('H');
+    
+        if($hora_i > $hora_f){
+            echo "tu é doido é macho?"; //naaan
+        }
+        else{
+            foreach($confere_horario as $conf):
+                $nome_red = $conf->getNome_cliente();
+                $hora_inicio_cliente = $conf->getHoraInicio();
+                $hora_inicio_cliente = $hora_inicio_cliente->format('H');
+                $hora_fim_cliente = $conf->getHorafim();
+                $hora_fim_cliente = $hora_fim_cliente->format('H');
+        
+                if($hora_i >= $hora_inicio_cliente){
+                    if($hora_f <= $hora_fim_cliente && $hora_f >= $hora_inicio_cliente){
+                        $count += 1;
+                        $red = $nome_red;
+                    }
+                }
+            endforeach;
+            
+        }
+        // echo $id;
         if ($op == 0){
             session_start();
             $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, $servico, $forma, 1);
@@ -70,18 +78,18 @@
                 }
             }
         }
-        else {
+        else if($op == 2){
             $dao->excluirAgendamento($id);
             if($count == 0){
                 header("Location: ../Pages/Consultar/Consultar.php");
             }
             else{
-               echo  "horario de agendamento ja esta em uso";
+                echo  "horario de agendamento ja esta em uso";
             }
         }
-        
-
-    exit();
+    }
+   
+exit();
 
 
     // TESTE DE CONFERENCIA DE INCIDENCIA DE AGENDAMENTO NO BANCO DE DADOS 

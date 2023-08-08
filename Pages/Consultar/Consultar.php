@@ -81,7 +81,11 @@
                 $hora_fim = $agenda->getHoraFim()->format('H:i');
                 $data = $agenda->getData()->format("d/m/Y");
                 echo "<div class='item'>";
-                echo "<input type='checkbox' class='check'><button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."<br>".$data."</button>";
+                if($agenda->getStatus() == 0){
+                  echo "<input type='checkbox' class='check' id='check' onclick='MudarStatusAtendimento(".$agenda->getId().")'><button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."<br>".$data."</button>";
+                }else{
+                  echo "<input type='checkbox' class='check' id='check' onclick='MudarStatusAtendimento(".$agenda->getId().")' checked><button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."<br>".$data."</button>";
+                }
                 echo "</div>";
               endforeach; 
             }
@@ -92,98 +96,97 @@
                 $hora_fim = $agenda->getHoraFim()->format('H:i');
                 $data = $agenda->getData()->format("d/m/Y");
                 echo "<div class='item'>";
-                echo "<input type='checkbox' class='check'><button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."</button>";
+                if($agenda->getStatus() == 0){
+                  echo "<input type='checkbox' class='check' id='check' onclick='MudarStatusAtendimento(".$agenda->getId().")'><button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."<br>".$data."</button>";
+                }else{
+                  echo "<input type='checkbox' class='check' id='check' onclick='MudarStatusAtendimento(".$agenda->getId().")' checked><button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."<br>".$data."</button>";
+                }
                 echo "</div>";
-                echo $data;
               endforeach; 
             }
           ?>
         </div>
         <a href="/Pages/Home Page/HomePage.php">Voltar ao inicio</a>
+
+        <form class="status" action="../../actions/action_Agendamento.php" method="POST">
+            <input type="number" id="id_status" name="id_status">
+            <input type="submit" id="submit_status" name="submit_status">
+        </form>
     </body>
 
 
     <script>
-              // Seleciona o modal e o botão "fechar"
-        var modal = document.getElementById("modalEdit");
-        var modalDelete = document.getElementById("modalExc");
-        var span = document.getElementsByClassName("close")[1];
-        var spanDel = document.getElementsByClassName("close")[2];
+      // Seleciona o modal e o botão "fechar"
+      var modal = document.getElementById("modalEdit");
+      var modalDelete = document.getElementById("modalExc");
+      var span = document.getElementsByClassName("close")[1];
+      var spanDel = document.getElementsByClassName("close")[2];
 
-        // Quando o usuário clicar no botão "fechar" ou fora do modal, feche-o
-        span.onclick = function() {
+      // Quando o usuário clicar no botão "fechar" ou fora do modal, feche-o
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      spanDel.onclick = function() {
+        modalDelete.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
           modal.style.display = "none";
+          modalDelete.style.display = "none";
         }
-
-        spanDel.onclick = function() {
+        if (event.target == modalDelete) {
           modalDelete.style.display = "none";
         }
 
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-            modalDelete.style.display = "none";
-          }
-          if (event.target == modalDelete) {
-            modalDelete.style.display = "none";
-          }
+      }
 
-        }
-
-        // Exibe o modal quando o usuário clica em um botão
-        function showModal(id, nome, data, hora_inicio, hora_fim, valor, servico, formaPagamento) {
-          modal.style.display = "block";
-          document.getElementById("id").value = id;
-          document.getElementById("op").value= 1;
-          document.getElementById("nome").value = nome;
-          const splitData = data.split('/');
-          const dia = parseInt(splitData[0], 10);
-          const mes = parseInt(splitData[1], 10) - 1; // O mês em JavaScript é baseado em zero (0 - 11)
-          const ano = parseInt(splitData[2], 10);
-          const date = new Date(ano, mes, dia);
-          const finalData = date.toISOString().split('T')[0];
-          document.getElementById("data").value = finalData;
-          console.log(document.getElementById("data").value);
-          document.getElementById("hora_inicio").value = hora_inicio;
-          document.getElementById("hora_fim").value = hora_fim;
-          document.getElementById("valor").value = valor;
-          document.getElementById("desc").value = servico;
-          // console.log(formaPagamento);
-          var radios = document.querySelectorAll('input[type="radio"]');
-          for (var i = 0; i < radios.length; i++) {
-            if(radios[i].value === formaPagamento){
-              radios[i].checked = true; // Marca o elemento radio correspondente
-              break; // Interrompe o loop, pois já encontrou a opção desejada
-            }
-          // console.log(radios);
+      // Exibe o modal quando o usuário clica em um botão
+      function showModal(id, nome, data, hora_inicio, hora_fim, valor, servico, formaPagamento) {
+        modal.style.display = "block";
+        document.getElementById("id").value = id;
+        document.getElementById("op").value= 1;
+        document.getElementById("nome").value = nome;
+        const splitData = data.split('/');
+        const dia = parseInt(splitData[0], 10);
+        const mes = parseInt(splitData[1], 10) - 1; // O mês em JavaScript é baseado em zero (0 - 11)
+        const ano = parseInt(splitData[2], 10);
+        const date = new Date(ano, mes, dia);
+        const finalData = date.toISOString().split('T')[0];
+        document.getElementById("data").value = finalData;
+        // console.log(document.getElementById("data").value);
+        document.getElementById("hora_inicio").value = hora_inicio;
+        document.getElementById("hora_fim").value = hora_fim;
+        document.getElementById("valor").value = valor;
+        document.getElementById("desc").value = servico;
+        // console.log(formaPagamento);
+        var radios = document.querySelectorAll('input[type="radio"]');
+        for (var i = 0; i < radios.length; i++) {
+          if(radios[i].value === formaPagamento){
+            radios[i].checked = true; // Marca o elemento radio correspondente
+            break; // Interrompe o loop, pois já encontrou a opção desejada
           }
+        // console.log(radios);
         }
+      }
 
-        function showModalDelete(id){
-          modalDelete.style.display = "block";
-          document.getElementById("idexc").value = document.getElementById("id").value;
-          document.getElementById("op").value= 1;
-        }
+      function showModalDelete(id){
+        modalDelete.style.display = "block";
+        document.getElementById("idexc").value = document.getElementById("id").value;
+        document.getElementById("op").value= 1;
+      }
+
+      //função que ativa o checkbox via javascript
+
+      function MudarStatusAtendimento(id) {
+        document.getElementById("id_status").value = id;
+        var submitButton = document.getElementById("submit_status");
+        submitButton.click();
+        console.log(id);
+      }
     </script>
 </html>
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

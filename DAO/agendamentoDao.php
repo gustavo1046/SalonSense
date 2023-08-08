@@ -19,7 +19,7 @@
             session_start();
             $admId = $_SESSION["id"];
             $sql = "INSERT INTO agendamento (nome_cliente, hora_inicio, hora_fim, data_agendamento, valor_agendamento, status_agendamento, desc_serviço_agendamento, forma_pagamento, Administrador_id_administrador)
-            VALUES ('$nome', '$hora_inicio', '$hora_fim', '$data', '$valor', 2, '$servico', '$forma', $admId);";
+            VALUES ('$nome', '$hora_inicio', '$hora_fim', '$data', '$valor', 0, '$servico', '$forma', $admId);";
             $conexao->query($sql);
             echo $conexao->error;
         }
@@ -36,9 +36,11 @@
                 $hora_fim = DateTime::createFromFormat($formato, $row["hora_fim"]);
                 $data_agendamento = new DateTime($row["data_agendamento"]);
                 $valor = $row["valor_agendamento"]; // converter para string no formato desejado
+                $status = $row["status_agendamento"];
                 $descricao = $row["desc_serviço_agendamento"];
                 $pagamento = $row["forma_pagamento"];
-                $agendamento = new Agendamento($nome_cliente, $hora_inicio, $hora_fim, $data_agendamento, $valor, $descricao, $pagamento, 1);
+                $adm = $row["Administrador_id_administrador"];
+                $agendamento = new Agendamento($nome_cliente, $hora_inicio, $hora_fim, $data_agendamento, $valor, $status, $descricao, $pagamento, $adm);
                 $agendamento->setId($row["id_agendamento"]);
                 array_push($agenda, $agendamento);
             }
@@ -57,9 +59,11 @@
                 $hora_fim = DateTime::createFromFormat($formato, $row["hora_fim"]);
                 $data_agendamento = new DateTime($row["data_agendamento"]);
                 $valor = $row["valor_agendamento"]; // converter para string no formato desejado
+                $status = $row["status_agendamento"];
                 $descricao = $row["desc_serviço_agendamento"];
                 $pagamento = $row["forma_pagamento"];
-                $agendamento = new Agendamento($nome_cliente, $hora_inicio, $hora_fim, $data_agendamento, $valor, $descricao, $pagamento, 1);
+                $adm = $row["Administrador_id_administrador"];
+                $agendamento = new Agendamento($nome_cliente, $hora_inicio, $hora_fim, $data_agendamento, $valor, $status, $descricao, $pagamento, $adm);
                 $agendamento->setId($row["id_agendamento"]);
                 array_push($agenda, $agendamento);
             }
@@ -90,6 +94,27 @@
             $sql = "DELETE FROM agendamento WHERE id_agendamento = '$id'";
             $conexao->query($sql);
             echo $conexao->error;
+        }
+
+        public function alterarStatus(int $id){
+            $conexao = Conexao::Conectar();
+            $sql_status = "SELECT status_agendamento FROM agendamento WHERE id_agendamento = $id;";
+            $confere_status = $conexao->query($sql_status);
+            echo $conexao->error;
+
+            $row = mysqli_fetch_assoc($confere_status);
+
+            if($row["status_agendamento"] == 1){
+                $sql = "UPDATE agendamento SET status_agendamento = 0 WHERE id_agendamento = $id;";
+                $conexao->query($sql);
+                echo $conexao->error;
+            }
+            else{
+                $sql = "UPDATE agendamento SET status_agendamento = 1 WHERE id_agendamento = $id;";
+                $conexao->query($sql);
+                echo $conexao->error;
+            }
+            
         }
     }
 ?>

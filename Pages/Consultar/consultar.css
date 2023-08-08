@@ -222,6 +222,10 @@ input[type="radio"] {
 input[type="radio"]:checked {
   background-color: var(--button); /* Define a cor de fundo do botão quando selecionado */
 }
+
+.status{
+  display:none;
+}
 /* .container {
     margin: auto;
     text-align: center;
