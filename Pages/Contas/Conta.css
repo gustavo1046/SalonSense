@@ -9,8 +9,9 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 90%;
 }
-
 
 img{
     width: 8%;
@@ -71,16 +72,18 @@ input[type="checkbox"] {
 
 .filter{
   width: 100%;
-  height: 50px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.date-filter{
+#data_inicio, #data_fim{
   padding: 0px 10px 0px 10px;
   border-radius: 10px;
   border-style: none;
   height: 30px;
-  width: 20rem;
-  margin-top: 10px;
+  width: 8rem;
   font-family: montserrat;
 }
 
@@ -88,10 +91,9 @@ input[type="checkbox"] {
     justify-content: center;
     align-items: center;
     font-family: montserrat;
-    min-height: 72vh;
+    min-height: 60vh;
     width: 480px;
 }
-
 
 #submit-filter, #editar, #deletar, #excluir{
   text-align: center;
@@ -121,8 +123,9 @@ input[type="checkbox"] {
 
 
 #info {
+    margin-top: 40px;
     width: 98%;
-    height: 75%;
+    height: 60%;
     overflow: auto;
 }
 /* Estilo para o scroll */
@@ -160,9 +163,6 @@ input[type="checkbox"] {
     margin-top: 10px;
 }
 
-a:hover{
-    box-shadow: 3px 3px 3px 3px var(--light);
-}
 
 #hora_inicio, #hora_fim{
   margin-top: 5px;

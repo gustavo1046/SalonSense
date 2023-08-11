@@ -14,8 +14,10 @@
         <div class="container">
             <div class="filter">
                 <form action="" method="POST">
+                    <p>Receita líquida por periodo</p>
                     <input type="date" id="data_inicio" name="data_inicio" required>
                     <input type="date" id="data_fim" name="data_fim" required >
+                    <input type="submit" id="submit" name="submit" value="Pesquisar">
                 </form>
             </div>
             <div id="info">
@@ -31,24 +33,9 @@
                     $data = $agenda->getData()->format("d/m/Y");
                     echo "<div class='item'>";
                     if($agenda->getStatus() == 0){
-                    echo "<button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."<br>".$data."</button>";
+                    echo "<button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$data."</button>";
                     }else{
-                    echo "<button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."<br>".$data."</button>";
-                    }
-                    echo "</div>";
-                endforeach; 
-                }
-                else{
-                $result = $dados->ListarAgendamentosData($date_filter);
-                foreach($result as $agenda):
-                    $hora_inicio = $agenda->getHoraInicio()->format('H:i');
-                    $hora_fim = $agenda->getHoraFim()->format('H:i');
-                    $data = $agenda->getData()->format("d/m/Y");
-                    echo "<div class='item'>";
-                    if($agenda->getStatus() == 0){
-                    echo "<button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."<br>".$data."</button>";
-                    }else{
-                    echo "<button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$hora_inicio." - ".$hora_fim."<br>".$data."</button>";
+                    echo "<button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$data."</button>";
                     }
                     echo "</div>";
                 endforeach; 
