@@ -3,10 +3,15 @@
     require_once __DIR__ ."../../classes/Agendamento.php";
     class ContasDAO{
         function ListarContas(Datetime $data1, DateTime $data2){
-            $data_inicio = $data1->format('Y-m-d');
-            $data_fim = $data2->format('Y-m-d');
+            if($data1 == null || $data2 == null){
+                $sql = "SELECT * FROM agendamento WHERE status_agendamento = 1;";
+            }
+            else {
+                $data_inicio = $data1->format('Y-m-d');
+                $data_fim = $data2->format('Y-m-d');
+                $sql = "SELECT * FROM agendamento WHERE data_agendamento BETWEEN '".$data_inicio."' and '".$data_fim."' and status_agendamento = 1;";
+            }
             $conexao = Conexao::Conectar();
-            $sql = "SELECT * FROM agendamento WHERE data_agendamento BETWEEN '".$data_inicio."' and '".$data_fim."';";
             $consulta = $conexao->query($sql);
             $formato = 'Y-m-d H:i:s';
             $agenda = array();
@@ -31,9 +36,18 @@
             $data_inicio = $data1->format('Y-m-d');
             $data_fim = $data2->format('Y-m-d');
             $conexao = Conexao::Conectar();
-            $sql = "SELECT SUM(valor_agendamento) FROM agendamento WHERE data_agendamento BETWEEN '".$data_inicio."' and '".$data_fim."';";
+            $sql = "SELECT SUM(valor_agendamento) as total FROM agendamento WHERE data_agendamento BETWEEN '".$data_inicio."' and '".$data_fim."' and status_agendamento = 1;";
             $consulta = $conexao->query($sql);
-            return $consulta;
+            echo $conexao->error;
+            $result = mysqli_fetch_assoc($consulta);
+            if($result){
+                $total = $result["total"];
+            }
+            else{
+                $total = 0;
+            }
+
+            return $total;
         }
     }
 ?>

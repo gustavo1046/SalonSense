@@ -35,19 +35,17 @@
                     $hora_fim = $agenda->getHoraFim()->format('H:i');
                     $data = $agenda->getData()->format("d/m/Y");
                     echo "<div class='item'>";
-                    if($agenda->getStatus() == 0){
                     echo "<button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$data."</button>";
-                    }else{
-                    echo "<button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$data."</button>";
-                    }
                     echo "</div>";
-                    echo "R$: ".$soma."kkkkkkkkkk";
-                endforeach;
-                
+                endforeach;    
+            echo "</div>";
+            echo "Renda Liquida no período: R$: ".$soma;
             ?>
-            </div>
+            <br>
+            <button id="download">Baixar Planilha</button><a href="../Home Page/HomePage.php" id="voltar">Voltar</a>
         </div>
     </main>
+
 </body>
 
 </html>

@@ -91,7 +91,7 @@ input[type="checkbox"] {
     justify-content: center;
     align-items: center;
     font-family: montserrat;
-    min-height: 60vh;
+    min-height: 75vh;
     width: 480px;
 }
 
@@ -125,7 +125,7 @@ input[type="checkbox"] {
 #info {
     margin-top: 40px;
     width: 98%;
-    height: 60%;
+    height: 52%;
     overflow: auto;
 }
 /* Estilo para o scroll */
@@ -145,7 +145,7 @@ input[type="checkbox"] {
   }
 
 
-  a {
+  a{
     text-align: center;
     line-height: 30px; /* Defina a altura do botão */
     text-decoration: none;
@@ -155,14 +155,47 @@ input[type="checkbox"] {
     border-radius: 10px;
     border-style: none;
     height: 30px;
-    width: 20em;
+    width: 10em;
     background-color: var(--button);
     border-style: none;
     font-family: montserrat;
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
+#download {
+  text-align: center;
+  line-height: 30px; /* Defina a altura do botão */
+  text-decoration: none;
+  color: whitesmoke;
+  border-radius: 10px;
+  border-style: none;
+  height: 30px;
+  width: 10em;
+  background-color: var(--button);
+  border-style: none;
+  font-family: montserrat;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#submit {
+  text-align: center;
+  line-height: 30px; /* Defina a altura do botão */
+  text-decoration: none;
+  color: whitesmoke;
+  border-radius: 10px;
+  border-style: none;
+  height: 30px;
+  width: 6em;
+  background-color: var(--button);
+  border-style: none;
+  font-family: montserrat;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+}
 
 #hora_inicio, #hora_fim{
   margin-top: 5px;
