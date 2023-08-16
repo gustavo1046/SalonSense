@@ -3,14 +3,10 @@
     require_once __DIR__ ."../../classes/Agendamento.php";
     class ContasDAO{
         function ListarContas(Datetime $data1, DateTime $data2){
-            if($data1 == null || $data2 == null){
-                $sql = "SELECT * FROM agendamento WHERE status_agendamento = 1;";
-            }
-            else {
-                $data_inicio = $data1->format('Y-m-d');
-                $data_fim = $data2->format('Y-m-d');
-                $sql = "SELECT * FROM agendamento WHERE data_agendamento BETWEEN '".$data_inicio."' and '".$data_fim."' and status_agendamento = 1;";
-            }
+
+            $data_inicio = $data1->format('Y-m-d');
+            $data_fim = $data2->format('Y-m-d');
+            $sql = "SELECT * FROM agendamento WHERE data_agendamento BETWEEN '".$data_inicio."' and '".$data_fim."' and status_agendamento = 1;";
             $conexao = Conexao::Conectar();
             $consulta = $conexao->query($sql);
             $formato = 'Y-m-d H:i:s';

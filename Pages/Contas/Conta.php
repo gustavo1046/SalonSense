@@ -16,7 +16,7 @@
                 <form action="#" method="POST">
                     <p>Receita líquida por periodo</p>
                     <input type="date" id="data_inicio" name="data_inicio" required>
-                    <input type="date" id="data_fim" name="data_fim" required >
+                    <input type="date" id="data_fim" name="data_fim" required>
                     <input type="submit" id="submit" name="submit" value="Pesquisar" onClick="ChangeValue()">
                 </form>
             </div>
