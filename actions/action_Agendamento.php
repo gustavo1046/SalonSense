@@ -24,68 +24,21 @@
     }
 
     else {
-        
-        $confere_horario = $dao->ConsultarAgendamentoData($data);
-        $count = 0; //variavel de contagem de incidencia no intervalo do horario
-    
-        $hora_i = $hora_inicio->format('H');
-        $hora_f = $hora_fim->format('H');
-    
-        if($hora_i > $hora_f){
-            echo "tu é doido é macho?"; //naaan
-        }
-        else{
-            foreach($confere_horario as $conf):
-                $nome_red = $conf->getNome_cliente();
-                $hora_inicio_cliente = $conf->getHoraInicio();
-                $hora_inicio_cliente = $hora_inicio_cliente->format('H');
-                $hora_fim_cliente = $conf->getHorafim();
-                $hora_fim_cliente = $hora_fim_cliente->format('H');
-        
-                if($hora_i >= $hora_inicio_cliente){
-                    if($hora_f <= $hora_fim_cliente && $hora_f >= $hora_inicio_cliente){
-                        $count += 1;
-                        $red = $nome_red;
-                    }
-                }
-            endforeach;
-            
-        }
         // echo $id;
         if ($op == 0){
             session_start();
-            $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, $status, $servico, $forma, 1);
+            $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, 0, $servico, $forma, 1);
             $dao->InserirAgendamento($agend);
-            if($count == 0){
-                header("Location: ../Pages/Agendamento/Agendamento.php");
-            }
-            else{
-                echo "horario de agendamento ja esta em uso123";
-            }
+            header("Location: ../Pages/Agendamento/Agendamento.php");
         }
         else if($op == 1) {
-            $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, $status, $servico, $forma, 1);
+            $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, 0, $servico, $forma, 1);
             $dao->editarAgendamento($id, $agend);
-            if($count == 0){
-                header("Location: ../Pages/Consultar/Consultar.php");
-            }
-            else{
-                if($red != $nome){
-                    echo  "horario de agendamento ja esta em uso";
-                }
-                else{
-                    header("Location: ../Pages/Consultar/Consultar.php");
-                }
-            }
+            header("Location: ../Pages/Consultar/Consultar.php");
         }
         else if($op == 2){
             $dao->excluirAgendamento($id);
-            if($count == 0){
-                header("Location: ../Pages/Consultar/Consultar.php");
-            }
-            else{
-                echo  "horario de agendamento ja esta em uso";
-            }
+            header("Location: ../Pages/Consultar/Consultar.php");
         }
     }
    

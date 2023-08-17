@@ -25,7 +25,7 @@
           <label>Hora Inicio: </label><input type="time" id="hora_inicio" name="hora_inicio" required>
           <label>Hora final: </label><input type="time" id="hora_fim" name="hora_final" required><br>
           <label>valor: </label><input type="number" id="valor" name="valor" required><br>
-          <label>Descrição: </label><input type="text" id="desc" name="desc" pattern="[A-Za-z0-9 ]+" maxlength="50" required><br>
+          <label>Descrição: </label><input type="text" id="desc" name="desc" maxlength="150" required><br>
           <br><input type="hidden" name="id" id="id">
               <input type="hidden" name="op" id="op" value=1>
           <div class="radio">
