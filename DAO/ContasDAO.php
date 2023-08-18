@@ -3,7 +3,6 @@
     require_once __DIR__ ."../../classes/Agendamento.php";
     class ContasDAO{
         function ListarContas(Datetime $data1, DateTime $data2){
-
             $data_inicio = $data1->format('Y-m-d');
             $data_fim = $data2->format('Y-m-d');
             $sql = "SELECT * FROM agendamento WHERE data_agendamento BETWEEN '".$data_inicio."' and '".$data_fim."' and status_agendamento = 1;";
