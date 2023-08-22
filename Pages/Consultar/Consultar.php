@@ -70,9 +70,9 @@
         </div>
         <div id="info">
           <?php
-            require_once __DIR__ ."/../../actions/action_Consultar.php";
+            require_once __DIR__ ."/../../actions/AgendamentoController.php";
             $date_filter = $_POST['data-filter'];
-            $dados = new action_Consultar();
+            $dados = new AgendamentoController();
             if(empty($date_filter)){
               $result = $dados->ListarAgendamentos();
               foreach($result as $agenda):
@@ -197,8 +197,8 @@
 
 
 
-<!-- // require_once __DIR__ ."/../../actions/action_Consultar.php";
-// $dados = new action_Consultar();
+<!-- // require_once __DIR__ ."/../../actions/AgendamentoController.php";
+// $dados = new AgendamentoController();
 // $result = $dados->ListarAgendamentos();
 // foreach($result as $agenda):
 //   if (isset($_POST['date_filter']))

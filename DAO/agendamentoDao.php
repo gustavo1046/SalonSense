@@ -2,7 +2,7 @@
     require_once __DIR__ . "/../data/conexao.php";
     require_once __DIR__ . "/../classes/Agendamento.php";
     class agendamentoDao{
-        public function InserirAgendamento(Agendamento $agendamento){
+        public function CadastrarAgendamento(Agendamento $agendamento){
             $conexao = Conexao::Conectar();
             $nome = $agendamento->getNome_cliente();
             $hora_inicio = $agendamento->getHoraInicio();
