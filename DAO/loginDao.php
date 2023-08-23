@@ -2,7 +2,7 @@
     require_once __DIR__ . "/../data/conexao.php";
     require_once __DIR__ . "/../classes/Administrador.php";
     class LoginDao{
-        public function login(Administrador $admin){
+        public function Logar(Administrador $admin){
             $conexao = Conexao::Conectar();
             $nome = $admin->getNome();
             $senha = $admin->getSenha();

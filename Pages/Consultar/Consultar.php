@@ -70,7 +70,7 @@
         </div>
         <div id="info">
           <?php
-            require_once __DIR__ ."/../../actions/AgendamentoController.php";
+            require_once __DIR__ ."/../../Controller/AgendamentoController.php";
             $date_filter = $_POST['data-filter'];
             $dados = new AgendamentoController();
             if(empty($date_filter)){

@@ -70,7 +70,7 @@
             return $agenda;
         }
 
-        public function editarAgendamento(int $id, Agendamento $agendamento){
+        public function EditarAgendamento(int $id, Agendamento $agendamento){
             $conexao = Conexao::Conectar();
             $nome = $agendamento->getNome_cliente();
             $hora_inicio = $agendamento->getHoraInicio();
@@ -89,14 +89,14 @@
             echo $conexao->error;
         }
 
-        public function excluirAgendamento(int $id){
+        public function ExcluirAgendamento(int $id){
             $conexao = Conexao::Conectar();
             $sql = "DELETE FROM agendamento WHERE id_agendamento = '$id'";
             $conexao->query($sql);
             echo $conexao->error;
         }
 
-        public function alterarStatus(int $id){
+        public function AlterarStatus(int $id){
             $conexao = Conexao::Conectar();
             $sql_status = "SELECT status_agendamento FROM agendamento WHERE id_agendamento = $id;";
             $confere_status = $conexao->query($sql_status);
