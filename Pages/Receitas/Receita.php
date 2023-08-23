@@ -63,17 +63,21 @@
     </div>
 
     <div class="container">
-        <form class="receita_form" method="POST" action="../../actions/action_Receita.php"
+        <form class="receita_form" method="POST" action="../../actions/action_Receita.php">
+          <input type="text" name="nome" id ="nome" maxlength="50"><br>
+          <input type="text" name="descricao" id ="descricao" maxlength="200"><br><br>
+          <input type="submit" name="submit" id="submit">
+        </form>
         <div id="info">
           <?php
-            require_once __DIR__ ."/../../actions/action_Receita.php";
-            $dados = new action_Receita();
+            require_once __DIR__ ."/../../Controller/ReceitaController.php";
+            $dados = new ReceitaController();
             $result = $dados->ListarReceitas();
             foreach($result as $receita):
               echo "<div class='item'>";
-                echo "<button class='button_receita' onclick='showModal(".$receita->getId().", \"".$receita->getNome_cliente()."\", \"".$receita->getDescricao_receita()."<br>".$data."</button>";
+                echo "<button class='button_receita' onclick='showModal(".$receita->getId_receita().", \"".$receita->getNome_cliente()."\", \"".$receita->getDescricao_receita()."\")'>".$receita->getNome_cliente()."</button>";
               echo "</div>";
-            endforeach; 
+            endforeach;                                                                                             
           ?>
         </div>
         <a href="/Pages/Home Page/HomePage.php">Voltar ao inicio</a>
