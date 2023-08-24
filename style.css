@@ -4,7 +4,7 @@
     --thistle: #FFA8A9; 
     --platinum: #f3bdce;
     --lavender: #A14A76; 
-    --raisin: #ff888a;
+    --raisin: #fc999a;
 
     
     --background: var(--old-rose);
@@ -12,8 +12,8 @@
     --background2: var(--thistle);
     --shadow: var(--lavender);
     --light: var(--platinum);
+    --background3: var(--raisin);
 }
-
 
 body{
     font-family: montserrat;

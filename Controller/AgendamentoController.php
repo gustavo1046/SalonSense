@@ -25,9 +25,9 @@
             $dao->alterarStatus($id);
         }
         
-        public function EditarAgendamento(int $id, Agendamento $agend){
+        public function EditarAgendamento(Agendamento $agend){
             $dao = new AgendamentoDao();
-            $dao->EditarAgendamento($id, $agend);
+            $dao->EditarAgendamento($agend);
         }
 
         public function ExcluirAgendamento(int $id){

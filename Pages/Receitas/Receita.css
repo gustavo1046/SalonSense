@@ -42,6 +42,19 @@ input[type=checkbox]:checked:after {
   left: 9px;
 }
 
+.modal-content{
+  height: 13rem;
+}
+
+.receita_form{
+  display: block;
+  justify-content: center; 
+  align-items: center; 
+  width: 100%;
+  height: 30%;
+  padding-top: 10px;
+}
+
 .button_receita{
   text-decoration: none;
   border-style: none;
@@ -86,6 +99,9 @@ input[type="checkbox"] {
     width: 480px;
 }
 
+.edit{
+  height: 100%;
+}
 
 #submit, #editar, #deletar, #excluir{
   text-align: center;
@@ -95,13 +111,14 @@ input[type="checkbox"] {
   margin: auto;
   border-radius: 10px;
   border-style: none;
-  width: 6rem;
+  width: 10rem;
   height: 30px;
   background-color: var(--button);
   border-style: none;
   font-family: montserrat;
   font-size: 14px;
   margin-left: 1em;
+  margin-top: 10px;
   /* padding: 5px 15px 5px 15px; */
 }
 
@@ -115,9 +132,13 @@ input[type="checkbox"] {
 
 
 #info {
-    width: 98%;
-    height: 60%;
+    display: block;
+    width: 97%;
+    height: 50%;
     overflow: auto;
+    background-color: var(--background3);
+    margin-left: 0.5rem;
+    border-radius: 10px;
 }
 /* Estilo para o scroll */
 ::-webkit-scrollbar {
@@ -158,16 +179,6 @@ a:hover{
     box-shadow: 3px 3px 3px 3px var(--light);
 }
 
-#hora_inicio, #hora_fim{
-  margin-top: 5px;
-  width: 7em;
-}
-
-#valor{
-  margin-top: 5px;
-  width: 80%;
-  min-width: 7em;
-}
 
 #nome, #descricao{
   line-height: 30px; /* Defina a altura do botão */
@@ -185,10 +196,23 @@ a:hover{
   /* padding: 5px 15px 5px 15px; */
 }
 
-#desc{
-  height: 4em;
+#descricao{
+  height:20%;
+}
+
+#descricao_modal{
+  line-height: 30px; /* Defina a altura do botão */
+  text-decoration: none;
+  margin: auto;
+  border-radius: 10px;
+  border-style: none;
+  background-color: whitesmoke;
+  border-style: none;
+  font-family: montserrat;
+  font-size: 14px;
+  margin-top: 0.5em;
   width: 70%;
-  min-width: 7em;
+  height: 100px;
 }
 
 #radio{

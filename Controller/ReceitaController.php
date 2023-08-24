@@ -7,9 +7,15 @@
             return $result;
         }
 
-        public function CadastraReceita(Receita $receita){
+        public function CadastrarReceita(Receita $receita){
             $dao = new ReceitaDAO();
-            $dao->CadastraReceita($receita);
+            $dao->CadastrarReceita($receita);
         }
+
+        public function EditarReceita(Receita $receita){
+            $dao = new ReceitaDAO();
+            $dao->EditarReceita($receita);
+        }
+
     }
 ?>

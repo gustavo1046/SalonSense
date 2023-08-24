@@ -19,29 +19,11 @@
     <div id="modalEdit" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <form class="edit" method="POST" action="../../actions/action_Agendamento.php">
+        <form class="edit" method="POST" action="../../actions/action_Receita.php">
           <label>Nome: </label><input type="text" id="nome" name="nome" required>
-          <label>Data: </label><input type="date" id="data" name="data" required><br>
-          <label>Hora Inicio: </label><input type="time" id="hora_inicio" name="hora_inicio" required>
-          <label>Hora final: </label><input type="time" id="hora_fim" name="hora_final" required><br>
-          <label>valor: </label><input type="number" id="valor" name="valor" required><br>
-          <label>Descrição: </label><input type="text" id="desc" name="desc" maxlength="150" required><br>
+          <label>Descrição: </label><input type="text" id="descricao_modal" name="descricao" maxlength="200" required><br>
           <br><input type="hidden" name="id" id="id">
               <input type="hidden" name="op" id="op" value=1>
-          <div class="radio">
-            <label>
-              <input type="radio" name="opcao" value="Dinheiro"  id="Dinheiro" checked>
-              Dinheiro
-            </label>
-            <label>
-              <input type="radio" name="opcao" value="Cartâo" id="Cartão"> 
-              Cartão
-            </label>
-            <label>
-              <input type="radio" name="opcao" value="Pix" id="Pix">
-              Pix
-            </label>
-          </div>
           <input type="submit" value="editar" id="editar">
           <input type="button" value="deletar" id="deletar" onclick="showModalDelete()">
         </form>
@@ -64,9 +46,9 @@
 
     <div class="container">
         <form class="receita_form" method="POST" action="../../actions/action_Receita.php">
-          <input type="text" name="nome" id ="nome" maxlength="50"><br>
-          <input type="text" name="descricao" id ="descricao" maxlength="200"><br><br>
-          <input type="submit" name="submit" id="submit">
+          <input type="text" name="nome" id ="nome" maxlength="50" placeholder="Nome do cliente" required>
+          <input type="text" name="descricao" id ="descricao" maxlength="200" placeholder="Descrição da receita" required><br>
+          <input type="submit" name="submit" id="submit" value="Cadastrar Receita">
         </form>
         <div id="info">
           <?php
@@ -113,11 +95,12 @@
       }
 
       // Exibe o modal quando o usuário clica em um botão
-      function showModal(id, nome, data, hora_inicio, hora_fim, valor, servico, formaPagamento) {
+      function showModal(id, nome, descricao) {
         modal.style.display = "block";
         document.getElementById("id").value = id;
         document.getElementById("op").value= 1;
         document.getElementById("nome").value = nome;
+        document.getElementById("descricao_modal").value = descricao;
       }
 
       function showModalDelete(id){

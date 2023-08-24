@@ -70,7 +70,7 @@
             return $agenda;
         }
 
-        public function EditarAgendamento(int $id, Agendamento $agendamento){
+        public function EditarAgendamento(Agendamento $agendamento){
             $conexao = Conexao::Conectar();
             $nome = $agendamento->getNome_cliente();
             $hora_inicio = $agendamento->getHoraInicio();
@@ -82,6 +82,7 @@
             $valor = $agendamento->getValor();
             $servico = $agendamento->getServico();
             $forma = $agendamento->getFormaPagamento();
+            $id = $agendamento->getId();
 
             $sql = "UPDATE agendamento SET nome_cliente = '$nome', hora_inicio = '$hora_inicio', hora_fim ='$hora_fim', data_agendamento = '$data', valor_agendamento = '$valor', desc_serviço_agendamento = '$servico', forma_pagamento= '$forma'
             WHERE id_agendamento = $id;";

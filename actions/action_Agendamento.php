@@ -16,10 +16,10 @@
     $id = $_POST["id"];
     $id_status = $_POST["id_status"];
 
-    $dao = new AgendamentoController();
+    $agendController = new AgendamentoController();
 
     if ($id_status != null){ //verifica se ele quer apenas alterar o status da tarefa e nao utilizar funções com objeto agendamento
-        $dao->AlterarStatus($id_status);
+        $agendController->AlterarStatus($id_status);
         header("Location: ../Pages/Consultar/Consultar.php");
     }
 
@@ -28,16 +28,17 @@
         if ($op == 0){
             session_start();
             $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, 0, $servico, $forma, 1);
-            $dao->CadastrarAgendamento($agend);
+            $agendController->CadastrarAgendamento($agend);
             header("Location: ../Pages/Agendamento/Agendamento.php");
         }
         else if($op == 1) {
             $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, 0, $servico, $forma, 1);
-            $dao->EditarAgendamento($id, $agend);
+            $agend->setId($id);
+            $agendController->EditarAgendamento($agend);
             header("Location: ../Pages/Consultar/Consultar.php");
         }
         else if($op == 2){
-            $dao->ExcluirAgendamento($id);
+            $agendController->ExcluirAgendamento($id);
             header("Location: ../Pages/Consultar/Consultar.php");
         }
     }
