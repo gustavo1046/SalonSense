@@ -27,13 +27,15 @@
         // echo $id;
         if ($op == 0){
             session_start();
-            $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, 0, $servico, $forma, 1);
+            $adm = $_SESSION["adm"];
+            $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, 0, $servico, $forma, $adm);
             $agendController->CadastrarAgendamento($agend);
             header("Location: ../Pages/Agendamento/Agendamento.php");
         }
         else if($op == 1) {
-            $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, 0, $servico, $forma, 1);
-            $agend->setId($id);
+            session_start();
+            $adm = $_SESSION["adm"];
+            $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, 0, $servico, $forma, $adm);
             $agendController->EditarAgendamento($agend);
             header("Location: ../Pages/Consultar/Consultar.php");
         }

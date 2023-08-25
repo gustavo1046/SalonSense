@@ -9,12 +9,15 @@
 
     if ($op == 0){
         session_start();
-        $agend = new Receita($nome, $descricao, 1);
+        $adm = $_SESSION["adm"];
+        $agend = new Receita($nome, $descricao, $adm);
         $receitaControl->CadastrarReceita($agend);
         header("Location: ../Pages/Receitas/Receita.php");
     }
     else if($op == 1) {
-        $receita = new Receita($nome, $descricao, 1);
+        session_start();
+        $adm = $_SESSION["adm"];
+        $receita = new Receita($nome, $descricao, $adm);
         $receita->setId_receita($id);
         $receitaControl->EditarReceita($receita);
         header("Location: ../Pages/Receitas/Receita.php");
