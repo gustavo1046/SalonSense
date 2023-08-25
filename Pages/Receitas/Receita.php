@@ -33,7 +33,7 @@
     <div class="modal" id="modalExc">
         <div class="modal-content-exc">
           <span class="close">&times;</span>
-          <form action="../../actions/action_Agendamento.php" method="POST">
+          <form action="../../actions/action_Receita.php" method="POST">
             <div class="modal-footer">
                 <input type="hidden" id="idexc" name="id">
                 <input type="hidden" id="op" name="op" value=2>

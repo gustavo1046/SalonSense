@@ -34,5 +34,12 @@
             $conexao->query($sql);
             echo $conexao->error;
         }
+
+        public function ExcluirReceita(int $id){
+            $conexao = Conexao::Conectar();
+            $sql = "DELETE FROM receita WHERE id_receita = $id;";
+            $conexao->query($sql);
+            echo $conexao->error;
+        }
     }
 ?>

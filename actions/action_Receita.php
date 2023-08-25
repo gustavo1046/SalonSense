@@ -5,7 +5,6 @@
     $descricao = $_POST["descricao"];
     $op = $_POST["op"];//valor que diferencia um cadastro de uma edição de um agendamento
     $id = $_POST["id"];
-    $receita = new Receita($nome, $descricao, 1);
     $receitaControl = new ReceitaController();
 
     if ($op == 0){
@@ -20,10 +19,10 @@
         $receitaControl->EditarReceita($receita);
         header("Location: ../Pages/Receitas/Receita.php");
     }
-    // else if($op == 2){
-    //     $receitaControl->ExcluirReceita($id);
-    //     header("Location: ../Pages/Receitas/Receita.php");
-    // }
+    else if($op == 2){
+        $receitaControl->ExcluirReceita($id);
+        header("Location: ../Pages/Receitas/Receita.php");
+    }
     
 ?>
 

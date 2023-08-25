@@ -17,5 +17,10 @@
             $dao->EditarReceita($receita);
         }
 
+        public function ExcluirReceita($id){
+            $dao = new ReceitaDao();
+            $dao->ExcluirReceita($id);
+        }
+
     }
 ?>
