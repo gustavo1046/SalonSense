@@ -15,13 +15,10 @@
                 $rows += 1;
             }
             if($rows == 1){
-                session_start();
-                $_SESSION["adm"] = $adm;
-                // echo $_SESSION["id"];
-                header("Location: ../Pages/Home Page/HomePage.php");
+                return $adm;
             }
             else{
-                echo "nothings else matters8";
+                return null;
             }
         }
     }
