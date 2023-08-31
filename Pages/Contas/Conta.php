@@ -38,11 +38,13 @@
                     echo "<button class='button_agenda' onclick='showModal(".$agenda->getId().", \"".$agenda->getNome_cliente()."\", \"".$data."\", \"".$hora_inicio."\", \"".$hora_fim."\", \"".$agenda->getValor()."\", \"".$agenda->getServico()."\", \"".$agenda->getFormaPagamento()."\")'>".$agenda->getNome_cliente()." | ".$data."</button>";
                     echo "</div>";
                 endforeach;    
-            echo "</div>";
-            echo "Renda Liquida no período: R$: ".$soma;
+                echo "</div>";
+                echo "Renda Liquida no período: R$: ".$soma;
             ?>
+            </div>
             <br>
             <button id="download">Baixar Planilha</button><a href="../Home Page/HomePage.php" id="voltar">Voltar</a>
+            <a href="../Home Page/HomePage.php">Voltar ao Início</a>
         </div>
     </main>
 
