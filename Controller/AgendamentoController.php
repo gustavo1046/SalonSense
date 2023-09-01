@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . '/../DAO/agendamentoDao.php';
+    require_once __DIR__ . '/../DAO/AgendamentoDao.php';
     require_once __DIR__ . "/../classes/Agendamento.php";
 
     class AgendamentoController{

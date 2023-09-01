@@ -17,7 +17,7 @@
             $forma = $agendamento->getFormaPagamento();
             // $id_adm = $agendamento->getIdAdm();
             session_start();
-            $admId = $_SESSION["id"];
+            $admId = $_SESSION["adm"];
             $sql = "INSERT INTO agendamento (nome_cliente, hora_inicio, hora_fim, data_agendamento, valor_agendamento, status_agendamento, desc_serviço_agendamento, forma_pagamento, Administrador_id_administrador)
             VALUES ('$nome', '$hora_inicio', '$hora_fim', '$data', '$valor', 0, '$servico', '$forma', $admId);";
             $conexao->query($sql);
