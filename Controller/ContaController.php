@@ -1,7 +1,7 @@
 <?php
     require_once __DIR__ . "/../DAO/ContasDao.php";
 
-    class action_Contas{
+    class ContaController{
         public function ListaContas(DateTime $data1, DateTime $data2){
             $dao = new ContasDAO();
             $result = $dao->ListarContas($data1, $data2);
