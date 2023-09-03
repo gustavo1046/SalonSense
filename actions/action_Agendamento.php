@@ -36,6 +36,7 @@
             session_start();
             $adm = $_SESSION["adm"];
             $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, 0, $servico, $forma, $adm);
+            $agend->setId($id);
             $agendController->EditarAgendamento($agend);
             header("Location: ../Pages/Consultar/Consultar.php");
         }
