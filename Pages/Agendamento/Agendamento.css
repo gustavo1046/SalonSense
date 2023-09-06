@@ -17,6 +17,10 @@ img{
 
 }
 
+.modal-content-exc{
+    height: 5rem;
+  }
+
 #nome, #hora_inicio, #hora_final, #data, #valor, #desc, #telefone, #agendar{
     padding: 0px 10px 0px 10px;
     border-radius: 10px;
