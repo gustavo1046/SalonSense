@@ -17,7 +17,7 @@ img{
 
 }
 
-input{
+#nome, #hora_inicio, #hora_final, #data, #valor, #desc, #telefone, #agendar{
     padding: 0px 10px 0px 10px;
     border-radius: 10px;
     border-style: none;
@@ -79,3 +79,33 @@ a:hover{
     box-shadow: 5px 5px 5px 5px var(--light);
 }
 
+.cliente{
+    text-align: left;
+    padding-left: 2rem;
+    margin-top: 5px;
+}
+
+input[type=checkbox]:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--background);
+  }
+  
+  input[type=checkbox]:checked:after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 5px;
+    left: 400px;
+    margin-left:5px;
+  }
+  

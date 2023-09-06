@@ -42,6 +42,12 @@ input[type=checkbox]:checked:after {
   left: 9px;
 }
 
+input[type="checkbox"] {
+  background-color: var(--background);
+  border-style: none;
+}
+
+
 .button_agenda{
   text-decoration: none;
   border-style: none;
@@ -58,10 +64,6 @@ input[type=checkbox]:checked:after {
   font-size: 105%;
 }
 
-input[type="checkbox"] {
-  background-color: var(--background);
-  border-style: none;
-}
 
 .filter{
   width: 100%;

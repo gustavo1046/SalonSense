@@ -17,30 +17,32 @@
     </header>
     <div class="container">
       <form action="../../actions/action_Agendamento.php" method="POST">
+        
         <input type="text" name="nome" placeholder="nome da cliente" id="nome" pattern="[A-Za-z0-9 ]+" maxlength="30" required><br>
         <input type="time" name="hora_inicio" placeholder="inicio do atendimento" id="hora_inicio" required><br>
         <input type="time" name="hora_final" placeholder="final do atendimento" id="hora_final" required><br>
         <input type="date" name="data" placeholder="data do atendimento" id="data" required><br>
         <input tyle="number" name="valor" placeholder="valor do serviço" id="valor" required><br>
         <input type="text" name="desc" placeholder="descrição" maxlength="150" id="desc" required><br>
+        <input type="tel" name="telefone" placeholder="telefone de contato" id="telefone"><br>
         <div class="radio">
           <label>
               <input type="radio" name="opcao" value="Dinheiro"  id="opcao1" checked>
               Dinheiro
             </label>
-            <br>
             <label>
               <input type="radio" name="opcao" value="Cartâo" id="opcao2"> 
               Cartão
             </label>
-            <br>
             <label>
-              <input type="radio" name="opcao" value="Pix" id="opcao3">
-              Pix
+              <input type="radio" name="opcao" value="Pix" id="opcao3">Pix
             </label>
         </div>
+        <div class="cliente">
+          <input type="checkbox" name="opcao_cliente" id="opcao_cliente">  cliente fixo?
+        </div>
         <div class="sub">
-          <input type="submit" value="Agendar">
+          <input type="submit" value="Agendar" id="agendar">
         </div>
         <a href="../Home Page/HomePage.php">Voltar ao inicio</a>
         <input type="hidden" name="op" id ="op" value=0>
