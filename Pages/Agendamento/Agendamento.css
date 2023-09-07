@@ -14,14 +14,13 @@ img{
 
 .container{
     height:30rem;
-
 }
 
 .modal-content-exc{
     height: 5rem;
   }
 
-#nome, #hora_inicio, #hora_final, #data, #valor, #desc, #telefone, #agendar{
+#nome, #hora_inicio, #hora_final, #data, #valor, #desc, #telefone, #cad_cliente{
     padding: 0px 10px 0px 10px;
     border-radius: 10px;
     border-style: none;
@@ -31,9 +30,12 @@ img{
     font-family: montserrat;
 }
 
-input[type="submit"]{
+#agendar{
     background-color: var(--button);
     color: whitesmoke;
+}
+#agendar:hover{
+    box-shadow: 5px 5px 5px 5px var(--light);
 }
 
 input[type="radio"] {
@@ -56,11 +58,7 @@ input[type="radio"]:checked {
     text-align: center;
 }
 
-input[type="submit"]:hover{
-    box-shadow: 5px 5px 5px 5px var(--light);
-}
-
-a {
+a, #agendar, #tel_button {
     text-align: center;
     line-height: 30px; /* Defina a altura do botão */
     text-decoration: none;
@@ -69,7 +67,7 @@ a {
     margin: auto;
     border-radius: 10px;
     border-style: none;
-    height: 30%;
+    height: 30px;
     width: 20rem;
     margin-top: 10px;
     background-color: var(--button);
@@ -79,7 +77,7 @@ a {
     font-size: 14px;
 }
 
-a:hover{
+a:hover, #agendar:hover, #tel_button:hover{
     box-shadow: 5px 5px 5px 5px var(--light);
 }
 
