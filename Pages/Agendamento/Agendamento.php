@@ -13,55 +13,73 @@
 ?>
 <body>
 
-<div class="modal" id="modalExc">
-        <div class="modal-content-exc">
-          <span class="close">&times;</span>
-            <div class="modal-footer">
-                <input type="tel" name="telefone" placeholder="telefone de contato" id="telefone" required><br>
-                <button id="tel_button" onclick="">Cadastrar cliente</button>
-            </div>      
-        </div>
+  <div class="modal" id="modalExc">
+    <div class="modal-content-exc">
+      <span class="close">&times;</span>
+        <div class="modal-footer">
+            <input type="tel" name="telefone" placeholder="telefone de contato" id="telefone" required><br>
+            <button id="tel_button" onclick="cadastrarCliente()">Cadastrar cliente</button>
+        </div>      
     </div>
+  </div>
+  <div class="modal" id="modalPre">
+    <div class="modal-content-pre">
+      <span class="closePre">&times;</span>
+        <div class="modal-footer">
+            Preencha todos os campos para realizar o cadastro!
+        </div>      
+    </div>
+  </div>
 
-
-    <header>
-        <img src="../../assets/logo.png">
-    </header>
-    <div class="container">
-      <form action="../../actions/action_Agendamento.php" method="POST" id="formulario">    
-        <input type="text" name="nome" placeholder="nome da cliente" id="nome" pattern="[A-Za-z0-9 ]+" maxlength="30" required><br>
-        <input type="time" name="hora_inicio" placeholder="inicio do atendimento" id="hora_inicio" required><br>
-        <input type="time" name="hora_final" placeholder="final do atendimento" id="hora_final" required><br>
-        <input type="date" name="data" placeholder="data do atendimento" id="data" required><br>
-        <input tyle="number" name="valor" placeholder="valor do serviço" id="valor" required><br>
-        <input type="text" name="desc" placeholder="descrição" maxlength="150" id="desc" required><br>
-        <input type="hidden" name="telefone" placeholder="telefone de contato" id="tel">
-        <div class="radio">
-          <br>
+  <header>
+      <img src="../../assets/logo.png">
+  </header>
+  <div class="container">
+    <form action="../../actions/action_Agendamento.php" method="POST" id="formulario">    
+      <input type="text" name="nome" placeholder="nome da cliente" id="nome" pattern="[A-Za-z0-9 ]+" maxlength="30" required><br>
+      <input type="time" name="hora_inicio" placeholder="inicio do atendimento" id="hora_inicio" required><br>
+      <input type="time" name="hora_final" placeholder="final do atendimento" id="hora_final" required><br>
+      <input type="date" name="data" placeholder="data do atendimento" id="data" required><br>
+      <input tyle="number" name="valor" placeholder="valor do serviço" id="valor" required><br>
+      <input type="text" name="desc" placeholder="descrição" maxlength="150" id="desc" required><br>
+      <input type="hidden" name="telefone" placeholder="telefone de contato" id="tel">
+      <div class="radio">
+        <br>
+        <label>
+            <input type="radio" name="opcao" value="Dinheiro"  id="opcao1" checked>
+            Dinheiro
+          </label>
           <label>
-              <input type="radio" name="opcao" value="Dinheiro"  id="opcao1" checked>
-              Dinheiro
-            </label>
-            <label>
-              <input type="radio" name="opcao" value="Cartâo" id="opcao2"> 
-              Cartão
-            </label>
-            <label>
-              <input type="radio" name="opcao" value="Pix" id="opcao3">Pix
-            </label>
-        </div>
-        <div class="cliente">
-          <input type="checkbox" name="opcao_cliente" id="opcao_cliente">  cliente fixo?
-        </div>
-        <input type="hidden" name="op" id ="op" value=0>
-        <div class="sub">
-        </form>
-          <button type="button" id="agendar" onclick="clienteFixo()">Agendar</button>
-        </div>
-        <a href="../Home Page/HomePage.php">Voltar ao inicio</a>
-    </div>  
+            <input type="radio" name="opcao" value="Cartâo" id="opcao2"> 
+            Cartão
+          </label>
+          <label>
+            <input type="radio" name="opcao" value="Pix" id="opcao3">Pix
+          </label>
+      </div>
+      <div class="cliente">
+        <input type="checkbox" name="opcao_cliente" id="opcao_cliente" onclick="MudaSubmit()">  cliente fixo?
+      </div>
+      <input type="hidden" name="op" id ="op" value=0>
+      <div class="sub">
+      </form>
+        <input type="submit" id="agendar" value="Agendar" onclick="clienteFixo()">
+      </div>
+      <a href="../Home Page/HomePage.php">Voltar ao inicio</a>
+  </div>  
 </body>
 <script>
+
+  function MudaSubmit(){
+    var botao = document.getElementById("agendar");
+    if(botao.type == "submit"){
+      botao.type = "button"
+    }
+    else{
+      botao.type = "submit"
+    }
+
+  }
 
   function verificarCampos() {
   // Obtém o formulário pelo ID
@@ -88,15 +106,6 @@
       if(tel.checked){
         showModalDelete();
       }
-      else{
-        var verifica = verificarCampos();
-        if(verifica){
-          submitFormulario();
-        }
-        else{
-          alert("preenche saporra ai");
-        }
-      }
     }
 
     function submitFormulario(){
@@ -104,7 +113,7 @@
       formulario.submit();
     }
 
-    function showModalDelete(id){
+    function showModalDelete(){
       var modalDelete = document.getElementById("modalExc");
       var spanDel = document.getElementsByClassName("close")[1];
 
@@ -124,11 +133,38 @@
       modalDelete.style.display = "block";
     }
 
-    function TelefoneValor(){
+    function showModalAlert(){
+      var modalDelete = document.getElementById("modalExc");
+      var spanDel = document.getElementsByClassName("close")[1];
+
+      // Quando o usuário clicar no botão "fechar" ou fora do modal, feche-o
+
+      spanDel.onclick = function() {
+        modalDelete.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modalDelete) {
+          modalDelete.style.display = "none";
+        }
+
+      }
+
+      modalDelete.style.display = "block";
+    }
+
+    function cadastrarCliente(){
       var tel = document.getElementById("telefone").value;
       document.getElementById("tel").value = tel;
-      var formulario = document.getElementById("formulario"); 
-      // submitFormulario();
+      var verifica = verificarCampos();
+      if(verifica){
+        submitFormulario();
+      }
+      else{
+        // alert("oi");
+        showModalAlert();
+      }
+
     }
   </script>
 </html>

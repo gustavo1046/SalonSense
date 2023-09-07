@@ -16,7 +16,7 @@ img{
     height:30rem;
 }
 
-.modal-content-exc{
+.modal-content-exc, .modal-content-pre{
     height: 5rem;
   }
 
