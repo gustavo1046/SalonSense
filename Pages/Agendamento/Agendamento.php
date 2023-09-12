@@ -93,7 +93,7 @@
 
   // Itera por todos os campos e verifica se estão preenchidos
   for (var i = 0; i < campos.length; i++) {
-    if (campos[i].value.trim() === "") {
+    if (campos[i].value.trim() == "") {
       todosCamposPreenchidos = false;
       break; // Se encontrar um campo vazio, sai do loop
     }
@@ -134,23 +134,22 @@
     }
 
     function showModalAlert(){
-      var modalDelete = document.getElementById("modalExc");
-      var spanDel = document.getElementsByClassName("close")[1];
+      var modalPre = document.getElementById("modalPre");
+      var spanPre = document.getElementsByClassName("closePre")[0];
 
       // Quando o usuário clicar no botão "fechar" ou fora do modal, feche-o
 
-      spanDel.onclick = function() {
-        modalDelete.style.display = "none";
+      spanPre.onclick = function() {
+        modalPre.style.display = "none";
       }
 
       window.onclick = function(event) {
-        if (event.target == modalDelete) {
-          modalDelete.style.display = "none";
+        if (event.target == modalPre) {
+          modalPre.style.display = "none";
         }
 
       }
-
-      modalDelete.style.display = "block";
+      modalPre.style.display = "block";
     }
 
     function cadastrarCliente(){

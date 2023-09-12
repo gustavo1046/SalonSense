@@ -48,7 +48,7 @@ body{
     background-color: rgba(0,0,0,0.4);
   }
   
-  .modal-content, .modal-content-exc{
+  .modal-content, .modal-content-exc, .modal-content-pre{
     text-align: center;
     background-color: var(--background2);
     margin: 10% auto;
@@ -60,7 +60,7 @@ body{
     border-style: none;
   }
 
-  .modal-content-exit {
+  .modal-content-exit{
     text-align: center;
     background-color: var(--background2);
     margin: 10% auto;
@@ -72,15 +72,14 @@ body{
     border-style: none;
   }
   
-  .close {
+  .close, .closePre {
     color: var(--button);
     float: right;
     font-size: 40px;
     font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
+  .close:hover, .close:focus, .closePre:hover, .closePre:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
