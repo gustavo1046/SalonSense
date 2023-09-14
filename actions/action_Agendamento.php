@@ -1,6 +1,8 @@
 <?php
     require_once __DIR__ . "/../classes/Agendamento.php";
     require_once __DIR__ . "/../Controller/AgendamentoController.php";
+    require_once __DIR__ ."../../classes/Cliente.php";
+    require_once __DIR__ ."../../Controller/ClienteController.php";
 
     $nome = $_POST["nome"];
     $hora1 = $_POST["hora_inicio"];
@@ -15,37 +17,47 @@
     $op = $_POST["op"];//valor que diferencia um cadastro de uma edição de um agendamento
     $id = $_POST["id"];
     $id_status = $_POST["id_status"];
+    $telefone = $_POST["telefone"];
 
-    $agendController = new AgendamentoController();
-
-    if ($id_status != null){ //verifica se ele quer apenas alterar o status da tarefa e nao utilizar funções com objeto agendamento
-        $agendController->AlterarStatus($id_status);
-        header("Location: ../Pages/Consultar/Consultar.php");
+    if($telefone != null ){
+        $clienteController = new ClienteController();
+        echo "vai da certo";
+        $cliente = new Cliente($nome, $telefone, $data_agend);
+        echo "vai da errado";
+        $clienteController->CadastrarCliente($cliente);
+        echo "agr vai";
     }
 
-    else {
-        // echo $id;
-        if ($op == 0){
-            session_start();
-            $adm = $_SESSION["adm"];
-            $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, 0, $servico, $forma, $adm);
-            $agendController->CadastrarAgendamento($agend);
-            header("Location: ../Pages/Agendamento/Agendamento.php");
-        }
-        else if($op == 1) {
-            session_start();
-            $adm = $_SESSION["adm"];
-            $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, 0, $servico, $forma, $adm);
-            $agend->setId($id);
-            $agendController->EditarAgendamento($agend);
-            header("Location: ../Pages/Consultar/Consultar.php");
-        }
-        else if($op == 2){
-            $agendController->ExcluirAgendamento($id);
-            header("Location: ../Pages/Consultar/Consultar.php");
-        }
-    }
+//     $agendController = new AgendamentoController();
+
+//     if ($id_status != null){ //verifica se ele quer apenas alterar o status da tarefa e nao utilizar funções com objeto agendamento
+//         $agendController->AlterarStatus($id_status);
+//         header("Location: ../Pages/Consultar/Consultar.php");
+//     }
+
+//     else {
+//         // echo $id;
+//         if ($op == 0){
+//             session_start();
+//             $adm = $_SESSION["adm"];
+//             $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, 0, $servico, $forma, $adm);
+//             $agendController->CadastrarAgendamento($agend);
+//             header("Location: ../Pages/Agendamento/Agendamento.php");
+//         }
+//         else if($op == 1) {
+//             session_start();
+//             $adm = $_SESSION["adm"];
+//             $agend = new Agendamento($nome, $hora_inicio, $hora_fim, $data_agend, $valor, 0, $servico, $forma, $adm);
+//             $agend->setId($id);
+//             $agendController->EditarAgendamento($agend);
+//             header("Location: ../Pages/Consultar/Consultar.php");
+//         }
+//         else if($op == 2){
+//             $agendController->ExcluirAgendamento($id);
+//             header("Location: ../Pages/Consultar/Consultar.php");
+//         }
+//     }
    
-exit();
+// exit();
 
 

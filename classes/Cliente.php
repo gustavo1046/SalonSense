@@ -5,8 +5,7 @@ class Cliente{
     private string $telefone;
     private DateTime $data_ult_atendimento;
 
-    public function __construct(int $id, string $nome_cliente, string $telefone, DateTime $data_ult_atendimento){
-        $this->id = $id;
+    public function __construct(string $nome_cliente, string $telefone, DateTime $data_ult_atendimento){
         $this->nome_cliente = $nome_cliente;
         $this->telefone = $telefone;
         $this->data_ult_atendimento = $data_ult_atendimento; 

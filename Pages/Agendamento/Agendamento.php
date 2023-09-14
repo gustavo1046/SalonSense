@@ -154,15 +154,23 @@
 
     function cadastrarCliente(){
       var tel = document.getElementById("telefone").value;
-      document.getElementById("tel").value = tel;
-      var verifica = verificarCampos();
-      if(verifica){
-        submitFormulario();
+      console.log(tel);
+      if(tel){
+        document.getElementById("tel").value = tel;
+        var verifica = verificarCampos();
+        if(verifica){
+          submitFormulario();
+          MudaSubmit();
+        }
+        else{
+          // alert("oi");
+          showModalAlert();
+        }
       }
       else{
-        // alert("oi");
         showModalAlert();
       }
+      
 
     }
   </script>
