@@ -7,6 +7,11 @@ class ClienteController{
         $dao = new ClienteDAO();
         $dao->CadastrarCliente($cliente);
     }
+    public function ListarClientes(){
+        $dao = new ClienteDAO();
+        $clientes = $dao->ListarClientes();
+        return $clientes;
+    }
 }
 
 ?>

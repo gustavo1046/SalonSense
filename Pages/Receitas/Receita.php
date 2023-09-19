@@ -46,16 +46,25 @@
 
     <div class="container">
         <form class="receita_form" method="POST" action="../../actions/action_Receita.php">
-          <input type="text" name="nome" id ="nome" maxlength="50" placeholder="Nome do cliente" required>
+          <select name="clientes">
+            <?php
+              require_once __DIR__ ."/../../Controller/ClienteController.php";
+              $cliente_controller = new ClienteController();
+              $clientes = $cliente_controller->ListarClientes();
+              foreach($clientes as $cliente){
+                echo "<option value='".$cliente->get_id()."'>".$cliente->get_nome_cliente()."</option>";
+              }
+            ?>
+          </select><br>
           <input type="text" name="descricao" id ="descricao" maxlength="200" placeholder="Descrição da receita" required><br>
           <input type="submit" name="submit" id="submit" value="Cadastrar Receita">
         </form>
         <div id="info">
           <?php
             require_once __DIR__ ."/../../Controller/ReceitaController.php";
-            $dados = new ReceitaController();
-            $result = $dados->ListarReceitas();
-            foreach($result as $receita):
+            $receita_controller = new ReceitaController();
+            $receitas = $receita_controller->ListarReceitas();
+            foreach($receitas as $receita):
               echo "<div class='item'>";
                 echo "<button class='button_receita' onclick='showModal(".$receita->getId_receita().", \"".$receita->getNome_cliente()."\", \"".$receita->getDescricao_receita()."\")'>".$receita->getNome_cliente()."</button>";
               echo "</div>";
