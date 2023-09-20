@@ -21,7 +21,7 @@
         <span class="close">&times;</span>
         <form class="edit" method="POST" action="../../actions/action_Receita.php">
           <label>Nome: </label><input type="text" id="nome" name="nome" required>
-          <label>Descrição: </label><input type="text" id="descricao_modal" name="descricao" maxlength="200" required><br>
+          <label>Descrição: </label><textarea rows="10" cols="50" id="descricao_modal" name="descricao" maxlength="200" required></textarea><br>
           <br><input type="hidden" name="id" id="id">
               <input type="hidden" name="op" id="op" value=1>
           <input type="submit" value="editar" id="editar">
@@ -46,13 +46,13 @@
 
     <div class="container">
         <form class="receita_form" method="POST" action="../../actions/action_Receita.php">
-          <select name="clientes">
+          <select name="nome" id="nome">
             <?php
               require_once __DIR__ ."/../../Controller/ClienteController.php";
               $cliente_controller = new ClienteController();
               $clientes = $cliente_controller->ListarClientes();
               foreach($clientes as $cliente){
-                echo "<option value='".$cliente->get_id()."'>".$cliente->get_nome_cliente()."</option>";
+                echo "<option id='option' value='".$cliente->get_nome_cliente()."'>".$cliente->get_nome_cliente()."</option>";
               }
             ?>
           </select><br>

@@ -180,7 +180,7 @@ a:hover{
 }
 
 
-#nome, #descricao{
+#nome, #descricao, #option{
   line-height: 30px; /* Defina a altura do botão */
   text-decoration: none;
   margin: auto;
