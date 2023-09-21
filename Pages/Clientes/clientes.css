@@ -1,0 +1,13 @@
+@import url("../../style.css");
+
+body {
+    display: block;
+    text-align: center;
+}
+
+img{
+    width: 8%;
+    height: 80px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}

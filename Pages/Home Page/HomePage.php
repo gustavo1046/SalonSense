@@ -17,9 +17,8 @@
                 <a href="../Agendamento/Agendamento.php">Agendar</a>
                 <a href="../Consultar/Consultar.php">Consultar</a>
                 <a href="../Contas/Conta.php">Contas</a>
-                <a href="../Receitas/Receita.php">Receitas
-                    
-                </a>            
+                <a href="../Receitas/Receita.php">Receitas</a>
+                <a href="../Clientes/Clientes.php">Clientes</a>            
             </div>
         </div>
     </div>
