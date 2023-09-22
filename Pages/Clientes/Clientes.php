@@ -58,6 +58,5 @@
         modal.style.display = "block";
         document.getElementById("nome").textContent = nome;
         document.getElementById("telefone").textContent = telefone;
-    // console.log(formaPagamento);}
     }
 </script>

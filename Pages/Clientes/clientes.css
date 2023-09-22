@@ -26,5 +26,14 @@ img{
   
 #cliente:hover{
     font-size: 105%;
-  }
+}
+
+.modal-content{
+    height: 70px;
+    text-align: center;
+}
+
+.container{
+    padding-top: 10px;
+}
   
