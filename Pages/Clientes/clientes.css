@@ -11,3 +11,20 @@ img{
     margin-top: 20px;
     margin-bottom: 10px;
 }
+
+#cliente{
+    text-decoration: none;
+    border-style: none;
+    background-color: transparent;
+    color: whitesmoke;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    width: 85%;
+  }
+  
+#cliente:hover{
+    font-size: 105%;
+  }
+  
