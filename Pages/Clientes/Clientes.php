@@ -17,8 +17,8 @@
     <div id="modal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <p id=nome></p>
-        <p id=telefone></p>
+        <p id="nome"></p>
+        <p id="telefone"></p>
       </div>
     </div>
 
@@ -56,6 +56,8 @@
     // Exibe o modal quando o usuário clica em um botão
     function showModal(nome, telefone) {
         modal.style.display = "block";
+        document.getElementById("nome").textContent = nome;
+        document.getElementById("telefone").textContent = telefone;
     // console.log(formaPagamento);}
     }
 </script>
