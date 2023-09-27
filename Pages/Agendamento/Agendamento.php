@@ -52,7 +52,8 @@
       <input type="date" name="data" placeholder="data do atendimento" id="data" required><br>
       <input tyle="number" name="valor" placeholder="valor do serviço" id="valor" required><br>
       <input type="text" name="desc" placeholder="descrição" maxlength="150" id="desc" required><br>
-      <input type="hidden" name="telefone" placeholder="telefone de contato" id="tel">
+      <input type="hidden" name="telefone" id="tel">
+      <input type="hidden" name="cliente_fiel" id="cliente_fiel"> 
       <div class="radio">
         <br>
         <label>
@@ -114,13 +115,14 @@
     function clienteFixo(){
       var tel = document.getElementById("opcao_cliente");
       if(tel.checked){
+        document.getElementById("cliente_fiel").value = document.getElementById("data").value
         showModalDelete();
       }
     }
 
     function submitFormulario(){
-      var formulario = document.getElementById("formulario"); 
-      formulario.submit();
+      var formulario = document.getElementById("formulario");
+      // formulario.submit();
     }
 
     function showModalDelete(){
@@ -182,14 +184,18 @@
       }  
     }
 
-
     const selectBox = document.getElementById('cliente');
-    const inputText = document.getElementById('nome');
+    const data= document.getElementById('data');
+    
+    data.addEventListener('change', function() {
+      const cliente = document.getElementById('cliente_fiel');
+      cliente.value = data.value;
+    });
 
     // Adiciona um ouvinte de evento para o evento "change" no <select>
     selectBox.addEventListener('change', function() {
-        // Define o valor do <input> para o valor selecionado no <select>
-        inputText.value = selectBox.value;
+      const inputText = document.getElementById('nome');
+      inputText.value = selectBox.value;
     });
   </script>
 </html>

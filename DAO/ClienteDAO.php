@@ -31,5 +31,12 @@
             }
             return $clientes;
         }
+
+        public function AtualizaDataCliente($data, $nome){
+            $conexao = Conexao::Conectar();
+            $sql = "UPDATE cliente SET data_ultimo_agendamento = '".$data."' WHERE nome_cliente = '".$nome."';";
+            $conexao->query($sql);
+            echo $conexao->error;
+        }
     }
 ?>

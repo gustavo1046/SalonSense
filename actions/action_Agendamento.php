@@ -18,6 +18,12 @@
     $id = $_POST["id"];
     $id_status = $_POST["id_status"];
     $telefone = $_POST["telefone"];
+    $data_cliente = $_POST["cliente_fiel"];
+
+    if($data_cliente != null){
+        $clienteController = new ClienteController();
+        $clienteController->AtualizaDataCliente($data_cliente, $nome);
+    }
 
     if($telefone != null ){
         $clienteController = new ClienteController();

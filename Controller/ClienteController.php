@@ -12,6 +12,11 @@ class ClienteController{
         $clientes = $dao->ListarClientes();
         return $clientes;
     }
+
+    public function AtualizaDataCliente($data, $nome){
+        $dao = new ClienteDAO;
+        $dao->AtualizaDataCliente($data, $nome);
+    }
 }
 
 ?>
