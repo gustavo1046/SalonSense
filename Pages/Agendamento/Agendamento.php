@@ -36,7 +36,17 @@
   </header>
   <div class="container">
     <form action="../../actions/action_Agendamento.php" method="POST" id="formulario">    
-      <input type="text" name="nome" placeholder="nome da cliente" id="nome" pattern="[A-Za-z0-9 ]+" maxlength="30" required><br>
+      <input type="text" name="nome" placeholder="nome da cliente" id="nome" pattern="[A-Za-z0-9 ]+" maxlength="30" required>
+      <select name="cliente" id="cliente">
+        <?php
+          require_once __DIR__ ."/../../Controller/ClienteController.php";
+          $cliente_controller = new ClienteController();
+          $clientes = $cliente_controller->ListarClientes();
+          foreach($clientes as $cliente){
+            echo "<option id='option' value='".$cliente->get_nome_cliente()."'>".$cliente->get_nome_cliente()."</option>";
+          }
+        ?>
+      </select><br>
       <input type="time" name="hora_inicio" placeholder="inicio do atendimento" id="hora_inicio" required><br>
       <input type="time" name="hora_final" placeholder="final do atendimento" id="hora_final" required><br>
       <input type="date" name="data" placeholder="data do atendimento" id="data" required><br>
@@ -169,9 +179,17 @@
       }
       else{
         showModalAlert();
-      }
-      
-
+      }  
     }
+
+
+    const selectBox = document.getElementById('cliente');
+    const inputText = document.getElementById('nome');
+
+    // Adiciona um ouvinte de evento para o evento "change" no <select>
+    selectBox.addEventListener('change', function() {
+        // Define o valor do <input> para o valor selecionado no <select>
+        inputText.value = selectBox.value;
+    });
   </script>
 </html>

@@ -20,7 +20,7 @@ img{
     height: 5rem;
   }
 
-#nome, #hora_inicio, #hora_final, #data, #valor, #desc, #telefone, #cad_cliente{
+#nome, #hora_inicio, #hora_final, #data, #valor, #desc, #telefone, #cad_cliente, #cliente{
     padding: 0px 10px 0px 10px;
     border-radius: 10px;
     border-style: none;
@@ -28,6 +28,14 @@ img{
     width: 20rem;
     margin-top: 7px;
     font-family: montserrat;
+}
+
+#nome{
+    width: 13rem;
+}
+
+#cliente{
+    width:7rem;
 }
 
 #agendar{
