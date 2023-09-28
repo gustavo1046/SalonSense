@@ -9,7 +9,7 @@
             $data = $cliente->get_data_ult_atendimento();
             $data1 = $data->format('Y-m-d');
             $telefone = $cliente->get_telefone();
-            $sql = "INSERT INTO cliente (nome_cliente, telefone, data_ultimo_agendamento) VALUES ('".$nome."', ".$telefone.",'".$data1."');";
+            $sql = "INSERT INTO cliente (nome_cliente, telefone, data_ultimo_agendamento) VALUES ('".$nome."', '".$telefone."','".$data1."');";
             $conexao->query($sql);
             echo $conexao->error;
         }

@@ -122,7 +122,7 @@
 
     function submitFormulario(){
       var formulario = document.getElementById("formulario");
-      // formulario.submit();
+      formulario.submit();
     }
 
     function showModalDelete(){
@@ -170,7 +170,7 @@
       if(tel){
         document.getElementById("tel").value = tel;
         var verifica = verificarCampos();
-        if(verifica){
+        if(verifica){      
           submitFormulario();
           MudaSubmit();
         }
