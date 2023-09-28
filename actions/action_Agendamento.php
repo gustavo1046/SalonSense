@@ -27,11 +27,8 @@
 
     if($telefone != null ){
         $clienteController = new ClienteController();
-        echo "vai da certo";
         $cliente = new Cliente($nome, $telefone, $data_agend);
-        echo "vai da errado";
         $clienteController->CadastrarCliente($cliente);
-        echo "agr vai";
     }
 
     $agendController = new AgendamentoController();

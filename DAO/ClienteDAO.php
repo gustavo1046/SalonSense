@@ -24,7 +24,7 @@
                 $id = $row["id_cliente"];
                 $nome_cliente = $row["nome_cliente"];
                 $telefone = $row["telefone"];
-                $data_ult_agendamento = new DateTime($row["data_agendamento"]);
+                $data_ult_agendamento = new DateTime($row["data_ultimo_agendamento"]);
                 $cli = new Cliente($nome_cliente, $telefone, $data_ult_agendamento);
                 $cli->set_id($id);
                 array_push($clientes, $cli);

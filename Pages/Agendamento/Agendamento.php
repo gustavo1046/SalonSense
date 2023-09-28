@@ -69,7 +69,7 @@
           </label>
       </div>
       <div class="cliente">
-        <input type="checkbox" name="opcao_cliente" id="opcao_cliente" onclick="MudaSubmit()">  cliente fixo?
+        <input type="checkbox" name="opcao_cliente" id="opcao_cliente" onclick="MudaSubmit()">  Cadastrar cliente?
       </div>
       <input type="hidden" name="op" id ="op" value=0>
       <div class="sub">
