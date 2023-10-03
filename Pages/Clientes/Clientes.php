@@ -24,15 +24,19 @@
 
     <div class="container">
         <p>Clientes</p>
-        <?php
-            require_once __DIR__ ."/../../Controller/ClienteController.php";
-            $clienteController = new ClienteController();
-            $clientes = $clienteController->ListarClientes();
-            foreach($clientes as $cliente){
-                echo "<button id='cliente' onclick='showModal(\"".$cliente->get_nome_cliente()."\", \"".$cliente->get_telefone()."\")'>".$cliente->get_nome_cliente()." || ultima visita: ".$cliente->get_data_ult_atendimento()->format("d/m/Y")."</button><br>";
-            }
-        ?>
+        <div class="clientes">
+            <?php
+                require_once __DIR__ ."/../../Controller/ClienteController.php";
+                $clienteController = new ClienteController();
+                $clientes = $clienteController->ListarClientes();
+                foreach($clientes as $cliente){
+                    echo "<button id='cliente' onclick='showModal(\"".$cliente->get_nome_cliente()."\", \"".$cliente->get_telefone()."\")'>".$cliente->get_nome_cliente()." || ultima visita: ".$cliente->get_data_ult_atendimento()->format("d/m/Y")."</button><br>";
+                }
+            ?>
+        </div>
+    <a href="../Home Page/HomePage.php">Voltar ao inicio</a>
     </div>
+    
 </body>
 </html>
 

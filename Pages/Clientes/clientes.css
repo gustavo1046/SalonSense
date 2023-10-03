@@ -36,4 +36,31 @@ img{
 .container{
     padding-top: 10px;
 }
+
+a{
+    text-align: center;
+    line-height: 30px; /* Defina a altura do botão */
+    text-decoration: none;
+    display: block;
+    color: whitesmoke;
+    margin: auto;
+    border-radius: 10px;
+    border-style: none;
+    height: 30px;
+    width: 20rem;
+    margin-top: 10px;
+    background-color: var(--button);
+    border-style: none;
+    margin-top: 10px;
+    font-family: montserrat;
+    font-size: 14px;
+}
+
+a:hover{
+    box-shadow: 5px 5px 5px 5px var(--light);
+}
+
+.clientes{
+    height: 200px;
+}
   
