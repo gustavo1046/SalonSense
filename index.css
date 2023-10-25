@@ -14,6 +14,7 @@ body {
     width: 30%;
     height: 100px;
     margin-top: 15px;
+    padding-top: 5%;
 }
 
 .info{
@@ -68,6 +69,10 @@ body {
 #eye{
     height:25px;
     /* padding-top: 100px; */
+}
+
+#senha, #nome {
+    background-color: white;
 }
 
 

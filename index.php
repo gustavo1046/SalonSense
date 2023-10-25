@@ -14,7 +14,7 @@
         </div>
         <div class="info">
             <form action="actions/action_login.php" method="POST">
-                <input type="text" placehoder="Digite seu email" name="login" required><br>
+                <input type="text" placehoder="Digite seu email" name="login" required id ="nome"><br>
                 <input type="password" name="password" id="senha" required><img id="eye" onclick="trocarImagem()" src="./assets/icons/visibility_off_FILL0_wght400_GRAD0_opsz48.png"></img><br>
                 <input type="submit" id="enviar" value="Logar">
             </form>

@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Poppins:wght@300;400&family=Roboto:wght@300;400;700&display=swap');
 :root{
-    --old-rose: #FBC2B5;
-    --thistle: #FFA8A9; 
-    --platinum: #f3bdce;
+    --old-rose: #582039;
+    --thistle: #ffdef4; 
+    --platinum: #441a27;
     --lavender: #A14A76; 
-    --raisin: #fc999a;
+    --raisin: #632b44;
 
     
     --background: var(--old-rose);
