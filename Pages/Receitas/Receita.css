@@ -43,7 +43,8 @@ input[type=checkbox]:checked:after {
 }
 
 .modal-content{
-  height: 13rem;
+  height: 14rem;
+  min-width: 20rem;
 }
 
 .receita_form{
@@ -122,10 +123,6 @@ input[type="checkbox"] {
   /* padding: 5px 15px 5px 15px; */
 }
 
-#submit:hover, #editar:hover, #deletar:hover, #excluir:hover{
-  box-shadow: 3px 3px 3px 3px var(--light);
-}
-
 #editar, #deletar{
   margin-top: 10px;
 }
@@ -175,10 +172,6 @@ input[type="checkbox"] {
     margin-top: 10px;
 }
 
-a:hover{
-    box-shadow: 3px 3px 3px 3px var(--light);
-}
-
 
 #nome, #descricao, #option{
   line-height: 30px; /* Defina a altura do botão */
@@ -203,7 +196,6 @@ a:hover{
 #descricao_modal{
   line-height: 30px; /* Defina a altura do botão */
   text-decoration: none;
-  margin: auto;
   border-radius: 10px;
   border-style: none;
   background-color: whitesmoke;
@@ -211,7 +203,8 @@ a:hover{
   font-family: montserrat;
   font-size: 14px;
   margin-top: 0.5em;
-  width: 70%;
+  margin-left: 3rem;
+  width: 77%;
   height: 100px;
 }
 
@@ -229,7 +222,7 @@ a:hover{
 }
 
 .modal-content-exc{
-  height: 5rem;
+  height: 7rem;
 }
 
 input[type="radio"] {
@@ -251,12 +244,3 @@ input[type="radio"]:checked {
 .status{
   display:none;
 }
-/* .container {
-    margin: auto;
-    text-align: center;
-    background-color: var(--background2);
-    width: 30em;
-    height: 20em;
-    border-radius: 20px;
-    box-shadow: 10px 10px 10px var(--light);
-} */

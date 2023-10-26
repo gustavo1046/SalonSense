@@ -23,7 +23,7 @@
     </div>
 
     <div class="container">
-        <p>Clientes</p>
+        <Label>Clientes</Label>
         <div class="clientes">
             <?php
                 require_once __DIR__ ."/../../Controller/ClienteController.php";

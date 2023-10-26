@@ -21,7 +21,7 @@
         <span class="close">&times;</span>
         <form class="edit" method="POST" action="../../actions/action_Receita.php">
           <label>Nome: </label><input type="text" id="nome" name="nome" required>
-          <label>Descrição: </label><textarea rows="10" cols="50" id="descricao_modal" name="descricao" maxlength="200" required></textarea><br>
+          <br><textarea rows="10" cols="50" id="descricao_modal" name="descricao" maxlength="200" required></textarea><br>
           <br><input type="hidden" name="id" id="id">
               <input type="hidden" name="op" id="op" value=1>
           <input type="submit" value="editar" id="editar">

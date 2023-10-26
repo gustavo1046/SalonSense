@@ -9,7 +9,7 @@ body {
   text-decoration: none;
   border-style: none;
   background-color: transparent;
-  color: whitesmoke;
+  color: #000000;
   cursor: pointer;
   font-size: 16px;
   margin-top: 10px;
@@ -28,23 +28,23 @@ body {
   border-style: none;
   height: 30px;
   width: 8rem;
-  font-family: montserrat;
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
-    justify-content: center;
-    align-items: center;
-    font-family: montserrat;
-    min-height: 75vh;
-    width: 480px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  min-height: 71vh;
+  width: 490px;
 }
-
 
 #info {
     margin-top: 15px;
     width: 98%;
-    height: 55%;
+    height: 60%;
     overflow: auto;
+    margin-bottom: 10px;
 }
 /* Estilo para o scroll */
 ::-webkit-scrollbar {
@@ -74,14 +74,9 @@ body {
   width: 6em;
   background-color: var(--button);
   border-style: none;
-  font-family: montserrat;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
-  margin-top: 10px;
   cursor: pointer;
-}
-
-#pesquisar:hover{
-  box-shadow: 5px 5px 5px 5px var(--light);
 }
 
 
@@ -94,7 +89,7 @@ body {
   height: 30px;
   background-color: whitesmoke;
   border-style: none;
-  font-family: montserrat;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   /* margin-top: 0.5em; */
   /* padding: 5px 15px 5px 15px; */
@@ -121,17 +116,13 @@ body {
   background-color: var(--button);
   border-style: none;
   margin-top: 10px;
-  font-family: montserrat;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
 }
 
-#voltar:hover{
-  box-shadow: 5px 5px 5px 5px var(--light);
-}
 
 img{
-  width: 5%;
-  height: 50px;
+  width: 8%;
+  height: 80px;
   margin-top: 20px;
-  margin-bottom: 5px;
 }

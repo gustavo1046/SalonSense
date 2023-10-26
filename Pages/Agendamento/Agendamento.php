@@ -73,10 +73,11 @@
       </div>
       <input type="hidden" name="op" id ="op" value=0>
       <div class="sub">
-      </form>
-        <input type="submit" id="agendar" value="Agendar" onclick="clienteFixo()">
+        </form>
+          <input type="submit" id="agendar" value="Agendar" onclick="clienteFixo()">
+          <a href="../Home Page/HomePage.php">Voltar ao inicio</a>
       </div>
-      <a href="../Home Page/HomePage.php">Voltar ao inicio</a>
+      
   </div>  
 </body>
 <script>

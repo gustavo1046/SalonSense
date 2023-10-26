@@ -12,9 +12,15 @@ img{
     margin-bottom: 10px;
 }
 
-.container{
-    height:30rem;
+.container {
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    min-height: 72vh;
+    width: 490px;
+    padding-top: 10px;
 }
+
 
 .modal-content-exc, .modal-content-pre{
     height: 5rem;
@@ -25,13 +31,13 @@ img{
     border-radius: 10px;
     border-style: none;
     height: 30px;
-    width: 20rem;
-    margin-top: 7px;
-    font-family: montserrat;
+    width: 25rem;
+    margin-top: 10px;
+    font-family: "Poppins", sans-serif;
 }
 
 #nome{
-    width: 13rem;
+    width: 18rem;
 }
 
 #cliente{
@@ -41,9 +47,7 @@ img{
 #agendar{
     background-color: var(--button);
     color: whitesmoke;
-}
-#agendar:hover{
-    box-shadow: 5px 5px 5px 5px var(--light);
+
 }
 
 input[type="radio"] {
@@ -64,6 +68,7 @@ input[type="radio"]:checked {
 
 .sub{
     text-align: center;
+    margin-top: 30px;
 }
 
 a, #agendar, #tel_button {
@@ -81,13 +86,10 @@ a, #agendar, #tel_button {
     background-color: var(--button);
     border-style: none;
     margin-top: 10px;
-    font-family: montserrat;
+    font-family: "Poppins", sans-serif;
     font-size: 14px;
 }
 
-a:hover, #agendar:hover, #tel_button:hover{
-    box-shadow: 5px 5px 5px 5px var(--light);
-}
 
 .cliente{
     text-align: left;

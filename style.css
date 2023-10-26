@@ -16,8 +16,8 @@
 }
 
 body{
-    font-family: montserrat;
-    color: whitesmoke;
+    font-family: "Poppins", sans-serif;
+    color: #000000;
     background-color: var(--background);
     display: flex;
     width: 100vw;
