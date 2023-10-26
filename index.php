@@ -8,6 +8,14 @@
     <title>Aelia Resende</title>
 </head>
 <body>
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+        <div class="modal-footer">
+          Email ou Senha incorretos, tente novamente
+        </div>      
+    </div>
+  </div>
     <div class="container">
         <div class="header">
             <img src="./assets/logo.png" alt="Aelia Resende">
@@ -15,7 +23,9 @@
         <div class="info">
             <form action="actions/action_login.php" method="POST">
                 <input type="text" placehoder="Digite seu email" name="login" required id ="nome"><br>
-                <input type="password" name="password" id="senha" required><img id="eye" onclick="trocarImagem()" src="./assets/icons/visibility_off_FILL0_wght400_GRAD0_opsz48.png"></img><br>
+                <div class="pass">
+                  <input type="password" name="password" id="senha" required><img id="eye" onclick="trocarImagem()" src="./assets/icons/visibility_off_FILL0_wght400_GRAD0_opsz48.png"></img><br>
+                </div>
                 <input type="submit" id="enviar" value="Logar">
             </form>
         </div>
@@ -37,5 +47,44 @@
         document.getElementById("senha").type = "password";
       }
     }
-  </script>
+
+
+    var queryString = window.location.search;
+
+    // Remove o ponto de interrogação no início da string de consulta
+    queryString = queryString.substring(1);
+
+    // Divide a string de consulta em pares chave-valor
+    var pares = queryString.split('&');
+
+    // Cria um objeto para armazenar os valores dos parâmetros
+    var parametros = {};
+
+    for (var i = 0; i < pares.length; i++) {
+        var par = pares[i].split('=');
+        var chave = decodeURIComponent(par[0]);
+        var valor = decodeURIComponent(par[1]);
+        parametros[chave] = valor;
+    }
+
+    // Verifica o valor do parâmetro "erro"
+    if (parametros.erro === "1") {
+      var modal = document.getElementById("modal");
+      modal.style.display = "block";
+      var modal = document.getElementById("modal");
+      var span = document.getElementsByClassName("close")[0];
+
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      history.replaceState({}, document.title, window.location.pathname);
+    }
+
+</script>
 </html>

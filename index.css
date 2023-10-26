@@ -30,13 +30,13 @@ body {
     height: 30px;
     width: 60%;
     margin-top: 10px;
-    font-family: montserrat;
+    font-family: "Poppins", sans-serif;
 }
 
 .info #senha{
     width: 50%;
     margin-right: 5px;
-    font-family: montserrat;
+    font-family: "Poppins", sans-serif;
 }
 
 .info img {
@@ -55,27 +55,34 @@ body {
     color: whitesmoke;
     width: 45%;
     margin-top: 20px;
-    font-family: montserrat;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
 }
 
-#enviar:hover{
-    box-shadow: 3px 3px 3px 3px var(--light);
-}
 
 .container{
     width: 30vw;
     height: 55vh;
 }
 
+.pass{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #eye{
     height:25px;
-    /* padding-top: 100px; */
+    margin-top:10px;
 }
 
 #senha, #nome {
     background-color: white;
 }
 
+.modal-content{
+    height: 5rem;
+  }
 
 
 
