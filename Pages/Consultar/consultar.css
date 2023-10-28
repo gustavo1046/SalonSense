@@ -62,11 +62,6 @@ input[type="checkbox"] {
   font-family: "Poppins", sans-serif;
 }
 
-.button_agenda:hover{
-  font-size: 105%;
-}
-
-
 .filter{
   width: 100%;
   height: 50px;
@@ -110,12 +105,9 @@ input[type="checkbox"] {
   /* padding: 5px 15px 5px 15px; */
 }
 
-#submit-filter:hover, #editar:hover, #deletar:hover, #excluir:hover{
-  box-shadow: 3px 3px 3px 3px var(--light);
-}
-
 #editar, #deletar{
   margin-top: 10px;
+  cursor: pointer;
 }
 
 #info {
@@ -156,10 +148,6 @@ input[type="checkbox"] {
     font-family: "Poppins", sans-serif;
     font-size: 14px;
     margin-top: 10px;
-}
-
-a:hover{
-    box-shadow: 3px 3px 3px 3px var(--light);
 }
 
 #hora_inicio, #hora_fim{
@@ -235,12 +223,3 @@ input[type="radio"]:checked {
   height: 45%;
   width: 40%;
 }
-/* .container {
-    margin: auto;
-    text-align: center;
-    background-color: var(--background2);
-    width: 30em;
-    height: 20em;
-    border-radius: 20px;
-    box-shadow: 10px 10px 10px var(--light);
-} */
