@@ -10,6 +10,9 @@
     <title>Aelia Resende</title>
 </head>
 <body>
+    <?php 
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/navbar.html';
+    ?>
     <header>
         <img src="../../assets/logo.png">
     </header>
@@ -42,7 +45,7 @@
 
 <script>
     var modal = document.getElementById("modal");
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("close")[1];
 
     // Quando o usuário clicar no botão "fechar" ou fora do modal, feche-o
     span.onclick = function() {

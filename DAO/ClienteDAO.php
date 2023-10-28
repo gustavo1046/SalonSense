@@ -18,14 +18,13 @@
             $conexao = Conexao::Conectar();
             $sql = "SELECT * FROM cliente";
             $result = $conexao->query($sql);
-            $formato = 'Y-m-d H:i:s';
             $clientes = array();
             while($row = mysqli_fetch_assoc($result)){
                 $id = $row["id_cliente"];
                 $nome_cliente = $row["nome_cliente"];
                 $telefone = $row["telefone"];
-                $data_ult_agendamento = new DateTime($row["data_ultimo_agendamento"]);
-                $cli = new Cliente($nome_cliente, $telefone, $data_ult_agendamento);
+                $data = new DateTime($row["data_ultimo_agendamento"]);
+                $cli = new Cliente($nome_cliente, $telefone, $data);
                 $cli->set_id($id);
                 array_push($clientes, $cli);
             }

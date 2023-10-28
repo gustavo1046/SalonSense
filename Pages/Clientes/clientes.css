@@ -41,7 +41,8 @@ img{
     width: 490px;
     padding-top: 10px;
 }
-a{
+
+a {
     text-align: center;
     line-height: 30px; /* Defina a altura do botão */
     text-decoration: none;
@@ -60,12 +61,18 @@ a{
     font-size: 14px;
 }
 
+button {
+
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+}
+
 .clientes{
-    height: 52vh;
+    height: 80%;
 }
 
 label{
     font-family: "Poppins", sans-serif;
-    font-size: 20;
+    font-size: 22px;
     margin: 10px 0px 10px 0px;
 }
