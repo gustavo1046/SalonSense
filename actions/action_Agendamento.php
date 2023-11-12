@@ -25,10 +25,14 @@
         $clienteController->AtualizaDataCliente($data_cliente, $nome);
     }
 
-    if($telefone != null ){
+    if($telefone != null){
         $clienteController = new ClienteController();
         $cliente = new Cliente($nome, $telefone, $data_agend);
-        $clienteController->CadastrarCliente($cliente);
+        $result = $clienteController->CadastrarCliente($cliente);
+        if($result == 0){
+            header("Location: ../Pages/Agendamento/Agendamento.php?erro=1");
+            exit();
+        }
     }
 
     $agendController = new AgendamentoController();

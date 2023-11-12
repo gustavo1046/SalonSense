@@ -9,9 +9,22 @@
             $data = $cliente->get_data_ult_atendimento();
             $data1 = $data->format('Y-m-d');
             $telefone = $cliente->get_telefone();
-            $sql = "INSERT INTO cliente (nome_cliente, telefone, data_ultimo_agendamento) VALUES ('".$nome."', '".$telefone."','".$data1."');";
-            $conexao->query($sql);
-            echo $conexao->error;
+            $sql = "SELECT * FROM cliente where nome_cliente = '$nome'";
+            $result = $conexao->query($sql);
+            $rows = 0;
+            while($dados = $result->fetch_assoc()){
+                $rows += 1;
+            }
+            if($rows == 0){
+                $sql = "INSERT INTO cliente (nome_cliente, telefone, data_ultimo_agendamento) VALUES ('".$nome."', '".$telefone."','".$data1."');";
+                $conexao->query($sql);
+                echo $conexao->error;
+                return 1;
+            }
+            else{
+                return 0; //se possui algum usuario com esse mesmo nome no banco de dados ele ão fará o cadastro
+            }
+
         }
 
         public function ListarClientes(){

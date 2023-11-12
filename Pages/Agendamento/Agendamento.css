@@ -121,3 +121,6 @@ input[type=checkbox]:before {
     margin-left:5px;
   }
   
+  .modal-content{
+    height: 10rem;
+  }

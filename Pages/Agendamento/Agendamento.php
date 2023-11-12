@@ -13,6 +13,16 @@
 ?>
 <body>
 
+  <!-- modal de cliente ja existente -->
+  <div class="modal" id="modalError">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-footer">
+        Ja existe um cliente com esse nome, Escolha um novo nome.
+      </div>      
+    </div>
+  </div>
+
   <div class="modal" id="modalExc">
     <div class="modal-content-exc">
       <span class="close">&times;</span>
@@ -81,6 +91,41 @@
   </div>  
 </body>
 <script>
+  var queryString = window.location.search;
+
+  // Remove o ponto de interrogação no início da string de consulta
+  queryString = queryString.substring(1);
+
+  // Divide a string de consulta em pares chave-valor
+  var pares = queryString.split('&');
+
+  // Cria um objeto para armazenar os valores dos parâmetros
+  var parametros = {};
+
+for (var i = 0; i < pares.length; i++) {
+    var par = pares[i].split('=');
+    var chave = decodeURIComponent(par[0]);
+    var valor = decodeURIComponent(par[1]);
+    parametros[chave] = valor;
+}
+
+  var modalError = document.getElementById("modalError");
+  var spanError = document.getElementsByClassName("close")[1];
+
+  spanError.onclick = function() {
+    modalError.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+      if (event.target == modalError) {
+        modalError.style.display = "none";
+      }
+  }
+
+  if (parametros.erro === "1") {
+      modalError.style.display = "block";
+      history.replaceState({}, document.title, window.location.pathname);
+    }
 
   function MudaSubmit(){
     var botao = document.getElementById("agendar");
@@ -90,113 +135,117 @@
     else{
       botao.type = "submit"
     }
+  }
 
+  function validateFloatInput(input) {
+    // Substitua qualquer caractere não numérico (exceto ponto) por vazio
+    input.value = input.value.replace(/[^0-9.]/g, '');
+
+    // Garante que não haja mais de um ponto decimal
+    const dotCount = (input.value.match(/\./g) || []).length;
+    if (dotCount > 1) {
+        input.value = input.value.slice(0, -1);
+    }
   }
 
   function verificarCampos() {
-  // Obtém o formulário pelo ID
-  var formulario = document.getElementById("formulario");
-  
-  // Obtém todos os elementos de input dentro do formulário
-  var campos = formulario.querySelectorAll("input[required]");
-  
-  // Define uma variável para rastrear se todos os campos estão preenchidos
-  var todosCamposPreenchidos = true;
+    // Obtém o formulário pelo ID
+    var formulario = document.getElementById("formulario");
 
-  // Itera por todos os campos e verifica se estão preenchidos
-  for (var i = 0; i < campos.length; i++) {
-    if (campos[i].value.trim() == "") {
-      todosCamposPreenchidos = false;
-      break; // Se encontrar um campo vazio, sai do loop
+    // Obtém todos os elementos de input dentro do formulário
+    var campos = formulario.querySelectorAll("input[required]");
+
+    // Define uma variável para rastrear se todos os campos estão preenchidos
+    var todosCamposPreenchidos = true;
+
+    // Itera por todos os campos e verifica se estão preenchidos
+    for (var i = 0; i < campos.length; i++) {
+      if (campos[i].value.trim() == "") {
+        todosCamposPreenchidos = false;
+        break; // Se encontrar um campo vazio, sai do loop
+      }
+    }
+    return todosCamposPreenchidos;
+  }
+
+  function clienteFixo(){
+    var tel = document.getElementById("opcao_cliente");
+    if(tel.checked){
+      document.getElementById("cliente_fiel").value = document.getElementById("data").value
+      showModalDelete();
     }
   }
-  return todosCamposPreenchidos;
-}
 
-    function clienteFixo(){
-      var tel = document.getElementById("opcao_cliente");
-      if(tel.checked){
-        document.getElementById("cliente_fiel").value = document.getElementById("data").value
-        showModalDelete();
-      }
+  function submitFormulario(){
+    var formulario = document.getElementById("formulario");
+    formulario.submit();
+  }
+
+  function showModalDelete(){
+    var modalDelete = document.getElementById("modalExc");
+    var spanDel = document.getElementsByClassName("close")[1];
+    spanDel.onclick = function() {
+      modalDelete.style.display = "none";
     }
 
-    function submitFormulario(){
-      var formulario = document.getElementById("formulario");
-      formulario.submit();
-    }
-
-    function showModalDelete(){
-      var modalDelete = document.getElementById("modalExc");
-      var spanDel = document.getElementsByClassName("close")[1];
-
-      // Quando o usuário clicar no botão "fechar" ou fora do modal, feche-o
-
-      spanDel.onclick = function() {
+    window.onclick = function(event) {
+      if (event.target == modalDelete) {
         modalDelete.style.display = "none";
       }
+    }
+    modalDelete.style.display = "block";
+  }
 
-      window.onclick = function(event) {
-        if (event.target == modalDelete) {
-          modalDelete.style.display = "none";
-        }
+  function showModalAlert(){
+    var modalPre = document.getElementById("modalPre");
+    var spanPre = document.getElementsByClassName("closePre")[2];
 
-      }
+    // Quando o usuário clicar no botão "fechar" ou fora do modal, feche-o
 
-      modalDelete.style.display = "block";
+    spanPre.onclick = function() {
+      modalPre.style.display = "none";
     }
 
-    function showModalAlert(){
-      var modalPre = document.getElementById("modalPre");
-      var spanPre = document.getElementsByClassName("closePre")[0];
-
-      // Quando o usuário clicar no botão "fechar" ou fora do modal, feche-o
-
-      spanPre.onclick = function() {
+    window.onclick = function(event) {
+      if (event.target == modalPre) {
         modalPre.style.display = "none";
       }
-
-      window.onclick = function(event) {
-        if (event.target == modalPre) {
-          modalPre.style.display = "none";
-        }
-
-      }
-      modalPre.style.display = "block";
     }
+    modalPre.style.display = "block";
+  }
 
-    function cadastrarCliente(){
-      var tel = document.getElementById("telefone").value;
-      console.log(tel);
-      if(tel){
-        document.getElementById("tel").value = tel;
-        var verifica = verificarCampos();
-        if(verifica){      
-          submitFormulario();
-          MudaSubmit();
-        }
-        else{
-          // alert("oi");
-          showModalAlert();
-        }
+  function cadastrarCliente(){
+    var tel = document.getElementById("telefone").value;
+    console.log(tel);
+    if(tel){
+      document.getElementById("tel").value = tel;
+      var verifica = verificarCampos();
+      if(verifica){      
+        submitFormulario();
+        MudaSubmit();
       }
       else{
+        // alert("oi");
         showModalAlert();
-      }  
+      }
     }
+    else{
+      showModalAlert();
+    }  
+  }
 
-    const selectBox = document.getElementById('cliente');
-    const data= document.getElementById('data');
-    
-    data.addEventListener('change', function() {
-      const cliente = document.getElementById('cliente_fiel');
-      cliente.value = data.value;
-    });
+  const selectBox = document.getElementById('cliente');
+  const data= document.getElementById('data');
+  
+  data.addEventListener('change', function() {
+    const cliente = document.getElementById('cliente_fiel');
+    cliente.value = data.value;
+  });
 
-    // Adiciona um ouvinte de evento para o evento "change" no <select>
-    selectBox.addEventListener('change', function() {
-      const inputText = document.getElementById('nome');
-      inputText.value = selectBox.value;
-    });
+  // Adiciona um ouvinte de evento para o evento "change" no <select>
+  selectBox.addEventListener('change', function() {
+    const inputText = document.getElementById('nome');
+    inputText.value = selectBox.value;
+  });
   </script>
 </html>
