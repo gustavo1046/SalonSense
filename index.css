@@ -49,6 +49,16 @@ body {
     border-style: none;
 }
 
+.info #trocaSenha{
+    border-style: none;
+    background-color: transparent;
+    position: absolute;
+    display: flex;
+    padding-left: 8em;
+    color: var(--button);
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+}
 
 .info #enviar {
     background-color: var(--button);
@@ -82,7 +92,39 @@ body {
 
 .modal-content{
     height: 5rem;
-  }
+}
+
+#contentRed{
+    height: 7rem;
+}
 
 
+
+#Pass{
+    border-radius: 10px;
+    border-style: none;
+    height: 2em;
+    margin-bottom: 10px;
+    width: 70%;
+}
+
+#enviarRed{
+    background-color: var(--button);
+    color: whitesmoke;
+    width: 30%;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    border-style: none;
+    border-radius: 8px;
+    
+}
+
+#trocaSenha{
+    border-style: none;
+    background-color: transparent;
+    color: var(--button);
+    font-size: 10px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+}
 
