@@ -18,7 +18,7 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <div class="modal-footer">
-        Ja existe um cliente com esse nome, Escolha um novo nome.
+        Ja existe um cliente com esse nome, Escolha um novo nome!
       </div>      
     </div>
   </div>

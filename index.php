@@ -12,7 +12,7 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <div class="modal-footer">
-        Email ou Senha incorretos, tente novamente
+        Login ou senha incorretos, tente novamente!
       </div>      
     </div>
   </div>
@@ -34,7 +34,7 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <div class="modal-footer">
-        Error ao redefinir senha, tente novamente.
+        Error ao redefinir senha, tente novamente!
       </div>      
     </div>
   </div>
