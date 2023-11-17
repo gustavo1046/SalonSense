@@ -15,7 +15,7 @@
         header("Location: ../Pages/Home Page/HomePage.php");
     }
     else{
-        header("Location: ../index.php?erro=1");
+        header("Location: ../index.html?erro=1");
     }
 
 ?>
