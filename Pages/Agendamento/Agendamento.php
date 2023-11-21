@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="./Agendamento.css">
     <title>Aelia Resende</title>
 </head>
@@ -183,7 +182,7 @@ for (var i = 0; i < pares.length; i++) {
 
   function showModalDelete(){
     var modalDelete = document.getElementById("modalExc");
-    var spanDel = document.getElementsByClassName("close")[1];
+    var spanDel = document.getElementsByClassName("close")[2];
     spanDel.onclick = function() {
       modalDelete.style.display = "none";
     }
@@ -198,7 +197,7 @@ for (var i = 0; i < pares.length; i++) {
 
   function showModalAlert(){
     var modalPre = document.getElementById("modalPre");
-    var spanPre = document.getElementsByClassName("closePre")[2];
+    var spanPre = document.getElementsByClassName("closePre")[3];
 
     // Quando o usuário clicar no botão "fechar" ou fora do modal, feche-o
 
