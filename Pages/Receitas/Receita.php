@@ -37,7 +37,7 @@
             <div class="modal-footer">
                 <input type="hidden" id="idexc" name="id">
                 <input type="hidden" id="op" name="op" value=2>
-                <p>Excluir agendamento?</p>
+                <p>Excluir Receita?</p>
                 <input type="submit" value="Exluir" id="excluir">
             </div>      
           </form>
@@ -122,28 +122,3 @@
     </script>
 </html>
 
-
-
-<!-- echo "<div class='item'>";
-                        echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()."</button>";
-                        echo "</div>"; -->
-
-
-
-
-<!-- // require_once __DIR__ ."/../../actions/action_Consultar.php";
-// $dados = new action_Consultar();
-// $result = $dados->ListarAgendamentos();
-// foreach($result as $agenda):
-//   if (isset($_POST['date_filter']))
-//     if(!empty($_POST['date_filter'])){
-//       echo "<div class='item'>";
-//       echo "<input type='checkbox'class='check'><button class='button_agenda' >".$agenda->getNome_cliente()."</button>";
-//       echo "</div>";
-//     }
-//     else{
-//       if($agenda->getData() == $date_filter){
-//         $agenda->getNome_cliente();
-//       }
-//     }
-// endforeach; -->

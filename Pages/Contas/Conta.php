@@ -26,10 +26,26 @@
             <div id="info">
             <?php
                 require_once __DIR__ ."/../../Controller/ContaController.php";
-                $data1 = $_POST["data_inicio"];
-                $data1 = new DateTime($data1);
-                $data2 = $_POST["data_fim"];
-                $data2 = new DateTime($data2);
+                if(isset($_POST["data_inicio"])){
+                    $data1 = $_POST["data_inicio"];
+                    $data1 = new DateTime($data1);
+                }else{
+                    date_default_timezone_set('America/Sao_Paulo');
+                    $dataHoraAtual = date('Y-m-d');
+                    $data1 = $dataHoraAtual;
+                    $data1 = new DateTime($data1);
+                }
+
+                if(isset($_POST["data_fim"])){
+                    $data2 = $_POST["data_fim"];
+                    $data2 = new DateTime($data2);
+                }else{
+                    date_default_timezone_set('America/Sao_Paulo');
+                    $dataHoraAtual = date('Y-m-d');
+                    $data2 = $dataHoraAtual;
+                    $data2 = new DateTime($data2);
+                }
+                
                 $dados = new ContaController();
                 $result = $dados->ListaContas($data1, $data2);
                 $soma = $dados->TotalLiquido($data1, $data2);

@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__.'/../DAO/ReceitasDAO.php';
+    require_once __DIR__.'/../DAO/ReceitasDao.php';
     class ReceitaController{
         public function ListarReceitas(){
             $dao = new ReceitaDao();

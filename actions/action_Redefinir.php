@@ -3,8 +3,9 @@
     $senhaAntiga = $_POST["oldPass"];
     $senhaNova = $_POST["newPass"];
     $redefinir = new RedefinirController();
-    $redefinir->RedefinirSenha($senhaAntiga, $senhaNova);
-    if($redefinir == 2){
+    $redef = $redefinir->RedefinirSenha($senhaAntiga, $senhaNova);
+
+    if($redef == 2){
         header("Location: ../index.php?erro=2");
     }
     else{

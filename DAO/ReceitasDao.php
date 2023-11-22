@@ -20,17 +20,20 @@
 
         public function CadastrarReceita(Receita $receita){
             $conexao = Conexao::Conectar();
-            $sql = "INSERT INTO receita(nome_cliente, descricao_receita, Administrador_id_administrador) values ('".$receita->getNome_cliente()."', '".$receita->getDescricao_receita()."', ".$receita->getId_administrador().");";
+            $sql = "SELECT id_cliente from cliente where nome_cliente = '".$receita->getNome_cliente()."'; ";
+            $consulta = $conexao->query($sql);
+            $row = mysqli_fetch_assoc($consulta);
+            $id_cliente = $row["id_cliente"];
+            $sql = "INSERT INTO receita(nome_cliente, descricao_receita, Administrador_id_administrador, Cliente_id_cliente) values ('".$receita->getNome_cliente()."', '".$receita->getDescricao_receita()."', ".$receita->getId_administrador().", ".$id_cliente.");";
             $conexao->query($sql);
             echo $conexao->error;
         }
 
         public function EditarReceita(Receita $receita){
             $conexao = Conexao::Conectar();
-            $nome = $receita->getNome_cliente();
             $descricao = $receita->getDescricao_receita();
             $id = $receita->getId_receita();
-            $sql = "UPDATE receita SET nome_cliente='$nome', descricao_receita='$descricao' WHERE id_receita=$id";
+            $sql = "UPDATE receita SET descricao_receita='$descricao' WHERE id_receita=$id";
             $conexao->query($sql);
             echo $conexao->error;
         }

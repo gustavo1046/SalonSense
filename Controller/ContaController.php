@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . "/../DAO/ContasDao.php";
+    require_once __DIR__ . '/../DAO/ContasDAO.php';
 
     class ContaController{
         public function ListaContas(DateTime $data1, DateTime $data2){
